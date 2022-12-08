@@ -10,7 +10,8 @@ const visTypes = {
     "Separate": false,
     "Mouseover": false
 };
-const mouseoverCoords = [[500, 265], [590, 315], [615, 182], [663, 223]];
+const firstAnimatedID = 13;
+const mouseoverCoords = [[480, 316], [588, 376], [617, 215], [675, 277]];
 
 // Study control variables
 let blockNumber = 0;
@@ -87,7 +88,11 @@ function startBlock() {
     blockNumber++;
     trialNumber = 0;
 
-    showInstructions(questions[studyOrder[0]].notes);
+    if (studyOrder[0] === firstAnimatedID) {
+        showInstructions("Animated");
+    } else {
+        showInstructions(questions[studyOrder[0]].notes);
+    }
     // startTrial();
 }
 
@@ -119,7 +124,7 @@ function startTrial() {
     switch (newQuestion.image.length) {
         case 1:
             document.getElementById("imageSingle").src = "images/" + newQuestion.image[0];
-            document.getElementById("imageSingleLabel").textContent = "Image";
+            document.getElementById("imageSingleLabel").textContent = "";
             break;
         case 2:
             document.getElementById("imageDouble1").src = "images/" + newQuestion.image[0];
@@ -300,7 +305,10 @@ function endTrial(e) {
     clearUI();
 
     if (trialNumber < maxTrials) {
-        if (visTypes[questions[studyOrder[trialNumber]].notes] || trialNumber + 1 > Object.keys(visTypes).length * 2) {
+        console.log(questions[studyOrder[trialNumber]])
+        if (questions[studyOrder[trialNumber]].id === firstAnimatedID) {
+            showInstructions("Animated");
+        } else if (visTypes[questions[studyOrder[trialNumber]].notes] || trialNumber + 1 > Object.keys(visTypes).length * 2) {
             startTrial();
         } else {
             showInstructions(questions[studyOrder[trialNumber]].notes);
@@ -311,16 +319,22 @@ function endTrial(e) {
 }
 
 function showInstructions(type) {
-    console.log(type)
-    visTypes[type] = true;
+    // console.log(type)
     let imageIndex = Object.keys(visTypes).indexOf(type);
+    if (type === "Animated") {
+        imageIndex = 7;
+    } else {
+        visTypes[type] = true;
+    }
 
     instructions = document.createElement("div");
     instructions.className = "instructionsDiv";
+    instructions.style.width = window.innerWidth - 80;
+    instructions.style.height = 900;
 
     let instructImage = document.createElement("img");
     instructImage.className = "instructImage";
-    instructImage.src = "images/instruct" + (imageIndex + 1) + ".png";
+    instructImage.src = "images/instruct" + (imageIndex + 1) + (type === "Animated" ? "" : ".png");
     instructions.append(instructImage);
 
     let instructText = document.createElement("span");
@@ -339,7 +353,7 @@ function showInstructions(type) {
 
 function instructionsButton() {
     document.body.removeChild(instructions);
-    console.log(visTypes)
+    // console.log(visTypes)
     startTrial();
 }
 
@@ -489,7 +503,7 @@ function shuffleArray(array) {
 function minimumDistance(x, y) {
     let min = Number.MAX_SAFE_INTEGER;
     for (let i = 0; i < mouseoverCoords.length; i++) {
-        let r = Math.sqrt(Math.pow(x - mouseoverCoords[i][0], 2) + Math.pow(y - mouseoverCoords[i][1], 2));
+        let r = Math.sqrt(Math.pow(x - mouseoverCoords[i][0], 2) + Math.pow(y - mouseoverCoords[i][1], 2)) * 1.3;
         if (r < min) {
             min = r;
         }
