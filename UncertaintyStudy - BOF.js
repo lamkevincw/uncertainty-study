@@ -123,12 +123,12 @@ function startTrial() {
     // Set images and labels
     switch (newQuestion.image.length) {
         case 1:
-            document.getElementById("imageSingle").src = "images/" + newQuestion.image[0];
+            document.getElementById("imageSingle").src = window.origin + "/my_blueprint/images/" + newQuestion.image[0];
             document.getElementById("imageSingleLabel").textContent = "";
             break;
         case 2:
-            document.getElementById("imageDouble1").src = "images/" + newQuestion.image[0];
-            document.getElementById("imageDouble2").src = "images/" + newQuestion.image[1];
+            document.getElementById("imageDouble1").src = window.origin + "/my_blueprint/images/" + newQuestion.image[0];
+            document.getElementById("imageDouble2").src = window.origin + "/my_blueprint/images/" + newQuestion.image[1];
             document.getElementById("imageDoubleLabel1").textContent = "A";
             document.getElementById("imageDoubleLabel2").textContent = "B";
             break;
@@ -334,7 +334,7 @@ function showInstructions(type) {
 
     let instructImage = document.createElement("img");
     instructImage.className = "instructImage";
-    instructImage.src = "images/instruct" + (imageIndex + 1) + (type === "Animated" ? ".gif" : ".png");
+    instructImage.src = window.origin + "/my_blueprint/images/instruct" + (imageIndex + 1) + (type === "Animated" ? ".gif" : ".png");
     instructions.append(instructImage);
 
     let instructText = document.createElement("span");

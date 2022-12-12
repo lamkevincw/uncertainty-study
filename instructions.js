@@ -6,5 +6,5 @@ const instructionText = {
     "Multiples": "This visualization shows various results of a modelling algorithm that predicts the extent of hydrocarbon contamination at a location.\nDifferent outcomes from the model are shown in this type of visualization. Each image in the grid represents a single outcome of the model.",
     "Separate": "This visualization shows the spread of hydrocarbon contamination in an area, as well as the model's certainty of hydrocarbons at that location.\nThe certainty is represented in the top image and the concentration of the pollutants is represented in the bottom image.",
     "Mouseover": "This visualization shows the extent of hydrocarbon contamination at a location and the certainty of the underlying statistical model.\nThe concentration of the pollutants is indicated by the coloured areas on the image. The certainty of the model at any location is provided in a mouseover tooltip.\nThe tooltip can be accessed by hovering the mouse over any area on the map.",
-    "Animated": "",
+    "Animated": "This visualization shows various results of a modelling algorithm that predicts the extent of hydrocarbon contamination at a location.\nDifferent outcomes from the model are shown in this type of visualization. Each boundary line represents a single outcome of the model.",
 }
