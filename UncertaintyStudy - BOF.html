@@ -1,0 +1,224 @@
+{% extends "template.html" %}
+{% block head %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .answerBox {
+        position: absolute;
+        top: 200px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        height: 50px;
+        width: 60%;
+        border: 1px solid black;
+        padding: 15px;
+        font-family: Verdana, sans-serif;
+    }
+
+    .answerCanvas {
+        position: absolute;
+        top: 300px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        /* border: 1px solid red; */
+    }
+
+    .answersForm {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        display: flex;
+        justify-content: center;
+        font-family: Verdana, sans-serif;
+    }
+
+    .answerLabel {
+        width: 24px;
+    }
+
+    .body {
+        font-family: Verdana, sans-serif;
+    }
+
+    .doubleImg {
+        height: 600px;
+        max-width: 900px;
+        flex: 50%;
+    }
+
+    .imageDiv {
+        position: absolute;
+        top: 300px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        height: 600px;
+        /* border: 1px solid black; */
+        display: flex;
+    }
+
+    .imageDoubleLabel {
+        margin-left: 300px;
+        margin-right: 300px;
+    }
+
+    .imageLabelDiv {
+        position: absolute;
+        top: 370px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        font-size: 20px;
+        display: flex;
+        font-family: Verdana, sans-serif;
+    }
+
+    .imageSingleLabel {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .instructionsDiv {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        border: 10px solid black;
+        background-color: white;
+    }
+
+    .instructImage {
+        position: absolute;
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        height: 550px;
+        max-width: 1000px;
+    }
+
+    .instructText {
+        position: absolute;
+        top: 650px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 80%;
+        font-size: large;
+        white-space: pre-line;
+    }
+
+    .instructButton {
+        position: absolute;
+        bottom: 25px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        font-size: larger;
+    }
+
+    .multipleChoiceAnswer {
+        margin-left: 30px;
+    }
+
+    .multipleChoiceLabel {
+        display: flex;
+        align-items: center;
+    }
+
+    .questionBox {
+        position: absolute;
+        top: 80px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 60%;
+        border: 1px solid black;
+        padding: 30px;
+        font-family: Verdana, sans-serif;
+    }
+
+    .questionText {
+        font-size: 20px;
+        white-space: pre-line;
+    }
+
+    .rangeAnswer {
+        width: 300px;
+        vertical-align: middle;
+        margin-right: 20px;
+    }
+
+    .reasonBoxAnswer {
+        margin-left: 8px;
+        resize: none;
+    }
+
+    .reasonLabel {
+        margin-left: 32px;
+    }
+
+    .singleImg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 600px;
+    }
+
+    .studyNumbers {
+        position: absolute;
+        top: 25px;
+        right: 2%;
+        width: 150px;
+        font-size: 16px;
+    }
+
+    .submitButton {
+        margin-left: 60px;
+        margin-right: 60px;
+        font-size: 14px;
+    }
+
+    .textboxAnswer {
+        resize: none;
+    }
+</style>
+
+<div class="studyNumbers">
+    <label id="blockNumberLabel"></label>
+    <label id="trialNumberLabel"></label>
+</div>
+
+<div class="questionBox">
+    <span id="questionText" class="questionText">Test</span>
+</div>
+
+<div class="answerBox">
+    <form id="answersForm" class="answersForm" name="answersForm" onsubmit="endTrial(event)"></form>
+</div>
+
+<div class="imageLabelDiv">
+    <label id="imageSingleLabel" class="imageSingleLabel"></label>
+    <label id="imageDoubleLabel1" class="imageDoubleLabel"></label>
+    <label id="imageDoubleLabel2" class="imageDoubleLabel"></label>
+</div>
+<div class="imageDiv">
+    <img id="imageSingle" src="" class="singleImg" />
+    <img id="imageDouble1" src="" class="doubleImg" />
+    <img id="imageDouble2" src="" class="doubleImg" />
+</div>
+
+<canvas id="answerCanvas" class="answerCanvas" width="1200" height="600"></canvas>
+
+
+<script type="text/javascript">
+    participantID = {{ pID }};
+    var conditionNumber = {{ condNum }};
+</script>
+<!-- <script src="instructions.js"></script>
+<script src="questions.js"></script>
+<script src="UncertaintyStudy.js"></script> -->
+<script src="{{ url_for('my_blueprint.static', filename='instructions.js') }}"></script>
+<script src="{{ url_for('my_blueprint.static', filename='questions.js') }}"></script>
+<script src="{{ url_for('my_blueprint.static', filename='UncertaintyStudy.js') }}"></script>
+
+{% endblock %}
