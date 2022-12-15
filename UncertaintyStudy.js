@@ -12,6 +12,16 @@ const visTypes = {
 };
 const firstAnimatedID = 13;
 const mouseoverCoords = [[480, 316], [588, 376], [617, 215], [675, 277]];
+const affectChart = ["Enraged", "Panicked", "Stressed", "Jittery", "Shocked", "Surprised", "Upbeat", "Festive", "Exhilarated", "Ecstatic",
+    "Livid", "Furious", "Frustrated", "Tense", "Stunned", "Hyper", "Cheerful", "Motivated", "Ispired", "Elated",
+    "Fuming", "Frightened", "Angry", "Nervous", "Restless", "Energized", "Lively", "Enthusiastic", "Optimistic", "Excited",
+    "Anxious", "Apprehensive", "Worried", "Irritated", "Annoyed", "Pleased", "Happy", "Focused", "Proud", "Thrilled",
+    "Repulsed", "Troubled", "Concerned", "Uneasy", "Peeved", "Pleasant", "Joyful", "Hopeful", "Playful", "Blissful",
+    "Disgusted", "Glum", "Disappointed", "Down", "Apathetic", "At Ease", "Easygoing", "Content", "Loving", "Fulfilled",
+    "Pessimistic", "Morose", "Discouraged", "Sad", "Bored", "Calm", "Secure", "Satisfied", "Grateful", "Touched",
+    "Alienated", "Miserable", "Lonely", "Disheartened", "Tired", "Relaxed", "Chill", "Restful", "Blessed", "Balanced",
+    "Despondent", "Depressed", "Sullen", "Exhausted", "Fatigued", "Mellow", "Thoughtful", "Peaceful", "Comfy", "Carefree",
+    "Despair", "Hopeless", "Desolate", "Spent", "Drained", "Sleepy", "Complacent", "Tranquil", "Cozy", "Serene"];
 
 // Study control variables
 let blockNumber = 0;
@@ -232,6 +242,30 @@ function startTrial() {
             textbox.cols = 50;
             document.getElementById("answersForm").append(textbox);
             break;
+        case "affective":
+            let table = document.createElement("table");
+
+            for (let i = 0; i < 10; i++) {
+                let tr = table.insertRow();
+                for (let j = 0; j < 10; j++) {
+                    let td = tr.insertCell();
+                    td.append(document.createTextNode(affectChart[i * 10 + j]));
+                    td.style.border = '1px solid black';
+                    td.id = "tableAnswer" + (i * 10 + j);
+                    if (i < 5 && j < 5) {
+                        td.style.background = "lightcoral";
+                    } else if (i < 5 && j >= 5) {
+                        td.style.background = "yellow";
+                    } else if (i >= 5 && j < 5) {
+                        td.style.background = "skyblue";
+                    } else if (i >= 5 && j >= 5) {
+                        td.style.background = "palegreen";
+                    }
+                }
+            }
+            table.onclick = selectAffectAnswer;
+            document.getElementById("answersForm").append(table);
+            break;
     }
     let submitButton = document.createElement("input");
     submitButton.className = "submitButton";
@@ -297,6 +331,12 @@ function endTrial(e) {
                 return;
             }
             break;
+        case "affective":
+            if (!("userAnswer" in currResponse)) {
+                alert("Please input an answer before submitting.");
+                return;
+            }
+            break;
     }
     currResponse["completionTime"] = (new Date().getTime()) - trialStartTime;
     userReponses.push(currResponse);
@@ -329,8 +369,8 @@ function showInstructions(type) {
 
     instructions = document.createElement("div");
     instructions.className = "instructionsDiv";
-    instructions.style.width = window.innerWidth - 80;
-    instructions.style.height = 900;
+    // instructions.style.width = window.innerWidth - 80;
+    // instructions.style.height = 900;
 
     let instructImage = document.createElement("img");
     instructImage.className = "instructImage";
@@ -489,6 +529,20 @@ function getXY(mode, e) {
                 break;
         }
     }
+}
+
+function selectAffectAnswer(e) {
+    console.log(e.target)
+    console.log(e.target.textContent)
+    if (e.target.tagName === "TD") {
+        for (let i = 0; i < 10; i++) {
+            for (let j = 0; j < 10; j++) {
+                document.getElementById("tableAnswer" + (i * 10 + j)).style.border = "1px solid black";
+            }
+        }
+        e.target.style.border = "3px solid red"
+    }
+    currResponse["userAnswer"] = e.target.textContent;
 }
 
 function shuffleArray(array) {

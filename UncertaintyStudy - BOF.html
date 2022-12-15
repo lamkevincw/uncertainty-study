@@ -10,8 +10,8 @@
         top: 200px;
         left: 50%;
         transform: translate(-50%, 0);
-        height: 50px;
-        width: 60%;
+        height: 260px;
+        width: 1250px;
         border: 1px solid black;
         padding: 15px;
         font-family: Verdana, sans-serif;
@@ -19,7 +19,7 @@
 
     .answerCanvas {
         position: absolute;
-        top: 300px;
+        top: 550px;
         left: 50%;
         transform: translate(-50%, 0);
         /* border: 1px solid red; */
@@ -33,6 +33,7 @@
         width: 600px;
         display: flex;
         justify-content: center;
+        align-items: center;
         font-family: Verdana, sans-serif;
     }
 
@@ -45,19 +46,20 @@
     }
 
     .doubleImg {
-        height: 600px;
-        max-width: 900px;
+        max-height: 600px;
+        /* max-width: 900px; */
         flex: 50%;
     }
 
     .imageDiv {
         position: absolute;
-        top: 300px;
+        top: 550px;
         left: 50%;
         transform: translate(-50%, 0);
         height: 600px;
         /* border: 1px solid black; */
         display: flex;
+        padding-bottom: 100px;
     }
 
     .imageDoubleLabel {
@@ -67,7 +69,7 @@
 
     .imageLabelDiv {
         position: absolute;
-        top: 370px;
+        top: 510px;
         left: 50%;
         transform: translate(-50%, 0);
         font-size: 20px;
@@ -85,6 +87,8 @@
         position: absolute;
         top: 20px;
         left: 20px;
+        right: 20px;
+        height: 900px;
         border: 10px solid black;
         background-color: white;
     }
@@ -148,6 +152,7 @@
     }
 
     .reasonBoxAnswer {
+        width: 500px;
         margin-left: 8px;
         resize: none;
     }
@@ -158,9 +163,9 @@
 
     .singleImg {
         position: absolute;
-        top: 50%;
+        top: 0;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, 0);
         height: 600px;
     }
 
@@ -173,6 +178,7 @@
     }
 
     .submitButton {
+        max-height: 30px;
         margin-left: 60px;
         margin-right: 60px;
         font-size: 14px;
@@ -208,7 +214,6 @@
 </div>
 
 <canvas id="answerCanvas" class="answerCanvas" width="1200" height="600"></canvas>
-
 
 <script type="text/javascript">
     participantID = {{ pID }};
