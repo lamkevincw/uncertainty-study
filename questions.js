@@ -903,68 +903,68 @@ const questions = [
         "orderGroup": 3,
         "RQ": 1
     },
-    // {
-    //     "id": 30, // Unique ID to associate participant responses to corresponding question
-    //     "question": "What is the pollutant concentration at the blue X-marked sensor?", // Question text
-    //     "answers": {
-    //         "type": "multiple", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
-    //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
-    //     },
-    //     "image": ["separate-edit1.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
-    //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
-    //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
-    //     "RQ": 1, // The research question that this question is trying to help answer
-    //     "notes": "Separate"
-    // },
-    // {
-    //     "id": 31,
-    //     "question": "What is the degree of certainty at the blue X-marked location?",
-    //     "answers": {
-    //         "type": "multiple",
-    //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
-    //     },
-    //     "image": ["separate-edit2.png"],
-    //     "type": "technical",
-    //     "orderGroup": 1,
-    //     "RQ": 1,
-    //     "notes": "Separate"
-    // },
-    // {
-    //     "id": 32,
-    //     "question": "How confident are you that the high concentration area is portrayed with high certainty?",
-    //     "answers": {
-    //         "type": "multiple",
-    //         "values": ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]
-    //     },
-    //     "image": ["separate1.png"],
-    //     "type": "subjective",
-    //     "orderGroup": 2,
-    //     "RQ": 1
-    // },
-    // {
-    //     "id": 33,
-    //     "question": "What percentage of the polluted area has a very high degree of certainty?",
-    //     "answers": {
-    //         "type": "range",
-    //         "values": ["0", "100"]
-    //     },
-    //     "image": ["separate1.png"],
-    //     "type": "subjective",
-    //     "orderGroup": 2,
-    //     "RQ": 5
-    // },
-    // {
-    //     "id": 34, 
-    //     "question": "Does the situation at this site demonstrate a low risk, or a high risk situation?",
-    //     "answers": {
-    //         "type": "multiple",
-    //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-    //     },
-    //     "image": ["separate1.png"],
-    //     "type": "affective",
-    //     "orderGroup": 3,
-    //     "RQ": 1
-    // },
+    {
+        "id": 30, // Unique ID to associate participant responses to corresponding question
+        "question": "What is the pollutant concentration at the blue X-marked sensor?", // Question text
+        "answers": {
+            "type": "multiple", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
+            "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
+        },
+        "image": ["separate-edit3.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
+        "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
+        "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
+        "RQ": 1, // The research question that this question is trying to help answer
+        "notes": "Separate"
+    },
+    {
+        "id": 31,
+        "question": "What is the degree of certainty at the blue X-marked location?",
+        "answers": {
+            "type": "multiple",
+            "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
+        },
+        "image": ["separate-edit4.png"],
+        "type": "technical",
+        "orderGroup": 1,
+        "RQ": 1,
+        "notes": "Separate"
+    },
+    {
+        "id": 32,
+        "question": "How confident are you that the high concentration area is portrayed with high certainty?",
+        "answers": {
+            "type": "multiple",
+            "values": ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]
+        },
+        "image": ["separate2.png"],
+        "type": "subjective",
+        "orderGroup": 2,
+        "RQ": 1
+    },
+    {
+        "id": 33,
+        "question": "What percentage of the polluted area has a very high degree of certainty?",
+        "answers": {
+            "type": "range",
+            "values": ["0", "100"]
+        },
+        "image": ["separate2.png"],
+        "type": "subjective",
+        "orderGroup": 2,
+        "RQ": 5
+    },
+    {
+        "id": 34, 
+        "question": "Does the situation at this site demonstrate a low risk, or a high risk situation?",
+        "answers": {
+            "type": "multiple",
+            "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        },
+        "image": ["separate2.png"],
+        "type": "affective",
+        "orderGroup": 3,
+        "RQ": 1
+    },
     {
         "id": 41,
         "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
@@ -972,73 +972,73 @@ const questions = [
             "type": "affective",
             "values": []
         },
-        "image": ["separate1.png"],
+        "image": ["separate2.png"],
         "type": "affective",
         "orderGroup": 3,
         "RQ": 1
     },
-    // {
-    //     "id": 36, // Unique ID to associate participant responses to corresponding question
-    //     "question": "Hover mouse over the image to see model certainty.\nWhat is the model certainty at the X-marked location?", // Question text
-    //     "answers": {
-    //         "type": "mouseover", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
-    //         "values": ["range"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
-    //     },
-    //     "image": ["mouseover-edit1.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
-    //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
-    //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
-    //     "RQ": 1, // The research question that this question is trying to help answer
-    //     "notes": "Mouseover"
-    // },
-    // {
-    //     "id": 37,
-    //     "question": "Hover mouse over the image to see model certainty.\nWhat is the model certainty at the X-marked location?",
-    //     "answers": {
-    //         "type": "mouseover",
-    //         "values": ["range"]
-    //     },
-    //     "image": ["mouseover-edit2.png"],
-    //     "type": "technical",
-    //     "orderGroup": 1,
-    //     "RQ": 1,
-    //     "notes": "Mouseover"
-    // },
-    // {
-    //     "id": 38,
-    //     "question": "Hover mouse over the image to see model certainty.\nHow confident are you that the high concentration area is portrayed with high certainty?",
-    //     "answers": {
-    //         "type": "mouseover",
-    //         "values": ["multiple", ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]]
-    //     },
-    //     "image": ["mouseover1.png"],
-    //     "type": "subjective",
-    //     "orderGroup": 2,
-    //     "RQ": 1
-    // },
-    // {
-    //     "id": 39,
-    //     "question": "Hover mouse over the image to see model certainty.\nOn average, what percentage of the property (outlined in blue) has a high degree of model certainty?",
-    //     "answers": {
-    //         "type": "mouseover",
-    //         "values": ["multiple-text", ["Yes", "No"]]
-    //     },
-    //     "image": ["mouseover1.png"],
-    //     "type": "subjective",
-    //     "orderGroup": 2,
-    //     "RQ": 5
-    // },
-    // {
-    //     "id": 40, 
-    //     "question": "Hover mouse over the image to see model certainty.\nDoes the situation at this site demonstrate a low risk, or a high risk situation?",
-    //     "answers": {
-    //         "type": "mouseover",
-    //         "values": ["multiple", ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]]
-    //     },
-    //     "image": ["mouseover1.png"],
-    //     "type": "affective",
-    //     "orderGroup": 3,
-    //     "RQ": 1
-    // },
+    {
+        "id": 36, // Unique ID to associate participant responses to corresponding question
+        "question": "Hover mouse over the image to see model certainty.\nWhat is the model certainty at the X-marked location?", // Question text
+        "answers": {
+            "type": "mouseover", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
+            "values": ["range"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
+        },
+        "image": ["mouseover-edit3.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
+        "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
+        "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
+        "RQ": 1, // The research question that this question is trying to help answer
+        "notes": "Mouseover"
+    },
+    {
+        "id": 37,
+        "question": "Hover mouse over the image to see model certainty.\nWhat is the model certainty at the X-marked location?",
+        "answers": {
+            "type": "mouseover",
+            "values": ["range"]
+        },
+        "image": ["mouseover-edit4.png"],
+        "type": "technical",
+        "orderGroup": 1,
+        "RQ": 1,
+        "notes": "Mouseover"
+    },
+    {
+        "id": 38,
+        "question": "Hover mouse over the image to see model certainty.\nHow confident are you that the high concentration area is portrayed with high certainty?",
+        "answers": {
+            "type": "mouseover",
+            "values": ["multiple", ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]]
+        },
+        "image": ["mouseover2.png"],
+        "type": "subjective",
+        "orderGroup": 2,
+        "RQ": 1
+    },
+    {
+        "id": 39,
+        "question": "Hover mouse over the image to see model certainty.\nOn average, what percentage of the property (outlined in blue) has a high degree of model certainty?",
+        "answers": {
+            "type": "mouseover",
+            "values": ["multiple-text", ["Yes", "No"]]
+        },
+        "image": ["mouseover2.png"],
+        "type": "subjective",
+        "orderGroup": 2,
+        "RQ": 5
+    },
+    {
+        "id": 40, 
+        "question": "Hover mouse over the image to see model certainty.\nDoes the situation at this site demonstrate a low risk, or a high risk situation?",
+        "answers": {
+            "type": "mouseover",
+            "values": ["multiple", ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]]
+        },
+        "image": ["mouseover2.png"],
+        "type": "affective",
+        "orderGroup": 3,
+        "RQ": 1
+    },
     {
         "id": 41,
         "question": "Hover mouse over the image to see model certainty.\nSelect the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
@@ -1046,7 +1046,7 @@ const questions = [
             "type": "affective",
             "values": []
         },
-        "image": ["mouseover1.png"],
+        "image": ["mouseover2.png"],
         "type": "affective",
         "orderGroup": 3,
         "RQ": 1
@@ -1421,68 +1421,68 @@ const questions = [
         "orderGroup": 3,
         "RQ": 1
     },
-    // {
-    //     "id": 30, // Unique ID to associate participant responses to corresponding question
-    //     "question": "What is the pollutant concentration at the blue X-marked sensor?", // Question text
-    //     "answers": {
-    //         "type": "multiple", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
-    //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
-    //     },
-    //     "image": ["separate-edit1.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
-    //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
-    //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
-    //     "RQ": 1, // The research question that this question is trying to help answer
-    //     "notes": "Separate"
-    // },
-    // {
-    //     "id": 31,
-    //     "question": "What is the degree of certainty at the blue X-marked location?",
-    //     "answers": {
-    //         "type": "multiple",
-    //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
-    //     },
-    //     "image": ["separate-edit2.png"],
-    //     "type": "technical",
-    //     "orderGroup": 1,
-    //     "RQ": 1,
-    //     "notes": "Separate"
-    // },
-    // {
-    //     "id": 32,
-    //     "question": "How confident are you that the high concentration area is portrayed with high certainty?",
-    //     "answers": {
-    //         "type": "multiple",
-    //         "values": ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]
-    //     },
-    //     "image": ["separate1.png"],
-    //     "type": "subjective",
-    //     "orderGroup": 2,
-    //     "RQ": 1
-    // },
-    // {
-    //     "id": 33,
-    //     "question": "What percentage of the polluted area has a very high degree of certainty?",
-    //     "answers": {
-    //         "type": "range",
-    //         "values": ["0", "100"]
-    //     },
-    //     "image": ["separate1.png"],
-    //     "type": "subjective",
-    //     "orderGroup": 2,
-    //     "RQ": 5
-    // },
-    // {
-    //     "id": 34, 
-    //     "question": "Does the situation at this site demonstrate a low risk, or a high risk situation?",
-    //     "answers": {
-    //         "type": "multiple",
-    //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-    //     },
-    //     "image": ["separate1.png"],
-    //     "type": "affective",
-    //     "orderGroup": 3,
-    //     "RQ": 1
-    // },
+    {
+        "id": 30, // Unique ID to associate participant responses to corresponding question
+        "question": "What is the pollutant concentration at the blue X-marked sensor?", // Question text
+        "answers": {
+            "type": "multiple", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
+            "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
+        },
+        "image": ["separate-edit5.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
+        "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
+        "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
+        "RQ": 1, // The research question that this question is trying to help answer
+        "notes": "Separate"
+    },
+    {
+        "id": 31,
+        "question": "What is the degree of certainty at the blue X-marked location?",
+        "answers": {
+            "type": "multiple",
+            "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
+        },
+        "image": ["separate-edit6.png"],
+        "type": "technical",
+        "orderGroup": 1,
+        "RQ": 1,
+        "notes": "Separate"
+    },
+    {
+        "id": 32,
+        "question": "How confident are you that the high concentration area is portrayed with high certainty?",
+        "answers": {
+            "type": "multiple",
+            "values": ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]
+        },
+        "image": ["separate3.png"],
+        "type": "subjective",
+        "orderGroup": 2,
+        "RQ": 1
+    },
+    {
+        "id": 33,
+        "question": "What percentage of the polluted area has a very high degree of certainty?",
+        "answers": {
+            "type": "range",
+            "values": ["0", "100"]
+        },
+        "image": ["separate3.png"],
+        "type": "subjective",
+        "orderGroup": 2,
+        "RQ": 5
+    },
+    {
+        "id": 34, 
+        "question": "Does the situation at this site demonstrate a low risk, or a high risk situation?",
+        "answers": {
+            "type": "multiple",
+            "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        },
+        "image": ["separate3.png"],
+        "type": "affective",
+        "orderGroup": 3,
+        "RQ": 1
+    },
     {
         "id": 41,
         "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
@@ -1490,73 +1490,73 @@ const questions = [
             "type": "affective",
             "values": []
         },
-        "image": ["separate1.png"],
+        "image": ["separate3.png"],
         "type": "affective",
         "orderGroup": 3,
         "RQ": 1
     },
-    // {
-    //     "id": 36, // Unique ID to associate participant responses to corresponding question
-    //     "question": "Hover mouse over the image to see model certainty.\nWhat is the model certainty at the X-marked location?", // Question text
-    //     "answers": {
-    //         "type": "mouseover", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
-    //         "values": ["range"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
-    //     },
-    //     "image": ["mouseover-edit1.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
-    //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
-    //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
-    //     "RQ": 1, // The research question that this question is trying to help answer
-    //     "notes": "Mouseover"
-    // },
-    // {
-    //     "id": 37,
-    //     "question": "Hover mouse over the image to see model certainty.\nWhat is the model certainty at the X-marked location?",
-    //     "answers": {
-    //         "type": "mouseover",
-    //         "values": ["range"]
-    //     },
-    //     "image": ["mouseover-edit2.png"],
-    //     "type": "technical",
-    //     "orderGroup": 1,
-    //     "RQ": 1,
-    //     "notes": "Mouseover"
-    // },
-    // {
-    //     "id": 38,
-    //     "question": "Hover mouse over the image to see model certainty.\nHow confident are you that the high concentration area is portrayed with high certainty?",
-    //     "answers": {
-    //         "type": "mouseover",
-    //         "values": ["multiple", ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]]
-    //     },
-    //     "image": ["mouseover1.png"],
-    //     "type": "subjective",
-    //     "orderGroup": 2,
-    //     "RQ": 1
-    // },
-    // {
-    //     "id": 39,
-    //     "question": "Hover mouse over the image to see model certainty.\nOn average, what percentage of the property (outlined in blue) has a high degree of model certainty?",
-    //     "answers": {
-    //         "type": "mouseover",
-    //         "values": ["multiple-text", ["Yes", "No"]]
-    //     },
-    //     "image": ["mouseover1.png"],
-    //     "type": "subjective",
-    //     "orderGroup": 2,
-    //     "RQ": 5
-    // },
-    // {
-    //     "id": 40, 
-    //     "question": "Hover mouse over the image to see model certainty.\nDoes the situation at this site demonstrate a low risk, or a high risk situation?",
-    //     "answers": {
-    //         "type": "mouseover",
-    //         "values": ["multiple", ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]]
-    //     },
-    //     "image": ["mouseover1.png"],
-    //     "type": "affective",
-    //     "orderGroup": 3,
-    //     "RQ": 1
-    // },
+    {
+        "id": 36, // Unique ID to associate participant responses to corresponding question
+        "question": "Hover mouse over the image to see model certainty.\nWhat is the model certainty at the X-marked location?", // Question text
+        "answers": {
+            "type": "mouseover", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
+            "values": ["range"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
+        },
+        "image": ["mouseover-edit5.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
+        "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
+        "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
+        "RQ": 1, // The research question that this question is trying to help answer
+        "notes": "Mouseover"
+    },
+    {
+        "id": 37,
+        "question": "Hover mouse over the image to see model certainty.\nWhat is the model certainty at the X-marked location?",
+        "answers": {
+            "type": "mouseover",
+            "values": ["range"]
+        },
+        "image": ["mouseover-edit6.png"],
+        "type": "technical",
+        "orderGroup": 1,
+        "RQ": 1,
+        "notes": "Mouseover"
+    },
+    {
+        "id": 38,
+        "question": "Hover mouse over the image to see model certainty.\nHow confident are you that the high concentration area is portrayed with high certainty?",
+        "answers": {
+            "type": "mouseover",
+            "values": ["multiple", ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]]
+        },
+        "image": ["mouseover3.png"],
+        "type": "subjective",
+        "orderGroup": 2,
+        "RQ": 1
+    },
+    {
+        "id": 39,
+        "question": "Hover mouse over the image to see model certainty.\nOn average, what percentage of the property (outlined in blue) has a high degree of model certainty?",
+        "answers": {
+            "type": "mouseover",
+            "values": ["multiple-text", ["Yes", "No"]]
+        },
+        "image": ["mouseover3.png"],
+        "type": "subjective",
+        "orderGroup": 2,
+        "RQ": 5
+    },
+    {
+        "id": 40, 
+        "question": "Hover mouse over the image to see model certainty.\nDoes the situation at this site demonstrate a low risk, or a high risk situation?",
+        "answers": {
+            "type": "mouseover",
+            "values": ["multiple", ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]]
+        },
+        "image": ["mouseover3.png"],
+        "type": "affective",
+        "orderGroup": 3,
+        "RQ": 1
+    },
     {
         "id": 41,
         "question": "Hover mouse over the image to see model certainty.\nSelect the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
@@ -1564,7 +1564,7 @@ const questions = [
             "type": "affective",
             "values": []
         },
-        "image": ["mouseover1.png"],
+        "image": ["mouseover3.png"],
         "type": "affective",
         "orderGroup": 3,
         "RQ": 1
@@ -1939,68 +1939,68 @@ const questions = [
         "orderGroup": 3,
         "RQ": 1
     },
-    // {
-    //     "id": 30, // Unique ID to associate participant responses to corresponding question
-    //     "question": "What is the pollutant concentration at the blue X-marked sensor?", // Question text
-    //     "answers": {
-    //         "type": "multiple", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
-    //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
-    //     },
-    //     "image": ["separate-edit1.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
-    //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
-    //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
-    //     "RQ": 1, // The research question that this question is trying to help answer
-    //     "notes": "Separate"
-    // },
-    // {
-    //     "id": 31,
-    //     "question": "What is the degree of certainty at the blue X-marked location?",
-    //     "answers": {
-    //         "type": "multiple",
-    //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
-    //     },
-    //     "image": ["separate-edit2.png"],
-    //     "type": "technical",
-    //     "orderGroup": 1,
-    //     "RQ": 1,
-    //     "notes": "Separate"
-    // },
-    // {
-    //     "id": 32,
-    //     "question": "How confident are you that the high concentration area is portrayed with high certainty?",
-    //     "answers": {
-    //         "type": "multiple",
-    //         "values": ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]
-    //     },
-    //     "image": ["separate1.png"],
-    //     "type": "subjective",
-    //     "orderGroup": 2,
-    //     "RQ": 1
-    // },
-    // {
-    //     "id": 33,
-    //     "question": "What percentage of the polluted area has a very high degree of certainty?",
-    //     "answers": {
-    //         "type": "range",
-    //         "values": ["0", "100"]
-    //     },
-    //     "image": ["separate1.png"],
-    //     "type": "subjective",
-    //     "orderGroup": 2,
-    //     "RQ": 5
-    // },
-    // {
-    //     "id": 34, 
-    //     "question": "Does the situation at this site demonstrate a low risk, or a high risk situation?",
-    //     "answers": {
-    //         "type": "multiple",
-    //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-    //     },
-    //     "image": ["separate1.png"],
-    //     "type": "affective",
-    //     "orderGroup": 3,
-    //     "RQ": 1
-    // },
+    {
+        "id": 30, // Unique ID to associate participant responses to corresponding question
+        "question": "What is the pollutant concentration at the blue X-marked sensor?", // Question text
+        "answers": {
+            "type": "multiple", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
+            "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
+        },
+        "image": ["separate-edit7.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
+        "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
+        "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
+        "RQ": 1, // The research question that this question is trying to help answer
+        "notes": "Separate"
+    },
+    {
+        "id": 31,
+        "question": "What is the degree of certainty at the blue X-marked location?",
+        "answers": {
+            "type": "multiple",
+            "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
+        },
+        "image": ["separate-edit8.png"],
+        "type": "technical",
+        "orderGroup": 1,
+        "RQ": 1,
+        "notes": "Separate"
+    },
+    {
+        "id": 32,
+        "question": "How confident are you that the high concentration area is portrayed with high certainty?",
+        "answers": {
+            "type": "multiple",
+            "values": ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]
+        },
+        "image": ["separate4.png"],
+        "type": "subjective",
+        "orderGroup": 2,
+        "RQ": 1
+    },
+    {
+        "id": 33,
+        "question": "What percentage of the polluted area has a very high degree of certainty?",
+        "answers": {
+            "type": "range",
+            "values": ["0", "100"]
+        },
+        "image": ["separate4.png"],
+        "type": "subjective",
+        "orderGroup": 2,
+        "RQ": 5
+    },
+    {
+        "id": 34, 
+        "question": "Does the situation at this site demonstrate a low risk, or a high risk situation?",
+        "answers": {
+            "type": "multiple",
+            "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        },
+        "image": ["separate4.png"],
+        "type": "affective",
+        "orderGroup": 3,
+        "RQ": 1
+    },
     {
         "id": 41,
         "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
@@ -2008,73 +2008,73 @@ const questions = [
             "type": "affective",
             "values": []
         },
-        "image": ["separate1.png"],
+        "image": ["separate4.png"],
         "type": "affective",
         "orderGroup": 3,
         "RQ": 1
     },
-    // {
-    //     "id": 36, // Unique ID to associate participant responses to corresponding question
-    //     "question": "Hover mouse over the image to see model certainty.\nWhat is the model certainty at the X-marked location?", // Question text
-    //     "answers": {
-    //         "type": "mouseover", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
-    //         "values": ["range"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
-    //     },
-    //     "image": ["mouseover-edit1.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
-    //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
-    //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
-    //     "RQ": 1, // The research question that this question is trying to help answer
-    //     "notes": "Mouseover"
-    // },
-    // {
-    //     "id": 37,
-    //     "question": "Hover mouse over the image to see model certainty.\nWhat is the model certainty at the X-marked location?",
-    //     "answers": {
-    //         "type": "mouseover",
-    //         "values": ["range"]
-    //     },
-    //     "image": ["mouseover-edit2.png"],
-    //     "type": "technical",
-    //     "orderGroup": 1,
-    //     "RQ": 1,
-    //     "notes": "Mouseover"
-    // },
-    // {
-    //     "id": 38,
-    //     "question": "Hover mouse over the image to see model certainty.\nHow confident are you that the high concentration area is portrayed with high certainty?",
-    //     "answers": {
-    //         "type": "mouseover",
-    //         "values": ["multiple", ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]]
-    //     },
-    //     "image": ["mouseover1.png"],
-    //     "type": "subjective",
-    //     "orderGroup": 2,
-    //     "RQ": 1
-    // },
-    // {
-    //     "id": 39,
-    //     "question": "Hover mouse over the image to see model certainty.\nOn average, what percentage of the property (outlined in blue) has a high degree of model certainty?",
-    //     "answers": {
-    //         "type": "mouseover",
-    //         "values": ["multiple-text", ["Yes", "No"]]
-    //     },
-    //     "image": ["mouseover1.png"],
-    //     "type": "subjective",
-    //     "orderGroup": 2,
-    //     "RQ": 5
-    // },
-    // {
-    //     "id": 40, 
-    //     "question": "Hover mouse over the image to see model certainty.\nDoes the situation at this site demonstrate a low risk, or a high risk situation?",
-    //     "answers": {
-    //         "type": "mouseover",
-    //         "values": ["multiple", ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]]
-    //     },
-    //     "image": ["mouseover1.png"],
-    //     "type": "affective",
-    //     "orderGroup": 3,
-    //     "RQ": 1
-    // },
+    {
+        "id": 36, // Unique ID to associate participant responses to corresponding question
+        "question": "Hover mouse over the image to see model certainty.\nWhat is the model certainty at the X-marked location?", // Question text
+        "answers": {
+            "type": "mouseover", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
+            "values": ["range"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
+        },
+        "image": ["mouseover-edit7.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
+        "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
+        "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
+        "RQ": 1, // The research question that this question is trying to help answer
+        "notes": "Mouseover"
+    },
+    {
+        "id": 37,
+        "question": "Hover mouse over the image to see model certainty.\nWhat is the model certainty at the X-marked location?",
+        "answers": {
+            "type": "mouseover",
+            "values": ["range"]
+        },
+        "image": ["mouseover-edit8.png"],
+        "type": "technical",
+        "orderGroup": 1,
+        "RQ": 1,
+        "notes": "Mouseover"
+    },
+    {
+        "id": 38,
+        "question": "Hover mouse over the image to see model certainty.\nHow confident are you that the high concentration area is portrayed with high certainty?",
+        "answers": {
+            "type": "mouseover",
+            "values": ["multiple", ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]]
+        },
+        "image": ["mouseover4.png"],
+        "type": "subjective",
+        "orderGroup": 2,
+        "RQ": 1
+    },
+    {
+        "id": 39,
+        "question": "Hover mouse over the image to see model certainty.\nOn average, what percentage of the property (outlined in blue) has a high degree of model certainty?",
+        "answers": {
+            "type": "mouseover",
+            "values": ["multiple-text", ["Yes", "No"]]
+        },
+        "image": ["mouseover4.png"],
+        "type": "subjective",
+        "orderGroup": 2,
+        "RQ": 5
+    },
+    {
+        "id": 40, 
+        "question": "Hover mouse over the image to see model certainty.\nDoes the situation at this site demonstrate a low risk, or a high risk situation?",
+        "answers": {
+            "type": "mouseover",
+            "values": ["multiple", ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]]
+        },
+        "image": ["mouseover4.png"],
+        "type": "affective",
+        "orderGroup": 3,
+        "RQ": 1
+    },
     {
         "id": 41,
         "question": "Hover mouse over the image to see model certainty.\nSelect the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
@@ -2082,7 +2082,7 @@ const questions = [
             "type": "affective",
             "values": []
         },
-        "image": ["mouseover1.png"],
+        "image": ["mouseover4.png"],
         "type": "affective",
         "orderGroup": 3,
         "RQ": 1
