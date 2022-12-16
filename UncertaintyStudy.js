@@ -11,7 +11,12 @@ const visTypes = {
     "Mouseover": false
 };
 const firstAnimatedID = 13;
-const mouseoverCoords = [[480, 316], [588, 376], [617, 215], [675, 277]];
+const mouseoverCoords = [
+    [[480, 316], [588, 376], [617, 215], [675, 277]],
+    [[518,258], [609, 269], [656, 206], [703,268]],
+    [[540,376], [610, 255], [627, 356], [643, 188]],
+    [[523, 285], [540, 398], [578, 244], [663, 328]]
+];
 const affectChart = ["Enraged", "Panicked", "Stressed", "Jittery", "Shocked", "Surprised", "Upbeat", "Festive", "Exhilarated", "Ecstatic",
     "Livid", "Furious", "Frustrated", "Tense", "Stunned", "Hyper", "Cheerful", "Motivated", "Ispired", "Elated",
     "Fuming", "Frightened", "Angry", "Nervous", "Restless", "Energized", "Lively", "Enthusiastic", "Optimistic", "Excited",
@@ -556,8 +561,26 @@ function shuffleArray(array) {
 
 function minimumDistance(x, y) {
     let min = Number.MAX_SAFE_INTEGER;
-    for (let i = 0; i < mouseoverCoords.length; i++) {
-        let r = Math.sqrt(Math.pow(x - mouseoverCoords[i][0], 2) + Math.pow(y - mouseoverCoords[i][1], 2)) * 1.3;
+    let coords;
+    if (questions[studyOrder[trialNumber] - 1].image[0] === "mouseover1.png" ||
+        questions[studyOrder[trialNumber] - 1].image[0] === "mouseover-edit1.png" ||
+        questions[studyOrder[trialNumber] - 1].image[0] === "mouseover-edit2.png") {
+        coords = mouseoverCoords[0];
+    } else if (questions[studyOrder[trialNumber] - 1].image[0] === "mouseover2.png" ||
+        questions[studyOrder[trialNumber] - 1].image[0] === "mouseover-edit3.png" ||
+        questions[studyOrder[trialNumber] - 1].image[0] === "mouseover-edit4.png") {
+        coords = mouseoverCoords[1];
+    } else if (questions[studyOrder[trialNumber] - 1].image[0] === "mouseover3.png" ||
+        questions[studyOrder[trialNumber] - 1].image[0] === "mouseover-edit5.png" ||
+        questions[studyOrder[trialNumber] - 1].image[0] === "mouseover-edit6.png") {
+        coords = mouseoverCoords[2];
+    } else if (questions[studyOrder[trialNumber] - 1].image[0] === "mouseover4.png" ||
+        questions[studyOrder[trialNumber] - 1].image[0] === "mouseover-edit7.png" ||
+        questions[studyOrder[trialNumber] - 1].image[0] === "mouseover-edit8.png") {
+        coords = mouseoverCoords[3];
+    }
+    for (let i = 0; i < coords.length; i++) {
+        let r = Math.sqrt(Math.pow(x - coords[i][0], 2) + Math.pow(y - coords[i][1], 2)) * 1.3;
         if (r < min) {
             min = r;
         }
