@@ -13,8 +13,8 @@ const visTypes = {
 const firstAnimatedID = 13;
 const mouseoverCoords = [
     [[480, 316], [588, 376], [617, 215], [675, 277]],
-    [[518,258], [609, 269], [656, 206], [703,268]],
-    [[540,376], [610, 255], [627, 356], [643, 188]],
+    [[518, 258], [609, 269], [656, 206], [703, 268]],
+    [[540, 376], [610, 255], [627, 356], [643, 188]],
     [[523, 285], [540, 398], [578, 244], [663, 328]]
 ];
 const affectChart = ["Enraged", "Panicked", "Stressed", "Jittery", "Shocked", "Surprised", "Upbeat", "Festive", "Exhilarated", "Ecstatic",
@@ -86,7 +86,7 @@ function startStudy() {
 }
 
 function endStudy() {
-    // Send answers to be stored in BOF
+    // Download answers as local text file
     var element = document.createElement('a');
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(userReponses)));
     element.setAttribute('download', "userResponses.txt");
@@ -97,6 +97,21 @@ function endStudy() {
     element.click();
 
     document.body.removeChild(element);
+
+    // Send answers to be stored in BOF
+    let submitForm = document.createElement("form");
+    submitForm.setAttribute("action", "#");
+    submitForm.setAttribute("method", "post");
+    submitForm.style.display = 'none';
+    document.body.append(submitForm);
+
+    let submitBut = document.createElement("input");
+    submitBut.setAttribute("type", "submit");
+    submitBut.setAttribute("name", "submitButton");
+    submitBut.setAttribute("value", "Continue");
+    submitBut.style.display = 'none';
+    submitForm.append(submitBut);
+    submitBut.click();
 }
 
 function startBlock() {
