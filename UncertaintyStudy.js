@@ -105,6 +105,13 @@ function endStudy() {
     submitForm.style.display = 'none';
     document.body.append(submitForm);
 
+    let submitResponses = document.createElement("input");
+    submitResponses.setAttribute("type", "text");
+    submitResponses.setAttribute("value", JSON.stringify(userReponses));
+    submitResponses.setAttribute("name", "participantResponses");
+    submitResponses.style.display = 'none';
+    submitForm.append(submitResponses);
+
     let submitBut = document.createElement("input");
     submitBut.setAttribute("type", "submit");
     submitBut.setAttribute("name", "submitButton");
