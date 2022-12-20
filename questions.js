@@ -149,7 +149,7 @@ const questions = [
     },
     {
         "id": 12, // Unique ID to associate participant responses to corresponding question
-        "question": "Click on the location of the map where concentration is highest. The reset button will clear the marker.", // Question text
+        "question": "Click on an area enclosed by a boundary where concentration is highest. The reset button will clear the marker.", // Question text
         "answers": {
             "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
             "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
@@ -162,12 +162,12 @@ const questions = [
     },
     {
         "id": 13,
-        "question": "How confident are you that the pollutants do NOT go over the road?",
+        "question": "How many individual outcomes exist for each concentration level?",
         "answers": {
-            "type": "multiple",
-            "values": ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]
+            "type": "text",
+            "values": []
         },
-        "image": ["static-edit1.png"],
+        "image": ["animated1.gif"],
         "type": "technical",
         "orderGroup": 1,
         "RQ": 1,
@@ -534,7 +534,7 @@ const questions = [
 
 
     {
-        "id": 0, // Unique ID to associate participant responses to corresponding question
+        "id": 42, // Unique ID to associate participant responses to corresponding question
         "question": "Click on the location of the map where concentration is highest. The reset button will clear the marker.", // Question text
         "answers": {
             "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
@@ -547,7 +547,7 @@ const questions = [
         "notes": "Texture/Colour"
     },
     {
-        "id": 1,
+        "id": 43,
         "question": "What is the degree of certainty at the blue X-marked location?",
         "answers": {
             "type": "multiple",
@@ -560,7 +560,7 @@ const questions = [
         "notes": "Texture/Colour"
     },
     {
-        "id": 2,
+        "id": 44,
         "question": "How confident are you that the blue X-marked location has a medium concentration of pollutants?",
         "answers": {
             "type": "multiple",
@@ -572,7 +572,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 3,
+        "id": 45,
         "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
         "answers": {
             "type": "multiple-text",
@@ -584,7 +584,7 @@ const questions = [
         "RQ": 5
     },
     {
-        "id": 4, 
+        "id": 46, 
         "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
         "answers": {
             "type": "multiple",
@@ -596,7 +596,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 41,
+        "id": 47,
         "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
         "answers": {
             "type": "affective",
@@ -608,7 +608,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 6, // Unique ID to associate participant responses to corresponding question
+        "id": 48, // Unique ID to associate participant responses to corresponding question
         "question": "Click on the location of the map where concentration is highest. The reset button will clear the marker.", // Question text
         "answers": {
             "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
@@ -621,7 +621,7 @@ const questions = [
         "notes": "HSV"
     },
     {
-        "id": 7,
+        "id": 49,
         "question": "What is the degree of certainty at the blue X-marked location?",
         "answers": {
             "type": "multiple",
@@ -634,7 +634,7 @@ const questions = [
         "notes": "HSV"
     },
     {
-        "id": 8,
+        "id": 50,
         "question": "How confident are you that the blue X-marked location has a low concentration of pollutants?",
         "answers": {
             "type": "multiple",
@@ -646,7 +646,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 9,
+        "id": 51,
         "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
         "answers": {
             "type": "multiple-text",
@@ -658,7 +658,7 @@ const questions = [
         "RQ": 5
     },
     {
-        "id": 10, 
+        "id": 52, 
         "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
         "answers": {
             "type": "multiple",
@@ -670,7 +670,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 41,
+        "id": 53,
         "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
         "answers": {
             "type": "affective",
@@ -681,82 +681,82 @@ const questions = [
         "orderGroup": 3,
         "RQ": 1
     },
-    // {
-    //     "id": 12, // Unique ID to associate participant responses to corresponding question
-    //     "question": "Click on the location of the map where concentration is highest. The reset button will clear the marker.", // Question text
-    //     "answers": {
-    //         "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
-    //         "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
-    //     },
-    //     "image": ["static1.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
-    //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
-    //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
-    //     "RQ": 1, // The research question that this question is trying to help answer
-    //     "notes": "Static/Animated"
-    // },
-    // {
-    //     "id": 13,
-    //     "question": "How confident are you that the pollutants do NOT go over the road?",
-    //     "answers": {
-    //         "type": "multiple",
-    //         "values": ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]
-    //     },
-    //     "image": ["static-edit1.png"],
-    //     "type": "technical",
-    //     "orderGroup": 1,
-    //     "RQ": 1,
-    //     "notes": "Static/Animated"
-    // },
-    // {
-    //     "id": 14,
-    //     "question": "How confident are you that the pollutants do NOT go over the road?",
-    //     "answers": {
-    //         "type": "multiple",
-    //         "values": ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]
-    //     },
-    //     "image": ["animated1.gif"],
-    //     "type": "subjective",
-    //     "orderGroup": 2,
-    //     "RQ": 1
-    // },
-    // {
-    //     "id": 15,
-    //     "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
-    //     "answers": {
-    //         "type": "multiple-text",
-    //         "values": ["A", "B"]
-    //     },
-    //     "image": ["static1.png", "animated1.gif"],
-    //     "type": "subjective",
-    //     "orderGroup": 2,
-    //     "RQ": 5
-    // },
-    // {
-    //     "id": 16, 
-    //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-    //     "answers": {
-    //         "type": "multiple",
-    //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-    //     },
-    //     "image": ["static1.png"],
-    //     "type": "affective",
-    //     "orderGroup": 3,
-    //     "RQ": 1
-    // },
     {
-        "id": 41,
-        "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
+        "id": 54, // Unique ID to associate participant responses to corresponding question
+        "question": "Click on an area enclosed by a boundary where concentration is highest. The reset button will clear the marker.", // Question text
         "answers": {
-            "type": "affective",
-            "values": []
+            "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
+            "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
         },
-        "image": ["animated1.gif"],
+        "image": ["static2.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
+        "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
+        "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
+        "RQ": 1, // The research question that this question is trying to help answer
+        "notes": "Static/Animated"
+    },
+    {
+        "id": 55,
+        "question": "What is the degree of certainty at the blue X-marked location?",
+        "answers": {
+            "type": "multiple",
+            "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
+        },
+        "image": ["static-edit2.png"],
+        "type": "technical",
+        "orderGroup": 1,
+        "RQ": 1,
+        "notes": "Static/Animated"
+    },
+    {
+        "id": 56,
+        "question": "How confident are you that the pollutants are affecting the water source?",
+        "answers": {
+            "type": "multiple",
+            "values": ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]
+        },
+        "image": ["animated2.gif"],
+        "type": "subjective",
+        "orderGroup": 2,
+        "RQ": 1
+    },
+    {
+        "id": 57,
+        "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
+        "answers": {
+            "type": "multiple-text",
+            "values": ["A", "B"]
+        },
+        "image": ["static2.png", "animated2.gif"],
+        "type": "subjective",
+        "orderGroup": 2,
+        "RQ": 5
+    },
+    {
+        "id": 58, 
+        "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        "answers": {
+            "type": "multiple",
+            "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        },
+        "image": ["static2.png"],
         "type": "affective",
         "orderGroup": 3,
         "RQ": 1
     },
     {
-        "id": 18, // Unique ID to associate participant responses to corresponding question
+        "id": 59,
+        "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
+        "answers": {
+            "type": "affective",
+            "values": []
+        },
+        "image": ["animated2.gif"],
+        "type": "affective",
+        "orderGroup": 3,
+        "RQ": 1
+    },
+    {
+        "id": 60, // Unique ID to associate participant responses to corresponding question
         "question": "Click on the location of the map with the lowest concentration and highest degree of certainty. The reset button will clear the marker.", // Question text
         "answers": {
             "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
@@ -769,7 +769,7 @@ const questions = [
         "notes": "VSUP"
     },
     {
-        "id": 19,
+        "id": 61,
         "question": "What is the degree of uncertainty at the blue X-marked location?",
         "answers": {
             "type": "multiple",
@@ -782,7 +782,7 @@ const questions = [
         "notes": "VSUP"
     },
     {
-        "id": 20,
+        "id": 62,
         "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
         "answers": {
             "type": "multiple-text",
@@ -794,7 +794,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 21,
+        "id": 63,
         "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
         "answers": {
             "type": "multiple-text",
@@ -806,7 +806,7 @@ const questions = [
         "RQ": 5
     },
     {
-        "id": 22, 
+        "id": 64, 
         "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
         "answers": {
             "type": "multiple",
@@ -818,7 +818,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 41,
+        "id": 65,
         "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
         "answers": {
             "type": "affective",
@@ -830,7 +830,7 @@ const questions = [
         "RQ": 1
     },
     // {
-    //     "id": 24, // Unique ID to associate participant responses to corresponding question
+    //     "id": 66, // Unique ID to associate participant responses to corresponding question
     //     "question": "Describe the area of which the highest concentration of pollutants is located in.", // Question text
     //     "answers": {
     //         "type": "text", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
@@ -843,7 +843,7 @@ const questions = [
     //     "notes": "Multiples"
     // },
     // {
-    //     "id": 25,
+    //     "id": 67,
     //     "question": "How confident are you that the polluted area is exceeding the property boundary?",
     //     "answers": {
     //         "type": "multiple",
@@ -856,7 +856,7 @@ const questions = [
     //     "notes": "Multiples"
     // },
     // {
-    //     "id": 26,
+    //     "id": 68,
     //     "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
     //     "answers": {
     //         "type": "multiple-text",
@@ -868,7 +868,7 @@ const questions = [
     //     "RQ": 1
     // },
     // {
-    //     "id": 27,
+    //     "id": 69,
     //     "question": "On average, what percentage of the property (outlined in blue) is polluted?",
     //     "answers": {
     //         "type": "range",
@@ -880,7 +880,7 @@ const questions = [
     //     "RQ": 5
     // },
     // {
-    //     "id": 28, 
+    //     "id": 70, 
     //     "question": "Does the set of images demonstrate a low risk, or a high risk situation?",
     //     "answers": {
     //         "type": "multiple",
@@ -892,7 +892,7 @@ const questions = [
     //     "RQ": 1
     // },
     {
-        "id": 41,
+        "id": 71,
         "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
         "answers": {
             "type": "affective",
@@ -904,7 +904,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 30, // Unique ID to associate participant responses to corresponding question
+        "id": 72, // Unique ID to associate participant responses to corresponding question
         "question": "What is the pollutant concentration at the blue X-marked sensor?", // Question text
         "answers": {
             "type": "multiple", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
@@ -917,7 +917,7 @@ const questions = [
         "notes": "Separate"
     },
     {
-        "id": 31,
+        "id": 73,
         "question": "What is the degree of certainty at the blue X-marked location?",
         "answers": {
             "type": "multiple",
@@ -930,7 +930,7 @@ const questions = [
         "notes": "Separate"
     },
     {
-        "id": 32,
+        "id": 74,
         "question": "How confident are you that the high concentration area is portrayed with high certainty?",
         "answers": {
             "type": "multiple",
@@ -942,7 +942,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 33,
+        "id": 75,
         "question": "What percentage of the polluted area has a very high degree of certainty?",
         "answers": {
             "type": "range",
@@ -954,7 +954,7 @@ const questions = [
         "RQ": 5
     },
     {
-        "id": 34, 
+        "id": 76, 
         "question": "Does the situation at this site demonstrate a low risk, or a high risk situation?",
         "answers": {
             "type": "multiple",
@@ -966,7 +966,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 41,
+        "id": 77,
         "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
         "answers": {
             "type": "affective",
@@ -978,7 +978,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 36, // Unique ID to associate participant responses to corresponding question
+        "id": 78, // Unique ID to associate participant responses to corresponding question
         "question": "Hover mouse over the image to see model certainty.\nWhat is the model certainty at the X-marked location?", // Question text
         "answers": {
             "type": "mouseover", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
@@ -991,7 +991,7 @@ const questions = [
         "notes": "Mouseover"
     },
     {
-        "id": 37,
+        "id": 79,
         "question": "Hover mouse over the image to see model certainty.\nWhat is the model certainty at the X-marked location?",
         "answers": {
             "type": "mouseover",
@@ -1004,7 +1004,7 @@ const questions = [
         "notes": "Mouseover"
     },
     {
-        "id": 38,
+        "id": 80,
         "question": "Hover mouse over the image to see model certainty.\nHow confident are you that the high concentration area is portrayed with high certainty?",
         "answers": {
             "type": "mouseover",
@@ -1016,7 +1016,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 39,
+        "id": 81,
         "question": "Hover mouse over the image to see model certainty.\nOn average, what percentage of the property (outlined in blue) has a high degree of model certainty?",
         "answers": {
             "type": "mouseover",
@@ -1028,7 +1028,7 @@ const questions = [
         "RQ": 5
     },
     {
-        "id": 40, 
+        "id": 82, 
         "question": "Hover mouse over the image to see model certainty.\nDoes the situation at this site demonstrate a low risk, or a high risk situation?",
         "answers": {
             "type": "mouseover",
@@ -1040,7 +1040,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 41,
+        "id": 83,
         "question": "Hover mouse over the image to see model certainty.\nSelect the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
         "answers": {
             "type": "affective",
@@ -1052,7 +1052,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 0, // Unique ID to associate participant responses to corresponding question
+        "id": 84, // Unique ID to associate participant responses to corresponding question
         "question": "Click on the location of the map where concentration is highest. The reset button will clear the marker.", // Question text
         "answers": {
             "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
@@ -1065,7 +1065,7 @@ const questions = [
         "notes": "Texture/Colour"
     },
     {
-        "id": 1,
+        "id": 85,
         "question": "What is the degree of certainty at the blue X-marked location?",
         "answers": {
             "type": "multiple",
@@ -1078,7 +1078,7 @@ const questions = [
         "notes": "Texture/Colour"
     },
     {
-        "id": 2,
+        "id": 86,
         "question": "How confident are you that the blue X-marked location has a high concentration of pollutants?",
         "answers": {
             "type": "multiple",
@@ -1090,7 +1090,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 3,
+        "id": 87,
         "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
         "answers": {
             "type": "multiple-text",
@@ -1102,7 +1102,7 @@ const questions = [
         "RQ": 5
     },
     {
-        "id": 4, 
+        "id": 88, 
         "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
         "answers": {
             "type": "multiple",
@@ -1114,7 +1114,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 41,
+        "id": 89,
         "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
         "answers": {
             "type": "affective",
@@ -1126,7 +1126,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 6, // Unique ID to associate participant responses to corresponding question
+        "id": 90, // Unique ID to associate participant responses to corresponding question
         "question": "Click on the location of the map where concentration is highest. The reset button will clear the marker.", // Question text
         "answers": {
             "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
@@ -1139,7 +1139,7 @@ const questions = [
         "notes": "HSV"
     },
     {
-        "id": 7,
+        "id": 91,
         "question": "What is the degree of certainty at the blue X-marked location?",
         "answers": {
             "type": "multiple",
@@ -1152,7 +1152,7 @@ const questions = [
         "notes": "HSV"
     },
     {
-        "id": 8,
+        "id": 92,
         "question": "How confident are you that the blue X-marked location has a high concentration of pollutants?",
         "answers": {
             "type": "multiple",
@@ -1164,7 +1164,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 9,
+        "id": 93,
         "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
         "answers": {
             "type": "multiple-text",
@@ -1176,7 +1176,7 @@ const questions = [
         "RQ": 5
     },
     {
-        "id": 10, 
+        "id": 94, 
         "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
         "answers": {
             "type": "multiple",
@@ -1188,7 +1188,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 41,
+        "id": 95,
         "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
         "answers": {
             "type": "affective",
@@ -1199,82 +1199,82 @@ const questions = [
         "orderGroup": 3,
         "RQ": 1
     },
-    // {
-    //     "id": 12, // Unique ID to associate participant responses to corresponding question
-    //     "question": "Click on the location of the map where concentration is highest. The reset button will clear the marker.", // Question text
-    //     "answers": {
-    //         "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
-    //         "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
-    //     },
-    //     "image": ["static1.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
-    //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
-    //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
-    //     "RQ": 1, // The research question that this question is trying to help answer
-    //     "notes": "Static/Animated"
-    // },
-    // {
-    //     "id": 13,
-    //     "question": "How confident are you that the pollutants do NOT go over the road?",
-    //     "answers": {
-    //         "type": "multiple",
-    //         "values": ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]
-    //     },
-    //     "image": ["static-edit1.png"],
-    //     "type": "technical",
-    //     "orderGroup": 1,
-    //     "RQ": 1,
-    //     "notes": "Static/Animated"
-    // },
-    // {
-    //     "id": 14,
-    //     "question": "How confident are you that the pollutants do NOT go over the road?",
-    //     "answers": {
-    //         "type": "multiple",
-    //         "values": ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]
-    //     },
-    //     "image": ["animated1.gif"],
-    //     "type": "subjective",
-    //     "orderGroup": 2,
-    //     "RQ": 1
-    // },
-    // {
-    //     "id": 15,
-    //     "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
-    //     "answers": {
-    //         "type": "multiple-text",
-    //         "values": ["A", "B"]
-    //     },
-    //     "image": ["static1.png", "animated1.gif"],
-    //     "type": "subjective",
-    //     "orderGroup": 2,
-    //     "RQ": 5
-    // },
-    // {
-    //     "id": 16, 
-    //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-    //     "answers": {
-    //         "type": "multiple",
-    //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-    //     },
-    //     "image": ["static1.png"],
-    //     "type": "affective",
-    //     "orderGroup": 3,
-    //     "RQ": 1
-    // },
     {
-        "id": 41,
-        "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
+        "id": 96, // Unique ID to associate participant responses to corresponding question
+        "question": "Click on an area enclosed by a boundary where concentration is highest. The reset button will clear the marker.", // Question text
         "answers": {
-            "type": "affective",
-            "values": []
+            "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
+            "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
         },
-        "image": ["animated1.gif"],
+        "image": ["static3.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
+        "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
+        "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
+        "RQ": 1, // The research question that this question is trying to help answer
+        "notes": "Static/Animated"
+    },
+    {
+        "id": 97,
+        "question": "How confident are you that the pollutants do NOT go over the road?",
+        "answers": {
+            "type": "multiple",
+            "values": ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]
+        },
+        "image": ["static-edit3.png"],
+        "type": "technical",
+        "orderGroup": 1,
+        "RQ": 1,
+        "notes": "Static/Animated"
+    },
+    {
+        "id": 98,
+        "question": "How confident are you that the pollutants do NOT go over the road?",
+        "answers": {
+            "type": "multiple",
+            "values": ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]
+        },
+        "image": ["animated3.gif"],
+        "type": "subjective",
+        "orderGroup": 2,
+        "RQ": 1
+    },
+    {
+        "id": 99,
+        "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
+        "answers": {
+            "type": "multiple-text",
+            "values": ["A", "B"]
+        },
+        "image": ["static3.png", "animated3.gif"],
+        "type": "subjective",
+        "orderGroup": 2,
+        "RQ": 5
+    },
+    {
+        "id": 100, 
+        "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        "answers": {
+            "type": "multiple",
+            "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        },
+        "image": ["static3.png"],
         "type": "affective",
         "orderGroup": 3,
         "RQ": 1
     },
     {
-        "id": 18, // Unique ID to associate participant responses to corresponding question
+        "id": 101,
+        "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
+        "answers": {
+            "type": "affective",
+            "values": []
+        },
+        "image": ["animated3.gif"],
+        "type": "affective",
+        "orderGroup": 3,
+        "RQ": 1
+    },
+    {
+        "id": 102, // Unique ID to associate participant responses to corresponding question
         "question": "Click on the location of the map with the lowest concentration and highest degree of certainty. The reset button will clear the marker.", // Question text
         "answers": {
             "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
@@ -1287,7 +1287,7 @@ const questions = [
         "notes": "VSUP"
     },
     {
-        "id": 19,
+        "id": 103,
         "question": "What is the degree of uncertainty at the blue X-marked location?",
         "answers": {
             "type": "multiple",
@@ -1300,7 +1300,7 @@ const questions = [
         "notes": "VSUP"
     },
     {
-        "id": 20,
+        "id": 104,
         "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
         "answers": {
             "type": "multiple-text",
@@ -1312,7 +1312,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 21,
+        "id": 105,
         "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
         "answers": {
             "type": "multiple-text",
@@ -1324,7 +1324,7 @@ const questions = [
         "RQ": 5
     },
     {
-        "id": 22, 
+        "id": 106, 
         "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
         "answers": {
             "type": "multiple",
@@ -1336,7 +1336,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 41,
+        "id": 107,
         "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
         "answers": {
             "type": "affective",
@@ -1348,7 +1348,7 @@ const questions = [
         "RQ": 1
     },
     // {
-    //     "id": 24, // Unique ID to associate participant responses to corresponding question
+    //     "id": 108, // Unique ID to associate participant responses to corresponding question
     //     "question": "Describe the area of which the highest concentration of pollutants is located in.", // Question text
     //     "answers": {
     //         "type": "text", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
@@ -1361,7 +1361,7 @@ const questions = [
     //     "notes": "Multiples"
     // },
     // {
-    //     "id": 25,
+    //     "id": 109,
     //     "question": "How confident are you that the polluted area is exceeding the property boundary?",
     //     "answers": {
     //         "type": "multiple",
@@ -1374,7 +1374,7 @@ const questions = [
     //     "notes": "Multiples"
     // },
     // {
-    //     "id": 26,
+    //     "id": 110,
     //     "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
     //     "answers": {
     //         "type": "multiple-text",
@@ -1386,7 +1386,7 @@ const questions = [
     //     "RQ": 1
     // },
     // {
-    //     "id": 27,
+    //     "id": 111,
     //     "question": "On average, what percentage of the property (outlined in blue) is polluted?",
     //     "answers": {
     //         "type": "range",
@@ -1398,7 +1398,7 @@ const questions = [
     //     "RQ": 5
     // },
     // {
-    //     "id": 28, 
+    //     "id": 112, 
     //     "question": "Does the set of images demonstrate a low risk, or a high risk situation?",
     //     "answers": {
     //         "type": "multiple",
@@ -1410,7 +1410,7 @@ const questions = [
     //     "RQ": 1
     // },
     {
-        "id": 41,
+        "id": 113,
         "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
         "answers": {
             "type": "affective",
@@ -1422,7 +1422,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 30, // Unique ID to associate participant responses to corresponding question
+        "id": 114, // Unique ID to associate participant responses to corresponding question
         "question": "What is the pollutant concentration at the blue X-marked sensor?", // Question text
         "answers": {
             "type": "multiple", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
@@ -1435,7 +1435,7 @@ const questions = [
         "notes": "Separate"
     },
     {
-        "id": 31,
+        "id": 115,
         "question": "What is the degree of certainty at the blue X-marked location?",
         "answers": {
             "type": "multiple",
@@ -1448,7 +1448,7 @@ const questions = [
         "notes": "Separate"
     },
     {
-        "id": 32,
+        "id": 116,
         "question": "How confident are you that the high concentration area is portrayed with high certainty?",
         "answers": {
             "type": "multiple",
@@ -1460,7 +1460,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 33,
+        "id": 117,
         "question": "What percentage of the polluted area has a very high degree of certainty?",
         "answers": {
             "type": "range",
@@ -1472,7 +1472,7 @@ const questions = [
         "RQ": 5
     },
     {
-        "id": 34, 
+        "id": 118, 
         "question": "Does the situation at this site demonstrate a low risk, or a high risk situation?",
         "answers": {
             "type": "multiple",
@@ -1484,7 +1484,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 41,
+        "id": 119,
         "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
         "answers": {
             "type": "affective",
@@ -1496,7 +1496,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 36, // Unique ID to associate participant responses to corresponding question
+        "id": 120, // Unique ID to associate participant responses to corresponding question
         "question": "Hover mouse over the image to see model certainty.\nWhat is the model certainty at the X-marked location?", // Question text
         "answers": {
             "type": "mouseover", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
@@ -1509,7 +1509,7 @@ const questions = [
         "notes": "Mouseover"
     },
     {
-        "id": 37,
+        "id": 121,
         "question": "Hover mouse over the image to see model certainty.\nWhat is the model certainty at the X-marked location?",
         "answers": {
             "type": "mouseover",
@@ -1522,7 +1522,7 @@ const questions = [
         "notes": "Mouseover"
     },
     {
-        "id": 38,
+        "id": 122,
         "question": "Hover mouse over the image to see model certainty.\nHow confident are you that the high concentration area is portrayed with high certainty?",
         "answers": {
             "type": "mouseover",
@@ -1534,7 +1534,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 39,
+        "id": 123,
         "question": "Hover mouse over the image to see model certainty.\nOn average, what percentage of the property (outlined in blue) has a high degree of model certainty?",
         "answers": {
             "type": "mouseover",
@@ -1546,7 +1546,7 @@ const questions = [
         "RQ": 5
     },
     {
-        "id": 40, 
+        "id": 124, 
         "question": "Hover mouse over the image to see model certainty.\nDoes the situation at this site demonstrate a low risk, or a high risk situation?",
         "answers": {
             "type": "mouseover",
@@ -1558,7 +1558,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 41,
+        "id": 125,
         "question": "Hover mouse over the image to see model certainty.\nSelect the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
         "answers": {
             "type": "affective",
@@ -1570,7 +1570,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 0, // Unique ID to associate participant responses to corresponding question
+        "id": 126, // Unique ID to associate participant responses to corresponding question
         "question": "Click on the location of the map where concentration is highest. The reset button will clear the marker.", // Question text
         "answers": {
             "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
@@ -1583,7 +1583,7 @@ const questions = [
         "notes": "Texture/Colour"
     },
     {
-        "id": 1,
+        "id": 127,
         "question": "What is the degree of certainty at the blue X-marked location?",
         "answers": {
             "type": "multiple",
@@ -1596,7 +1596,7 @@ const questions = [
         "notes": "Texture/Colour"
     },
     {
-        "id": 2,
+        "id": 128,
         "question": "How confident are you that the blue X-marked location has a low concentration of pollutants?",
         "answers": {
             "type": "multiple",
@@ -1608,7 +1608,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 3,
+        "id": 129,
         "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
         "answers": {
             "type": "multiple-text",
@@ -1620,7 +1620,7 @@ const questions = [
         "RQ": 5
     },
     {
-        "id": 4, 
+        "id": 130, 
         "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
         "answers": {
             "type": "multiple",
@@ -1632,7 +1632,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 41,
+        "id": 131,
         "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
         "answers": {
             "type": "affective",
@@ -1644,7 +1644,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 6, // Unique ID to associate participant responses to corresponding question
+        "id": 132, // Unique ID to associate participant responses to corresponding question
         "question": "Click on the location of the map where concentration is highest. The reset button will clear the marker.", // Question text
         "answers": {
             "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
@@ -1657,7 +1657,7 @@ const questions = [
         "notes": "HSV"
     },
     {
-        "id": 7,
+        "id": 133,
         "question": "What is the degree of certainty at the blue X-marked location?",
         "answers": {
             "type": "multiple",
@@ -1670,7 +1670,7 @@ const questions = [
         "notes": "HSV"
     },
     {
-        "id": 8,
+        "id": 134,
         "question": "How confident are you that the blue X-marked location has no pollutants?",
         "answers": {
             "type": "multiple",
@@ -1682,7 +1682,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 9,
+        "id": 135,
         "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
         "answers": {
             "type": "multiple-text",
@@ -1694,7 +1694,7 @@ const questions = [
         "RQ": 5
     },
     {
-        "id": 10, 
+        "id": 136, 
         "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
         "answers": {
             "type": "multiple",
@@ -1706,7 +1706,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 41,
+        "id": 137,
         "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
         "answers": {
             "type": "affective",
@@ -1717,82 +1717,82 @@ const questions = [
         "orderGroup": 3,
         "RQ": 1
     },
-    // {
-    //     "id": 12, // Unique ID to associate participant responses to corresponding question
-    //     "question": "Click on the location of the map where concentration is highest. The reset button will clear the marker.", // Question text
-    //     "answers": {
-    //         "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
-    //         "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
-    //     },
-    //     "image": ["static1.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
-    //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
-    //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
-    //     "RQ": 1, // The research question that this question is trying to help answer
-    //     "notes": "Static/Animated"
-    // },
-    // {
-    //     "id": 13,
-    //     "question": "How confident are you that the pollutants do NOT go over the road?",
-    //     "answers": {
-    //         "type": "multiple",
-    //         "values": ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]
-    //     },
-    //     "image": ["static-edit1.png"],
-    //     "type": "technical",
-    //     "orderGroup": 1,
-    //     "RQ": 1,
-    //     "notes": "Static/Animated"
-    // },
-    // {
-    //     "id": 14,
-    //     "question": "How confident are you that the pollutants do NOT go over the road?",
-    //     "answers": {
-    //         "type": "multiple",
-    //         "values": ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]
-    //     },
-    //     "image": ["animated1.gif"],
-    //     "type": "subjective",
-    //     "orderGroup": 2,
-    //     "RQ": 1
-    // },
-    // {
-    //     "id": 15,
-    //     "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
-    //     "answers": {
-    //         "type": "multiple-text",
-    //         "values": ["A", "B"]
-    //     },
-    //     "image": ["static1.png", "animated1.gif"],
-    //     "type": "subjective",
-    //     "orderGroup": 2,
-    //     "RQ": 5
-    // },
-    // {
-    //     "id": 16, 
-    //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-    //     "answers": {
-    //         "type": "multiple",
-    //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-    //     },
-    //     "image": ["static1.png"],
-    //     "type": "affective",
-    //     "orderGroup": 3,
-    //     "RQ": 1
-    // },
     {
-        "id": 41,
-        "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
+        "id": 138, // Unique ID to associate participant responses to corresponding question
+        "question": "Click on an area enclosed by a boundary where concentration is highest. The reset button will clear the marker.", // Question text
         "answers": {
-            "type": "affective",
-            "values": []
+            "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
+            "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
         },
-        "image": ["animated1.gif"],
+        "image": ["static4.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
+        "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
+        "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
+        "RQ": 1, // The research question that this question is trying to help answer
+        "notes": "Static/Animated"
+    },
+    {
+        "id": 139,
+        "question": "How confident are you that the pollutants do NOT go over the road?",
+        "answers": {
+            "type": "multiple",
+            "values": ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]
+        },
+        "image": ["static-edit4.png"],
+        "type": "technical",
+        "orderGroup": 1,
+        "RQ": 1,
+        "notes": "Static/Animated"
+    },
+    {
+        "id": 140,
+        "question": "How confident are you that the pollutants do NOT go over the road?",
+        "answers": {
+            "type": "multiple",
+            "values": ["Very Unconfident", "Unconfident", "Slightly Unconfident", "Neutral", "Slightly Confident", "Confident", "Very Confident"]
+        },
+        "image": ["animated4.gif"],
+        "type": "subjective",
+        "orderGroup": 2,
+        "RQ": 1
+    },
+    {
+        "id": 141,
+        "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
+        "answers": {
+            "type": "multiple-text",
+            "values": ["A", "B"]
+        },
+        "image": ["static4.png", "animated4.gif"],
+        "type": "subjective",
+        "orderGroup": 2,
+        "RQ": 5
+    },
+    {
+        "id": 142, 
+        "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        "answers": {
+            "type": "multiple",
+            "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        },
+        "image": ["static4.png"],
         "type": "affective",
         "orderGroup": 3,
         "RQ": 1
     },
     {
-        "id": 18, // Unique ID to associate participant responses to corresponding question
+        "id": 143,
+        "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
+        "answers": {
+            "type": "affective",
+            "values": []
+        },
+        "image": ["animated4.gif"],
+        "type": "affective",
+        "orderGroup": 3,
+        "RQ": 1
+    },
+    {
+        "id": 144, // Unique ID to associate participant responses to corresponding question
         "question": "Click on the location of the map with the lowest concentration and highest degree of certainty. The reset button will clear the marker.", // Question text
         "answers": {
             "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
@@ -1805,7 +1805,7 @@ const questions = [
         "notes": "VSUP"
     },
     {
-        "id": 19,
+        "id": 145,
         "question": "What is the degree of uncertainty at the blue X-marked location?",
         "answers": {
             "type": "multiple",
@@ -1818,7 +1818,7 @@ const questions = [
         "notes": "VSUP"
     },
     {
-        "id": 20,
+        "id": 146,
         "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
         "answers": {
             "type": "multiple-text",
@@ -1830,7 +1830,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 21,
+        "id": 147,
         "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
         "answers": {
             "type": "multiple-text",
@@ -1842,7 +1842,7 @@ const questions = [
         "RQ": 5
     },
     {
-        "id": 22, 
+        "id": 148, 
         "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
         "answers": {
             "type": "multiple",
@@ -1854,7 +1854,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 41,
+        "id": 149,
         "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
         "answers": {
             "type": "affective",
@@ -1866,7 +1866,7 @@ const questions = [
         "RQ": 1
     },
     // {
-    //     "id": 24, // Unique ID to associate participant responses to corresponding question
+    //     "id": 150, // Unique ID to associate participant responses to corresponding question
     //     "question": "Describe the area of which the highest concentration of pollutants is located in.", // Question text
     //     "answers": {
     //         "type": "text", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
@@ -1879,7 +1879,7 @@ const questions = [
     //     "notes": "Multiples"
     // },
     // {
-    //     "id": 25,
+    //     "id": 151,
     //     "question": "How confident are you that the polluted area is exceeding the property boundary?",
     //     "answers": {
     //         "type": "multiple",
@@ -1892,7 +1892,7 @@ const questions = [
     //     "notes": "Multiples"
     // },
     // {
-    //     "id": 26,
+    //     "id": 152,
     //     "question": "Which visualization do you find easier to interpret when trying to understand the concentration and certainty of the pollutant extent?",
     //     "answers": {
     //         "type": "multiple-text",
@@ -1904,7 +1904,7 @@ const questions = [
     //     "RQ": 1
     // },
     // {
-    //     "id": 27,
+    //     "id": 153,
     //     "question": "On average, what percentage of the property (outlined in blue) is polluted?",
     //     "answers": {
     //         "type": "range",
@@ -1916,7 +1916,7 @@ const questions = [
     //     "RQ": 5
     // },
     // {
-    //     "id": 28, 
+    //     "id": 154, 
     //     "question": "Does the set of images demonstrate a low risk, or a high risk situation?",
     //     "answers": {
     //         "type": "multiple",
@@ -1928,7 +1928,7 @@ const questions = [
     //     "RQ": 1
     // },
     {
-        "id": 41,
+        "id": 155,
         "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
         "answers": {
             "type": "affective",
@@ -1940,7 +1940,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 30, // Unique ID to associate participant responses to corresponding question
+        "id": 156, // Unique ID to associate participant responses to corresponding question
         "question": "What is the pollutant concentration at the blue X-marked sensor?", // Question text
         "answers": {
             "type": "multiple", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
@@ -1953,7 +1953,7 @@ const questions = [
         "notes": "Separate"
     },
     {
-        "id": 31,
+        "id": 157,
         "question": "What is the degree of certainty at the blue X-marked location?",
         "answers": {
             "type": "multiple",
@@ -1966,7 +1966,7 @@ const questions = [
         "notes": "Separate"
     },
     {
-        "id": 32,
+        "id": 158,
         "question": "How confident are you that the high concentration area is portrayed with high certainty?",
         "answers": {
             "type": "multiple",
@@ -1978,7 +1978,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 33,
+        "id": 159,
         "question": "What percentage of the polluted area has a very high degree of certainty?",
         "answers": {
             "type": "range",
@@ -1990,7 +1990,7 @@ const questions = [
         "RQ": 5
     },
     {
-        "id": 34, 
+        "id": 160, 
         "question": "Does the situation at this site demonstrate a low risk, or a high risk situation?",
         "answers": {
             "type": "multiple",
@@ -2002,7 +2002,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 41,
+        "id": 161,
         "question": "Select the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
         "answers": {
             "type": "affective",
@@ -2014,7 +2014,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 36, // Unique ID to associate participant responses to corresponding question
+        "id": 162, // Unique ID to associate participant responses to corresponding question
         "question": "Hover mouse over the image to see model certainty.\nWhat is the model certainty at the X-marked location?", // Question text
         "answers": {
             "type": "mouseover", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
@@ -2027,7 +2027,7 @@ const questions = [
         "notes": "Mouseover"
     },
     {
-        "id": 37,
+        "id": 163,
         "question": "Hover mouse over the image to see model certainty.\nWhat is the model certainty at the X-marked location?",
         "answers": {
             "type": "mouseover",
@@ -2040,7 +2040,7 @@ const questions = [
         "notes": "Mouseover"
     },
     {
-        "id": 38,
+        "id": 164,
         "question": "Hover mouse over the image to see model certainty.\nHow confident are you that the high concentration area is portrayed with high certainty?",
         "answers": {
             "type": "mouseover",
@@ -2052,7 +2052,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 39,
+        "id": 165,
         "question": "Hover mouse over the image to see model certainty.\nOn average, what percentage of the property (outlined in blue) has a high degree of model certainty?",
         "answers": {
             "type": "mouseover",
@@ -2064,7 +2064,7 @@ const questions = [
         "RQ": 5
     },
     {
-        "id": 40, 
+        "id": 166, 
         "question": "Hover mouse over the image to see model certainty.\nDoes the situation at this site demonstrate a low risk, or a high risk situation?",
         "answers": {
             "type": "mouseover",
@@ -2076,7 +2076,7 @@ const questions = [
         "RQ": 1
     },
     {
-        "id": 41,
+        "id": 167,
         "question": "Hover mouse over the image to see model certainty.\nSelect the word that most accurately reflects how you feel regarding the situation represented by the visualization.",
         "answers": {
             "type": "affective",
