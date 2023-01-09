@@ -87,16 +87,16 @@ function startStudy() {
 
 function endStudy() {
     // Download answers as local text file
-    var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(userReponses)));
-    element.setAttribute('download', "userResponses.txt");
+    // var element = document.createElement('a');
+    // element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(userReponses)));
+    // element.setAttribute('download', "userResponses.txt");
 
-    element.style.display = 'none';
-    document.body.appendChild(element);
+    // element.style.display = 'none';
+    // document.body.appendChild(element);
 
-    element.click();
+    // element.click();
 
-    document.body.removeChild(element);
+    // document.body.removeChild(element);
 
     // Send answers to be stored in BOF
     let submitForm = document.createElement("form");
@@ -144,6 +144,7 @@ function endBlock() {
 function startTrial() {
     clearUI();
     trialNumber++;
+    console.log(trialNumber)
 
     let newQuestion = questions[studyOrder[trialNumber - 1]];
     answerType = newQuestion.answers.type;
@@ -584,21 +585,21 @@ function shuffleArray(array) {
 function minimumDistance(x, y) {
     let min = Number.MAX_SAFE_INTEGER;
     let coords;
-    if (questions[studyOrder[trialNumber] - 1].image[0] === "mouseover1.png" ||
-        questions[studyOrder[trialNumber] - 1].image[0] === "mouseover-edit1.png" ||
-        questions[studyOrder[trialNumber] - 1].image[0] === "mouseover-edit2.png") {
+    if (questions[studyOrder[trialNumber - 1]].image[0] === "mouseover1.png" ||
+        questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit1.png" ||
+        questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit2.png") {
         coords = mouseoverCoords[0];
-    } else if (questions[studyOrder[trialNumber] - 1].image[0] === "mouseover2.png" ||
-        questions[studyOrder[trialNumber] - 1].image[0] === "mouseover-edit3.png" ||
-        questions[studyOrder[trialNumber] - 1].image[0] === "mouseover-edit4.png") {
+    } else if (questions[studyOrder[trialNumber - 1]].image[0] === "mouseover2.png" ||
+        questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit3.png" ||
+        questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit4.png") {
         coords = mouseoverCoords[1];
-    } else if (questions[studyOrder[trialNumber] - 1].image[0] === "mouseover3.png" ||
-        questions[studyOrder[trialNumber] - 1].image[0] === "mouseover-edit5.png" ||
-        questions[studyOrder[trialNumber] - 1].image[0] === "mouseover-edit6.png") {
+    } else if (questions[studyOrder[trialNumber - 1]].image[0] === "mouseover3.png" ||
+        questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit5.png" ||
+        questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit6.png") {
         coords = mouseoverCoords[2];
-    } else if (questions[studyOrder[trialNumber] - 1].image[0] === "mouseover4.png" ||
-        questions[studyOrder[trialNumber] - 1].image[0] === "mouseover-edit7.png" ||
-        questions[studyOrder[trialNumber] - 1].image[0] === "mouseover-edit8.png") {
+    } else if (questions[studyOrder[trialNumber - 1]].image[0] === "mouseover4.png" ||
+        questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit7.png" ||
+        questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit8.png") {
         coords = mouseoverCoords[3];
     }
     for (let i = 0; i < coords.length; i++) {
