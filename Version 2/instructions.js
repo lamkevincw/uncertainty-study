@@ -10,43 +10,43 @@ const instructionText = {
     "visPage": [
         {
             "name": "Texture",
-            "text": "This visualization type employs colour and texture to differentiate between the concentration of the pollutants and the certainty of the pollution model. The main difference from the original versions is the use of texturing instead of only colours.\n\nDifferent colours are used to distinguish between the levels of concentration. Textures (e.g., crosshatching, dotting) show the different degrees of certainty.",
+            "text": "This visualization type employs colour and texture to differentiate between the concentration of the pollutants and the certainty of the pollution model.\n\n In Variant 2, different colours are used to distinguish between the levels of concentration, while textures (e.g., crosshatching, dotting) show the different degrees of certainty.",
             "img-1": "vis-baseline.png",
             "img-2": "texture-instruct.png"
         },
         {
             "name": "HSV",
-            "text": "This visualization shows the spread of hydrocarbon contamination in an area, as well as the model's certainty of hydrocarbons at that location. Certainty is based on the distance from the sensors.\nThe sensors are marked by a blue triangle.\nThe higher colour saturation shows the higher certainty of the model.\nThe value of the colour shows how high the concentration of hydrocarbons is at that location.",
+            "text": "This visualization type uses colour value and colour saturation to differentiate between the concentration of the pollutants and the certainty of the pollution model.\n\nIn Variant 2, the value of the colour shows the level of concentration, while the saturation shows the level of certainty.",
             "img-1": "vis-baseline.png",
             "img-2": "hsv-instruct.png"
         },
         {
             "name": "Static",
-            "text": "This visualization shows various results of a modelling algorithm that predicts the extent of hydrocarbon contamination at a location. Different outcomes from the model are shown in this type of visualization.\nEach line represents the boundary or concentration threshold of a single outcome of the model. A grey line represents a single outcome from the model, while a coloured line shows the average of outcomes at various concentration levels.\nThe sensors are marked by a blue triangle.",
+            "text": "This visualization type uses a modelling algorithm to predict the extent of pollutants at a location. The visualization shows several outcomes of the model while using different sets of parameters. All of the individual results are overlaid on the map at the same time.\n\nIndividual model outcomes are represented with grey lines. The red line indicates the average outcome of the model for high concentrations of the pollutant. The orange line indicates the average for medium concentrations of the pollutant. The yellow line indicates the average for low concentrations of the pollutant.",
             "img-1": "vis-baseline.png",
             "img-2": "static-instruct.png"
         },
         {
             "name": "Animated",
-            "text": "This visualization shows various results of a modelling algorithm that predicts the extent of hydrocarbon contamination at a location. Different outcomes from the model are shown in this type of visualization.\nEach line represents the boundary or concentration threshold of a single outcome of the model. A grey line represents a single outcome from the model, while a coloured line shows the average of outcomes at various concentration levels.\nThe sensors are marked by a blue triangle.",
+            "text": "This visualization type uses a modelling algorithm to predict the extent of pollutants at a location. The visualization shows several outcomes of the model while using different sets of parameters. The individual results are shown in different frames of the animation.\n\nIndividual model outcomes are represented with grey lines. The red line indicates the average outcome of the model for high concentrations of the pollutant. The orange line indicates the average for medium concentrations of the pollutant. The yellow line indicates the average for low concentrations of the pollutant.",
             "img-1": "vis-baseline.png",
-            "img-2": "animated-instruct.png"
+            "img-2": "animated-instruct.gif"
         },
         {
             "name": "VSUP",
-            "text": "This visualization uses a value-suppressed uncertainty palette to show both hydrocarbon contamination and certainty of the model.\nA value-suppressed uncertainty palette maps a value (i.e., concentration) on the x-axis, with values increasing as the palette moves to the right (as shown on the legend).\nA second value (i.e., certainty) maps to the palette on the y-axis, with the most certain values located at the top of the palette.\nFor example, the value at point \"A\" scores low in concentration, but high in certainty. The value at point \"B\" has a higher concentration than point \"A\", but also more uncertainty.\nThe sensors are marked by a blue triangle.",
+            "text": "This visualization type uses a value-suppressed uncertainty palette to show both pollutant contamination and certainty of the predictivemodel.\n\nA value-suppressed uncertainty palette maps a value (i.e., concentration) on the x-axis, with values increasing as the palette moves to the right (as shown on the legend).\nA second value (i.e., certainty) maps to the palette on the y-axis, with the most certain values located at the top of the palette.",
             "img-1": "vis-baseline.png",
             "img-2": "vsup-instruct.png"
         },
         {
             "name": "Multiples",
-            "text": "This visualization shows various results of a modelling algorithm that predicts the extent of hydrocarbon contamination at a location.\nDifferent outcomes from the model are shown in this type of visualization. Each image in the grid represents a single outcome of the model.\nThe sensors are marked by a blue triangle.",
+            "text": "This visualization type uses a modelling algorithm to predict the extent of pollutants at a location. The visualization shows several outcomes of the model while using different sets of parameters. Different outcomes of the model are shown simultaneously in a grid.",
             "img-1": "vis-baseline.png",
             "img-2": "multiples-instruct.png"
         },
         {
             "name": "Separate",
-            "text": "This visualization shows the spread of hydrocarbon contamination in an area, as well as the model's certainty of hydrocarbons at that location.\nThe certainty is represented in the top image and the concentration of the pollutants is represented in the bottom image.\nThe sensors are marked by a blue triangle.",
+            "text": "This visualization type uses side-by-side visualizations of the same location to differentiate between the concentration of the pollutants and the certainty of the pollution model.\n\nIn Variant 2, the left image shows the level of concentration, and the right image shows the degree of certainty.",
             "img-1": "vis-baseline.png",
             "img-2": "separate-instruct.png"
         },
@@ -56,6 +56,21 @@ const instructionText = {
             "name": "Multiple Choice",
             "text": "The following set of questions will be multiple choice questions, similar to the example above. Read the question carefully and select the response which most accurately and correctly answers the question.",
             "img": "multiple-choice-instruction.png"
+        },
+        "click": {
+            "name": "Click",
+            "text": "The following set of questions will require you to click on the image itself to answer the question. Read the question carefully and click on the location on the image which most accurately and correctly answers the question.",
+            "img": "click-instruction.png"
+        },
+        "multiple-text": {
+            "name": "Multiple Choice - Textbox",
+            "text": "The following set of questions will be multiple choice questions, followed by a text-entry box to describe your reasoning for your answer, similar to the example above. Read the question carefully and select the response which most accurately and correctly answers the question, and provide a reason for your response.",
+            "img": "multiple-choice-text-instruction.png"
+        },
+        "text": {
+            "name": "Text Box",
+            "text": "The following set of questions will be a short answer question. Read the question carefully and enter your answer in the provided text box.",
+            "img": "text-instruction.png"
         }
     }
 }

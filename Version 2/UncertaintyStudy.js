@@ -11,7 +11,7 @@ const visTypes = {
     "Mouseover": false
 };
 const letters = ["A", "B", "C", "D", "E", "F", "G"];
-const questionTypes = ["multiple"];
+const questionTypes = ["multiple", "multiple-text", "text", "click"];
 const firstAnimatedID = 13;
 const mouseoverCoords = [
     [[480, 316], [588, 376], [617, 215], [675, 277]],
@@ -35,12 +35,15 @@ let modal = document.getElementById("instructionsModal");
 
 // Study control variables
 let instructNumber = -1;
-let blockNumber = 0;
-let trialNumber = 0;
+let questionBlockNumber = -1;
+let questionNumber = 0;
+let inQuestionBlock = false;
+// let blockNumber = 0;
+// let trialNumber = 0;
 let studyOrder = [];
-let answerType = "none";
-let answerSubType = "";
-let instructions;
+// let answerType = "none";
+// let answerSubType = "";
+// let instructions;
 
 // Canvas variables
 let canvas;
@@ -80,13 +83,13 @@ function setup() {
     // }
     // console.log(studyOrder)
 
-    // // Set up event listeners
-    // canvas = document.getElementById("answerCanvas");
-    // ctx = canvas.getContext("2d");
-    // canvas.addEventListener("mousedown", function (e) { getXY("down", e) });
-    // canvas.addEventListener("mousemove", function (e) { getXY("move", e) });
-    // canvas.addEventListener("mouseup", function (e) { getXY("up", e) });
-    // canvas.addEventListener("mouseout", function (e) { getXY("out", e) });
+    // Set up event listeners
+    canvas = document.getElementById("answerCanvas");
+    ctx = canvas.getContext("2d");
+    canvas.addEventListener("mousedown", function (e) { getXY("down", e) });
+    canvas.addEventListener("mousemove", function (e) { getXY("move", e) });
+    canvas.addEventListener("mouseup", function (e) { getXY("up", e) });
+    canvas.addEventListener("mouseout", function (e) { getXY("out", e) });
 }
 
 function startStudy() {
@@ -151,175 +154,175 @@ function startStudy() {
 //     }
 // }
 
-// function startTrial() {
-//     clearUI();
-//     trialNumber++;
-//     console.log(trialNumber)
+function startTrial() {
+    clearUI();
+    // trialNumber++;
+    // console.log(trialNumber)
 
-//     let newQuestion = questions[studyOrder[trialNumber - 1]];
-//     answerType = newQuestion.answers.type;
-//     if (answerType === "mouseover") {
-//         answerSubType = newQuestion.answers.values[0];
-//     }
-//     console.log(newQuestion)
+    let newQuestion = questions[studyOrder[trialNumber - 1]];
+    answerType = newQuestion.answers.type;
+    if (answerType === "mouseover") {
+        answerSubType = newQuestion.answers.values[0];
+    }
+    console.log(newQuestion)
 
-//     // Set study labels
-//     document.getElementById("trialNumberLabel").textContent = "Question " + trialNumber + " of " + maxTrials;
+    // Set study labels
+    document.getElementById("trialNumberLabel").textContent = "Question " + trialNumber + " of " + maxTrials;
 
-//     // Set question text
-//     document.getElementById("questionText").textContent = newQuestion.question;
-//     // Set images and labels
-//     switch (newQuestion.image.length) {
-//         case 1:
-//             document.getElementById("imageSingle").src = "images/" + newQuestion.image[0];
-//             document.getElementById("imageSingleLabel").textContent = "";
-//             break;
-//         case 2:
-//             document.getElementById("imageDouble1").src = "images/" + newQuestion.image[0];
-//             document.getElementById("imageDouble2").src = "images/" + newQuestion.image[1];
-//             document.getElementById("imageDoubleLabel1").textContent = "A";
-//             document.getElementById("imageDoubleLabel2").textContent = "B";
-//             break;
-//     }
+    // Set question text
+    document.getElementById("questionText").textContent = newQuestion.question;
+    // Set images and labels
+    switch (newQuestion.image.length) {
+        case 1:
+            document.getElementById("imageSingle").src = "images/" + newQuestion.image[0];
+            document.getElementById("imageSingleLabel").textContent = "";
+            break;
+        case 2:
+            document.getElementById("imageDouble1").src = "images/" + newQuestion.image[0];
+            document.getElementById("imageDouble2").src = "images/" + newQuestion.image[1];
+            document.getElementById("imageDoubleLabel1").textContent = "A";
+            document.getElementById("imageDoubleLabel2").textContent = "B";
+            break;
+    }
 
-//     // Set answers
-//     let ansType, ansValues;
-//     if (newQuestion.answers.type === "mouseover") {
-//         ansType = newQuestion.answers.values[0];
-//         ansValues = newQuestion.answers.values[1];
-//     } else {
-//         ansType = newQuestion.answers.type;
-//         ansValues = newQuestion.answers.values;
-//     }
-//     switch (ansType) {
-//         case "multiple":
-//             let answerSet = [];
-//             for (let i = 0; i < ansValues.length; i++) {
-//                 // Create multiple choice radio button
-//                 answerSet.push(document.createElement("input"));
-//                 answerSet[i].id = "item" + ansValues[i];
-//                 answerSet[i].className = "multipleChoiceAnswer";
-//                 answerSet[i].name = "userAnswer";
-//                 answerSet[i].value = ansValues[i];
-//                 answerSet[i].type = "radio";
-//                 document.getElementById("answersForm").append(answerSet[i]);
-//                 // Create label
-//                 let label = document.createElement("label");
-//                 label.className = "multipleChoiceLabel";
-//                 label.htmlFor = "item" + ansValues[i];
-//                 label.textContent = ansValues[i];
-//                 document.getElementById("answersForm").append(label);
-//             }
-//             break;
-//         case "multiple-text":
-//             let multipleChoice = [];
-//             for (let i = 0; i < ansValues.length; i++) {
-//                 // Create multiple choice radio button
-//                 multipleChoice.push(document.createElement("input"));
-//                 multipleChoice[i].id = "item" + ansValues[i];
-//                 multipleChoice[i].className = "multipleChoiceAnswer";
-//                 multipleChoice[i].name = "userAnswer";
-//                 multipleChoice[i].value = ansValues[i];
-//                 multipleChoice[i].type = "radio";
-//                 document.getElementById("answersForm").append(multipleChoice[i]);
-//                 // Create label
-//                 let label = document.createElement("label");
-//                 label.className = "multipleChoiceLabel";
-//                 label.htmlFor = "item" + ansValues[i];
-//                 label.textContent = ansValues[i];
-//                 document.getElementById("answersForm").append(label);
-//             }
-//             // Create textbox
-//             let textLabel = document.createElement("label");
-//             textLabel.className = "reasonLabel";
-//             textLabel.htmlFor = "reasonBoxAnswer";
-//             textLabel.textContent = "Why?";
-//             document.getElementById("answersForm").append(textLabel);
-//             let reasonBox = document.createElement("textarea");
-//             reasonBox.id = "reasonBoxAnswer";
-//             reasonBox.className = "reasonBoxAnswer";
-//             reasonBox.name = "userAnswerText";
-//             reasonBox.placeholder = "Provide reasoning here";
-//             reasonBox.form = "answersForm";
-//             reasonBox.cols = 50;
-//             document.getElementById("answersForm").append(reasonBox);
-//             break;
-//         case "click":
-//         case "draw":
-//             let reset = document.createElement("button");
-//             reset.className = "submitButton";
-//             reset.type = "button";
-//             reset.textContent = "Reset";
-//             reset.addEventListener("click", clearCanvas);
-//             document.getElementById("answersForm").append(reset);
-//             break;
-//         case "range":
-//             let range = document.createElement("input");
-//             range.id = "rangeSlider";
-//             range.className = "rangeAnswer";
-//             range.name = "userAnswer";
-//             range.type = "range";
-//             range.min = "0";
-//             range.max = "100";
-//             range.defaultValue = "0";
-//             range.step = "1";
-//             document.getElementById("answersForm").append(range);
-//             let label = document.createElement("label");
-//             label.htmlFor = "rangeSlider";
-//             label.className = "answerLabel";
-//             label.textContent = range.value;
-//             document.getElementById("answersForm").append(label);
-//             range.addEventListener("input", function (event) { label.textContent = event.target.value })
-//             break;
-//         case "text":
-//             let textbox = document.createElement("textarea");
-//             textbox.className = "textboxAnswer";
-//             textbox.name = "userAnswer";
-//             textbox.placeholder = "Enter answer here";
-//             textbox.form = "answersForm";
-//             textbox.cols = 50;
-//             document.getElementById("answersForm").append(textbox);
-//             break;
-//         case "affective":
-//             let table = document.createElement("table");
+    // Set answers
+    let ansType, ansValues;
+    if (newQuestion.answers.type === "mouseover") {
+        ansType = newQuestion.answers.values[0];
+        ansValues = newQuestion.answers.values[1];
+    } else {
+        ansType = newQuestion.answers.type;
+        ansValues = newQuestion.answers.values;
+    }
+    switch (ansType) {
+        case "multiple":
+            let answerSet = [];
+            for (let i = 0; i < ansValues.length; i++) {
+                // Create multiple choice radio button
+                answerSet.push(document.createElement("input"));
+                answerSet[i].id = "item" + ansValues[i];
+                answerSet[i].className = "multipleChoiceAnswer";
+                answerSet[i].name = "userAnswer";
+                answerSet[i].value = ansValues[i];
+                answerSet[i].type = "radio";
+                document.getElementById("answersForm").append(answerSet[i]);
+                // Create label
+                let label = document.createElement("label");
+                label.className = "multipleChoiceLabel";
+                label.htmlFor = "item" + ansValues[i];
+                label.textContent = ansValues[i];
+                document.getElementById("answersForm").append(label);
+            }
+            break;
+        case "multiple-text":
+            let multipleChoice = [];
+            for (let i = 0; i < ansValues.length; i++) {
+                // Create multiple choice radio button
+                multipleChoice.push(document.createElement("input"));
+                multipleChoice[i].id = "item" + ansValues[i];
+                multipleChoice[i].className = "multipleChoiceAnswer";
+                multipleChoice[i].name = "userAnswer";
+                multipleChoice[i].value = ansValues[i];
+                multipleChoice[i].type = "radio";
+                document.getElementById("answersForm").append(multipleChoice[i]);
+                // Create label
+                let label = document.createElement("label");
+                label.className = "multipleChoiceLabel";
+                label.htmlFor = "item" + ansValues[i];
+                label.textContent = ansValues[i];
+                document.getElementById("answersForm").append(label);
+            }
+            // Create textbox
+            let textLabel = document.createElement("label");
+            textLabel.className = "reasonLabel";
+            textLabel.htmlFor = "reasonBoxAnswer";
+            textLabel.textContent = "Why?";
+            document.getElementById("answersForm").append(textLabel);
+            let reasonBox = document.createElement("textarea");
+            reasonBox.id = "reasonBoxAnswer";
+            reasonBox.className = "reasonBoxAnswer";
+            reasonBox.name = "userAnswerText";
+            reasonBox.placeholder = "Provide reasoning here";
+            reasonBox.form = "answersForm";
+            reasonBox.cols = 50;
+            document.getElementById("answersForm").append(reasonBox);
+            break;
+        case "click":
+        case "draw":
+            let reset = document.createElement("button");
+            reset.className = "submitButton";
+            reset.type = "button";
+            reset.textContent = "Reset";
+            reset.addEventListener("click", clearCanvas);
+            document.getElementById("answersForm").append(reset);
+            break;
+        case "range":
+            let range = document.createElement("input");
+            range.id = "rangeSlider";
+            range.className = "rangeAnswer";
+            range.name = "userAnswer";
+            range.type = "range";
+            range.min = "0";
+            range.max = "100";
+            range.defaultValue = "0";
+            range.step = "1";
+            document.getElementById("answersForm").append(range);
+            let label = document.createElement("label");
+            label.htmlFor = "rangeSlider";
+            label.className = "answerLabel";
+            label.textContent = range.value;
+            document.getElementById("answersForm").append(label);
+            range.addEventListener("input", function (event) { label.textContent = event.target.value })
+            break;
+        case "text":
+            let textbox = document.createElement("textarea");
+            textbox.className = "textboxAnswer";
+            textbox.name = "userAnswer";
+            textbox.placeholder = "Enter answer here";
+            textbox.form = "answersForm";
+            textbox.cols = 50;
+            document.getElementById("answersForm").append(textbox);
+            break;
+        case "affective":
+            let table = document.createElement("table");
 
-//             for (let i = 0; i < 10; i++) {
-//                 let tr = table.insertRow();
-//                 for (let j = 0; j < 10; j++) {
-//                     let td = tr.insertCell();
-//                     td.append(document.createTextNode(affectChart[i * 10 + j]));
-//                     td.style.border = '1px solid black';
-//                     td.id = "tableAnswer" + (i * 10 + j);
-//                     if (i < 5 && j < 5) {
-//                         td.style.background = "lightcoral";
-//                     } else if (i < 5 && j >= 5) {
-//                         td.style.background = "yellow";
-//                     } else if (i >= 5 && j < 5) {
-//                         td.style.background = "skyblue";
-//                     } else if (i >= 5 && j >= 5) {
-//                         td.style.background = "palegreen";
-//                     }
-//                 }
-//             }
-//             table.onclick = selectAffectAnswer;
-//             document.getElementById("answersForm").append(table);
-//             break;
-//     }
-//     let submitButton = document.createElement("input");
-//     submitButton.className = "submitButton";
-//     submitButton.type = "submit";
-//     submitButton.value = "Submit";
-//     document.getElementById("answersForm").append(submitButton);
+            for (let i = 0; i < 10; i++) {
+                let tr = table.insertRow();
+                for (let j = 0; j < 10; j++) {
+                    let td = tr.insertCell();
+                    td.append(document.createTextNode(affectChart[i * 10 + j]));
+                    td.style.border = '1px solid black';
+                    td.id = "tableAnswer" + (i * 10 + j);
+                    if (i < 5 && j < 5) {
+                        td.style.background = "lightcoral";
+                    } else if (i < 5 && j >= 5) {
+                        td.style.background = "yellow";
+                    } else if (i >= 5 && j < 5) {
+                        td.style.background = "skyblue";
+                    } else if (i >= 5 && j >= 5) {
+                        td.style.background = "palegreen";
+                    }
+                }
+            }
+            table.onclick = selectAffectAnswer;
+            document.getElementById("answersForm").append(table);
+            break;
+    }
+    let submitButton = document.createElement("input");
+    submitButton.className = "submitButton";
+    submitButton.type = "submit";
+    submitButton.value = "Submit";
+    document.getElementById("answersForm").append(submitButton);
 
-//     // User responses initialization
-//     currResponse = {
-//         questionID: newQuestion.id,
-//         blockNumber: blockNumber,
-//         trialNumber: trialNumber
-//     }
+    // User responses initialization
+    currResponse = {
+        questionID: newQuestion.id,
+        blockNumber: blockNumber,
+        trialNumber: trialNumber
+    }
 
-//     trialStartTime = new Date().getTime();
-// }
+    trialStartTime = new Date().getTime();
+}
 
 // function endTrial(e) {
 //     e.preventDefault();
@@ -429,8 +432,28 @@ function startStudy() {
 //     document.body.append(instructions);
 // }
 
-function startQuestionBlock() {
-    instructionsQuestion(questionTypes[0]);
+function startQuestionBlock(qType) {
+    // Set up study order here
+    let questionOrder = {};
+    for (let i = 0; i < questions[qType].length; i++) {
+        if (questions[qType][i].orderGroup in questionOrder) {
+            questionOrder[questions[qType][i].orderGroup].push(i);
+        } else {
+            questionOrder[questions[qType][i].orderGroup] = [i]
+        }
+    }
+    let sortedKeys = Object.keys(questionOrder).sort();
+    for (let i = 0; i < sortedKeys.length; i++) {
+        // let shuffledOrder = shuffleArray(questionOrder[sortedKeys[i]]);
+        let shuffledOrder = questionOrder[sortedKeys[i]];
+        for (let j = 0; j < shuffledOrder.length; j++) {
+            studyOrder.push(shuffledOrder[j]);
+        }
+    }
+    // console.log(studyOrder)
+
+    questionNumber = 0;
+    startTrial();
 }
 
 function instructionsButton() {
@@ -440,10 +463,14 @@ function instructionsButton() {
     // alert("Clicked");
     clearInstructions();
     instructNumber++;
-    if (instructNumber < 6) {
+    if (instructNumber < 1) { // 7
         instructionsVis();
+    } else if (!inQuestionBlock) {
+        questionBlockNumber++;
+        inQuestionBlock = true;
+        instructionsQuestion(questionTypes[questionBlockNumber]);
     } else {
-        startQuestionBlock();
+        startQuestionBlock(questionTypes[questionBlockNumber]);
     }
 }
 
@@ -476,30 +503,40 @@ function instructionsQuestion(qType) {
 }
 
 function clearInstructions() {
+    modal.style.display = "none";
     document.getElementById("start-page").style.display = "none";
     document.getElementById("vis-instructions").style.display = "none";
     document.getElementById("question-instructions").style.display = "none";
 }
 
-// function clearUI() {
-//     answerType = "none";
-//     answerSubType = "";
+function clearUI() {
+    // answerType = "none";
+    // answerSubType = "";
 
-//     document.getElementById("imageSingle").src = "";
-//     document.getElementById("imageDouble1").src = "";
-//     document.getElementById("imageDouble2").src = "";
-//     document.getElementById("imageSingleLabel").textContent = "";
-//     document.getElementById("imageDoubleLabel1").textContent = "";
-//     document.getElementById("imageDoubleLabel2").textContent = "";
+    document.getElementById("imageSingle").src = "";
+    document.getElementById("imageDouble1").src = "";
+    document.getElementById("imageDouble2").src = "";
+    // document.getElementById("imageSingleLabel").textContent = "";
+    // document.getElementById("imageDoubleLabel1").textContent = "";
+    // document.getElementById("imageDoubleLabel2").textContent = "";
 
-//     let answersList = document.getElementById("answersForm");
-//     let childCount = parseInt(answersList.childElementCount);
-//     for (let i = 0; i < childCount; i++) {
-//         answersList.removeChild(answersList.lastChild);
-//     }
+    let answersList = document.getElementById("answersForm");
+    let childCount = parseInt(answersList.childElementCount);
+    for (let i = 0; i < childCount; i++) {
+        answersList.removeChild(answersList.lastChild);
+    }
 
-//     clearCanvas();
-// }
+    clearCanvas();
+}
+
+function clearCanvas() {
+    ctx.save();
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.restore();
+
+    canvasPoints = [];
+}
 
 // function draw() {
 //     ctx.beginPath();
@@ -549,71 +586,64 @@ function clearInstructions() {
 //     ctx.closePath();
 // }
 
-// function clearCanvas() {
-//     ctx.save();
-//     ctx.setTransform(1, 0, 0, 1, 0, 0);
-//     ctx.clearRect(0, 0, canvas.width, canvas.height);
-//     ctx.restore();
 
-//     canvasPoints = [];
-// }
 
-// function getXY(mode, e) {
-//     if (answerType === "click" || answerType === "draw") {
-//         switch (mode) {
-//             case "down":
-//                 prevX = currX;
-//                 prevY = currY;
-//                 currX = e.clientX - canvas.getBoundingClientRect().left;
-//                 currY = e.clientY - canvas.getBoundingClientRect().top;
-//                 drawing = true;
-//                 if (answerType === "draw") {
-//                     ctx.beginPath();
-//                     ctx.fillStyle = "red";
-//                     ctx.fillRect(currX, currY, 2, 2);
-//                     ctx.closePath();
-//                 } else {
-//                     clearCanvas();
-//                     drawCircle();
-//                 }
-//                 canvasPoints.push([currX, currY]);
-//                 break;
-//             case "move":
-//                 if (drawing) {
-//                     prevX = currX;
-//                     prevY = currY;
-//                     currX = e.clientX - canvas.getBoundingClientRect().left;
-//                     currY = e.clientY - canvas.getBoundingClientRect().top;
-//                     // console.log(currX + "," + currY)
-//                     if (answerType === "draw") {
-//                         draw();
-//                     } else {
-//                         clearCanvas();
-//                         drawCircle();
-//                     }
-//                     canvasPoints.push([currX, currY]);
-//                 }
-//                 break;
-//             case "up":
-//             case "out":
-//                 drawing = false;
-//         }
-//     } else if (answerType === "mouseover") {
-//         switch (mode) {
-//             case "move":
-//                 currX = e.clientX - canvas.getBoundingClientRect().left;
-//                 currY = e.clientY - canvas.getBoundingClientRect().top;
-//                 clearCanvas();
-//                 if (currX > 250 && currX < 950) {
-//                     drawTooltip();
-//                 }
-//                 break;
-//             case "out":
-//                 clearCanvas();
-//                 break;
-//         }
-//     }
-// }
+function getXY(mode, e) {
+    if (answerType === "click" || answerType === "draw") {
+        switch (mode) {
+            case "down":
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas.getBoundingClientRect().left;
+                currY = e.clientY - canvas.getBoundingClientRect().top;
+                drawing = true;
+                if (answerType === "draw") {
+                    ctx.beginPath();
+                    ctx.fillStyle = "red";
+                    ctx.fillRect(currX, currY, 2, 2);
+                    ctx.closePath();
+                } else {
+                    clearCanvas();
+                    drawCircle();
+                }
+                canvasPoints.push([currX, currY]);
+                break;
+            case "move":
+                if (drawing) {
+                    prevX = currX;
+                    prevY = currY;
+                    currX = e.clientX - canvas.getBoundingClientRect().left;
+                    currY = e.clientY - canvas.getBoundingClientRect().top;
+                    // console.log(currX + "," + currY)
+                    if (answerType === "draw") {
+                        draw();
+                    } else {
+                        clearCanvas();
+                        drawCircle();
+                    }
+                    canvasPoints.push([currX, currY]);
+                }
+                break;
+            case "up":
+            case "out":
+                drawing = false;
+        }
+    } else if (answerType === "mouseover") {
+        switch (mode) {
+            case "move":
+                currX = e.clientX - canvas.getBoundingClientRect().left;
+                currY = e.clientY - canvas.getBoundingClientRect().top;
+                clearCanvas();
+                if (currX > 250 && currX < 950) {
+                    drawTooltip();
+                }
+                break;
+            case "out":
+                clearCanvas();
+                break;
+        }
+    }
+}
 
 // function selectAffectAnswer(e) {
 //     console.log(e.target)
