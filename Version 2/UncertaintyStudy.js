@@ -11,7 +11,12 @@ const visTypes = {
     "Mouseover": false
 };
 const letters = ["A", "B", "C", "D", "E", "F", "G"];
-const questionTypes = ["multiple", "multiple-text", "text", "click"];
+const questionTypes = [
+    "multiple",
+    "multiple-text",
+    "text",
+    "click"
+];
 const firstAnimatedID = 13;
 const mouseoverCoords = [
     [[480, 316], [588, 376], [617, 215], [675, 277]],
@@ -41,7 +46,7 @@ let inQuestionBlock = false;
 // let blockNumber = 0;
 // let trialNumber = 0;
 let studyOrder = [];
-// let answerType = "none";
+let answerType = "";
 // let answerSubType = "";
 // let instructions;
 
@@ -98,18 +103,18 @@ function startStudy() {
     instructionsStart();
 }
 
-// function endStudy() {
-//     // Download answers as local text file
-//     // var element = document.createElement('a');
-//     // element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(userReponses)));
-//     // element.setAttribute('download', "userResponses.txt");
+function endStudy() {
+    // Download answers as local text file
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(userReponses)));
+    element.setAttribute('download', "userResponses.txt");
 
-//     // element.style.display = 'none';
-//     // document.body.appendChild(element);
+    element.style.display = 'none';
+    document.body.appendChild(element);
 
-//     // element.click();
+    element.click();
 
-//     // document.body.removeChild(element);
+    document.body.removeChild(element);
 
 //     // Send answers to be stored in BOF
 //     let submitForm = document.createElement("form");
@@ -132,7 +137,7 @@ function startStudy() {
 //     submitBut.style.display = 'none';
 //     submitForm.append(submitBut);
 //     submitBut.click();
-// }
+}
 
 // function startBlock() {
 //     blockNumber++;
@@ -154,34 +159,35 @@ function startStudy() {
 //     }
 // }
 
-function startTrial() {
+function startTrial(qType) {
     clearUI();
     // trialNumber++;
     // console.log(trialNumber)
 
-    let newQuestion = questions[studyOrder[trialNumber - 1]];
-    answerType = newQuestion.answers.type;
+    let newQuestion = questions[qType][studyOrder[questionNumber]];
+    answerType = qType;
     if (answerType === "mouseover") {
         answerSubType = newQuestion.answers.values[0];
     }
     console.log(newQuestion)
 
     // Set study labels
-    document.getElementById("trialNumberLabel").textContent = "Question " + trialNumber + " of " + maxTrials;
+    document.getElementById("trialNumberLabel").textContent = "Question " + (questionNumber + 1) + " of " + questions[qType].length;
 
     // Set question text
     document.getElementById("questionText").textContent = newQuestion.question;
     // Set images and labels
     switch (newQuestion.image.length) {
         case 1:
-            document.getElementById("imageSingle").src = "images/" + newQuestion.image[0];
-            document.getElementById("imageSingleLabel").textContent = "";
+            document.getElementById("question-img1").src = "images/" + newQuestion.image[0];
+            // document.getElementById("imageSingleLabel").textContent = "";
             break;
         case 2:
-            document.getElementById("imageDouble1").src = "images/" + newQuestion.image[0];
-            document.getElementById("imageDouble2").src = "images/" + newQuestion.image[1];
-            document.getElementById("imageDoubleLabel1").textContent = "A";
-            document.getElementById("imageDoubleLabel2").textContent = "B";
+            document.getElementById("question-img1").src = "images/" + newQuestion.image[0];
+            document.getElementById("question-img2").src = "images/" + newQuestion.image[1];
+            document.getElementById("figcaption1").textContent = "Image A";
+            document.getElementById("figcaption2").textContent = "Image B";
+            document.getElementById("secondFigure").style.display = "block";
             break;
     }
 
@@ -317,87 +323,88 @@ function startTrial() {
     // User responses initialization
     currResponse = {
         questionID: newQuestion.id,
-        blockNumber: blockNumber,
-        trialNumber: trialNumber
+        questionBlock: qType,
+        trialNumber: questionNumber
     }
 
     trialStartTime = new Date().getTime();
 }
 
-// function endTrial(e) {
-//     e.preventDefault();
+function endTrial(e) {
+    e.preventDefault();
 
-//     let formData = new FormData(e.target);
-//     let formObj = Object.fromEntries(formData)
-//     console.log(formObj);
+    let formData = new FormData(e.target);
+    let formObj = Object.fromEntries(formData)
+    console.log(formObj);
 
-//     let ansType;
-//     if (answerType === "mouseover") {
-//         ansType = answerSubType;
-//     } else {
-//         ansType = answerType
-//     }
-//     switch (ansType) {
-//         case "multiple":
-//         case "range":
-//         case "text":
-//             if ("userAnswer" in formObj && formObj.userAnswer !== "") { // Check if user entered an answer
-//                 currResponse["userAnswer"] = formObj.userAnswer;
-//             } else {
-//                 alert("Please input an answer before submitting.");
-//                 return;
-//             }
-//             break;
-//         case "multiple-text":
-//             if ("userAnswer" in formObj && formObj.userAnswerText !== "") { // Check if user entered an answer
-//                 currResponse["userAnswer"] = formObj.userAnswer + ";" + formObj.userAnswerText;
-//             } else {
-//                 alert("Please input an answer before submitting.");
-//                 return;
-//             }
-//             break;
-//         case "draw":
-//             if (canvasPoints.length > 0) {
-//                 currResponse["userAnswer"] = canvasPoints;
-//             } else {
-//                 alert("Please input an answer before submitting.");
-//                 return;
-//             }
-//             break;
-//         case "click":
-//             if (canvasPoints.length > 0) {
-//                 currResponse["userAnswer"] = canvasPoints[canvasPoints.length - 1];
-//             } else {
-//                 alert("Please input an answer before submitting.");
-//                 return;
-//             }
-//             break;
-//         case "affective":
-//             if (!("userAnswer" in currResponse)) {
-//                 alert("Please input an answer before submitting.");
-//                 return;
-//             }
-//             break;
-//     }
-//     currResponse["completionTime"] = (new Date().getTime()) - trialStartTime;
-//     userReponses.push(currResponse);
-//     console.log(userReponses)
+    let ansType;
+    if (answerType === "mouseover") {
+        ansType = answerSubType;
+    } else {
+        ansType = answerType
+    }
+    switch (ansType) {
+        case "multiple":
+        case "range":
+        case "text":
+            if ("userAnswer" in formObj && formObj.userAnswer !== "") { // Check if user entered an answer
+                currResponse["userAnswer"] = formObj.userAnswer;
+            } else {
+                alert("Please input an answer before submitting.");
+                return;
+            }
+            break;
+        case "multiple-text":
+            if ("userAnswer" in formObj && formObj.userAnswerText !== "") { // Check if user entered an answer
+                currResponse["userAnswer"] = formObj.userAnswer + ";" + formObj.userAnswerText;
+            } else {
+                alert("Please input an answer before submitting.");
+                return;
+            }
+            break;
+        case "draw":
+            if (canvasPoints.length > 0) {
+                currResponse["userAnswer"] = canvasPoints;
+            } else {
+                alert("Please input an answer before submitting.");
+                return;
+            }
+            break;
+        case "click":
+            if (canvasPoints.length > 0) {
+                currResponse["userAnswer"] = canvasPoints[canvasPoints.length - 1];
+            } else {
+                alert("Please input an answer before submitting.");
+                return;
+            }
+            break;
+        case "affective":
+            if (!("userAnswer" in currResponse)) {
+                alert("Please input an answer before submitting.");
+                return;
+            }
+            break;
+    }
+    currResponse["completionTime"] = (new Date().getTime()) - trialStartTime;
+    userReponses.push(currResponse);
+    console.log(userReponses)
 
-//     clearUI();
+    clearUI();
 
-//     if (trialNumber < maxTrials) {
-//         console.log(questions[studyOrder[trialNumber]])
-//         if (questions[studyOrder[trialNumber]].id === firstAnimatedID) {
-//             showInstructions("Animated");
-//         } else if (visTypes[questions[studyOrder[trialNumber]].notes] || trialNumber + 1 > Object.keys(visTypes).length * 2) {
-//             startTrial();
-//         } else {
-//             showInstructions(questions[studyOrder[trialNumber]].notes);
-//         }
-//     } else {
-//         endBlock();
-//     }
-// }
+    questionNumber++;
+    if (questionNumber < questions[ansType].length) {
+        // console.log(questions[ansType][studyOrder[questionNumber]])
+        // if (questions[studyOrder[trialNumber]].id === firstAnimatedID) {
+        //     showInstructions("Animated");
+        // } else if (visTypes[questions[studyOrder[trialNumber]].notes] || trialNumber + 1 > Object.keys(visTypes).length * 2) {
+        startTrial(ansType);
+        // } else {
+        //     showInstructions(questions[studyOrder[trialNumber]].notes);
+        // }
+    } else {
+        endQuestionBlock();
+    }
+}
 
 // function showInstructions(type) {
 //     // console.log(type)
@@ -453,7 +460,16 @@ function startQuestionBlock(qType) {
     // console.log(studyOrder)
 
     questionNumber = 0;
-    startTrial();
+    startTrial(qType);
+}
+
+function endQuestionBlock() {
+    questionBlockNumber++;
+    if (questionBlockNumber < questionTypes.length) {
+        instructionsQuestion(questionTypes[questionBlockNumber]);
+    } else {
+        endStudy();
+    }
 }
 
 function instructionsButton() {
@@ -510,12 +526,15 @@ function clearInstructions() {
 }
 
 function clearUI() {
-    // answerType = "none";
+    answerType = "";
     // answerSubType = "";
 
-    document.getElementById("imageSingle").src = "";
-    document.getElementById("imageDouble1").src = "";
-    document.getElementById("imageDouble2").src = "";
+    document.getElementById("question-img1").src = "";
+    document.getElementById("question-img2").src = "";
+    document.getElementById("figcaption1").textContent = "";
+    document.getElementById("figcaption2").textContent = "";
+    document.getElementById("secondFigure").style.display = "none";
+    // document.getElementById("imageDouble2").src = "";
     // document.getElementById("imageSingleLabel").textContent = "";
     // document.getElementById("imageDoubleLabel1").textContent = "";
     // document.getElementById("imageDoubleLabel2").textContent = "";
@@ -548,27 +567,27 @@ function clearCanvas() {
 //     ctx.closePath();
 // }
 
-// function drawCircle() {
-//     // Draw circle
-//     ctx.beginPath();
-//     ctx.arc(currX, currY, 10, 0, 2 * Math.PI, false);
-//     // ctx.fillStyle = 'green';
-//     // ctx.fill();
-//     ctx.lineWidth = 5;
-//     ctx.strokeStyle = '#003300';
-//     ctx.stroke();
+function drawCircle() {
+    // Draw circle
+    ctx.beginPath();
+    ctx.arc(currX, currY, 10, 0, 2 * Math.PI, false);
+    // ctx.fillStyle = 'green';
+    // ctx.fill();
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = '#003300';
+    ctx.stroke();
 
-//     // Draw target lines
-//     ctx.strokeStyle = "black";
-//     ctx.lineWidth = 2;
-//     ctx.moveTo(currX - 15, currY);
-//     ctx.lineTo(currX + 15, currY);
-//     ctx.stroke();
-//     ctx.moveTo(currX, currY - 15);
-//     ctx.lineTo(currX, currY + 15);
-//     ctx.stroke();
-//     ctx.closePath();
-// }
+    // Draw target lines
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 2;
+    ctx.moveTo(currX - 15, currY);
+    ctx.lineTo(currX + 15, currY);
+    ctx.stroke();
+    ctx.moveTo(currX, currY - 15);
+    ctx.lineTo(currX, currY + 15);
+    ctx.stroke();
+    ctx.closePath();
+}
 
 // function drawTooltip() {
 //     ctx.beginPath();
