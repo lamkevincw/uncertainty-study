@@ -15,14 +15,15 @@ const questionTypes = [
     "multiple",
     "multiple-text",
     "text",
-    "click"
+    "click",
+    "mouseover"
 ];
 const firstAnimatedID = 13;
 const mouseoverCoords = [
-    [[480, 316], [588, 376], [617, 215], [675, 277]],
-    [[518, 258], [609, 269], [656, 206], [703, 268]],
-    [[540, 376], [610, 255], [627, 356], [643, 188]],
-    [[523, 285], [540, 398], [578, 244], [663, 328]]
+    [[535, 302], [616, 347], [638, 227], [682, 272]],
+    [[564, 258], [632, 266], [666, 217], [702, 265]],
+    [[580, 346], [632, 256], [644, 330], [657, 205]],
+    [[568, 278], [580, 363], [608, 248], [673, 310]]
 ];
 const affectChart = ["Enraged", "Panicked", "Stressed", "Jittery", "Shocked", "Surprised", "Upbeat", "Festive", "Exhilarated", "Ecstatic",
     "Livid", "Furious", "Frustrated", "Tense", "Stunned", "Hyper", "Cheerful", "Motivated", "Ispired", "Elated",
@@ -46,8 +47,9 @@ let inQuestionBlock = false;
 // let blockNumber = 0;
 // let trialNumber = 0;
 let studyOrder = [];
+let blockOrder = [];
 let answerType = "";
-// let answerSubType = "";
+let answerSubType = "";
 // let instructions;
 
 // Canvas variables
@@ -105,38 +107,38 @@ function startStudy() {
 
 function endStudy() {
     // Download answers as local text file
-    var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(userReponses)));
-    element.setAttribute('download', "userResponses.txt");
+    // var element = document.createElement('a');
+    // element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(userReponses)));
+    // element.setAttribute('download', "userResponses.txt");
 
-    element.style.display = 'none';
-    document.body.appendChild(element);
+    // element.style.display = 'none';
+    // document.body.appendChild(element);
 
-    element.click();
+    // element.click();
 
-    document.body.removeChild(element);
+    // document.body.removeChild(element);
 
-//     // Send answers to be stored in BOF
-//     let submitForm = document.createElement("form");
-//     submitForm.setAttribute("action", "#");
-//     submitForm.setAttribute("method", "post");
-//     submitForm.style.display = 'none';
-//     document.body.append(submitForm);
+        // Send answers to be stored in BOF
+        let submitForm = document.createElement("form");
+        submitForm.setAttribute("action", "#");
+        submitForm.setAttribute("method", "post");
+        submitForm.style.display = 'none';
+        document.body.append(submitForm);
 
-//     let submitResponses = document.createElement("input");
-//     submitResponses.setAttribute("type", "text");
-//     submitResponses.setAttribute("value", JSON.stringify(userReponses));
-//     submitResponses.setAttribute("name", "participantResponses");
-//     submitResponses.style.display = 'none';
-//     submitForm.append(submitResponses);
+        let submitResponses = document.createElement("input");
+        submitResponses.setAttribute("type", "text");
+        submitResponses.setAttribute("value", JSON.stringify(userReponses));
+        submitResponses.setAttribute("name", "participantResponses");
+        submitResponses.style.display = 'none';
+        submitForm.append(submitResponses);
 
-//     let submitBut = document.createElement("input");
-//     submitBut.setAttribute("type", "submit");
-//     submitBut.setAttribute("name", "submitButton");
-//     submitBut.setAttribute("value", "Continue");
-//     submitBut.style.display = 'none';
-//     submitForm.append(submitBut);
-//     submitBut.click();
+        let submitBut = document.createElement("input");
+        submitBut.setAttribute("type", "submit");
+        submitBut.setAttribute("name", "submitButton");
+        submitBut.setAttribute("value", "Continue");
+        submitBut.style.display = 'none';
+        submitForm.append(submitBut);
+        submitBut.click();
 }
 
 // function startBlock() {
@@ -338,8 +340,10 @@ function endTrial(e) {
     console.log(formObj);
 
     let ansType;
+    let mouseoverType = false;
     if (answerType === "mouseover") {
         ansType = answerSubType;
+        mouseoverType = true;
     } else {
         ansType = answerType
     }
@@ -392,52 +396,20 @@ function endTrial(e) {
     clearUI();
 
     questionNumber++;
-    if (questionNumber < questions[ansType].length) {
-        // console.log(questions[ansType][studyOrder[questionNumber]])
-        // if (questions[studyOrder[trialNumber]].id === firstAnimatedID) {
-        //     showInstructions("Animated");
-        // } else if (visTypes[questions[studyOrder[trialNumber]].notes] || trialNumber + 1 > Object.keys(visTypes).length * 2) {
-        startTrial(ansType);
-        // } else {
-        //     showInstructions(questions[studyOrder[trialNumber]].notes);
-        // }
+    if (mouseoverType) {
+        if (questionNumber < questions["mouseover"].length) {
+            startTrial("mouseover");
+        } else {
+            endQuestionBlock();
+        }
     } else {
-        endQuestionBlock();
+        if (questionNumber < questions[ansType].length) {
+            startTrial(ansType);
+        } else {
+            endQuestionBlock();
+        }
     }
 }
-
-// function showInstructions(type) {
-//     // console.log(type)
-//     let imageIndex = Object.keys(visTypes).indexOf(type);
-//     if (type === "Animated") {
-//         imageIndex = 7;
-//     } else {
-//         visTypes[type] = true;
-//     }
-
-//     instructions = document.createElement("div");
-//     instructions.className = "instructionsDiv";
-//     // instructions.style.width = window.innerWidth - 80;
-//     // instructions.style.height = 900;
-
-//     let instructImage = document.createElement("img");
-//     instructImage.className = "instructImage";
-//     instructImage.src = "images/instruct" + (imageIndex + 1) + (type === "Animated" ? ".gif" : ".png");
-//     instructions.append(instructImage);
-
-//     let instructText = document.createElement("span");
-//     instructText.textContent = instructionText[type];
-//     instructText.className = "instructText";
-//     instructions.append(instructText);
-
-//     let instructButton = document.createElement("button");
-//     instructButton.className = "instructButton";
-//     instructButton.textContent = "Continue";
-//     instructButton.onclick = instructionsButton;
-//     instructions.append(instructButton);
-
-//     document.body.append(instructions);
-// }
 
 function startQuestionBlock(qType) {
     // Set up study order here
@@ -457,7 +429,7 @@ function startQuestionBlock(qType) {
             studyOrder.push(shuffledOrder[j]);
         }
     }
-    // console.log(studyOrder)
+    console.log(studyOrder)
 
     questionNumber = 0;
     startTrial(qType);
@@ -479,7 +451,7 @@ function instructionsButton() {
     // alert("Clicked");
     clearInstructions();
     instructNumber++;
-    if (instructNumber < 1) { // 7
+    if (instructNumber < 7) { // 7
         instructionsVis();
     } else if (!inQuestionBlock) {
         questionBlockNumber++;
@@ -527,7 +499,7 @@ function clearInstructions() {
 
 function clearUI() {
     answerType = "";
-    // answerSubType = "";
+    answerSubType = "";
 
     document.getElementById("question-img1").src = "";
     document.getElementById("question-img2").src = "";
@@ -589,21 +561,21 @@ function drawCircle() {
     ctx.closePath();
 }
 
-// function drawTooltip() {
-//     ctx.beginPath();
-//     ctx.fillStyle = "white";
-//     ctx.strokeStyle = "black";
-//     ctx.fillRect(currX + 10, currY + 10, 150, 50);
+function drawTooltip() {
+    ctx.beginPath();
+    ctx.fillStyle = "white";
+    ctx.strokeStyle = "black";
+    ctx.fillRect(currX + 10, currY + 10, 150, 50);
 
-//     ctx.fillStyle = "black";
-//     ctx.font = "14px sans-serif";
-//     ctx.fillText("Model Certainty:", currX + 30, currY + 30);
-//     ctx.fillText(
-//         // currX + ", " + currY + ", " +
-//         Math.max(100 - Math.round(minimumDistance(currX, currY)), 0) + "%", currX + 30, currY + 50
-//     );
-//     ctx.closePath();
-// }
+    ctx.fillStyle = "black";
+    ctx.font = "14px sans-serif";
+    ctx.fillText("Model Certainty:", currX + 30, currY + 30);
+    ctx.fillText(
+        currX + ", " + currY + ", " +
+        Math.max(100 - Math.round(minimumDistance(currX, currY)), 0) + "%", currX + 30, currY + 50
+    );
+    ctx.closePath();
+}
 
 
 
@@ -678,43 +650,43 @@ function getXY(mode, e) {
 //     currResponse["userAnswer"] = e.target.textContent;
 // }
 
-// function shuffleArray(array) {
-//     let sorted = array.slice(0);
-//     for (let i = sorted.length - 1; i > 0; i--) {
-//         const j = Math.floor(Math.random() * (i + 1));
-//         [sorted[i], sorted[j]] = [sorted[j], sorted[i]];
-//     }
-//     return sorted;
-// }
+function shuffleArray(array) {
+    let sorted = array.slice(0);
+    for (let i = sorted.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [sorted[i], sorted[j]] = [sorted[j], sorted[i]];
+    }
+    return sorted;
+}
 
-// function minimumDistance(x, y) {
-//     let min = Number.MAX_SAFE_INTEGER;
-//     let coords;
-//     if (questions[studyOrder[trialNumber - 1]].image[0] === "mouseover1.png" ||
-//         questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit1.png" ||
-//         questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit2.png") {
-//         coords = mouseoverCoords[0];
-//     } else if (questions[studyOrder[trialNumber - 1]].image[0] === "mouseover2.png" ||
-//         questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit3.png" ||
-//         questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit4.png") {
-//         coords = mouseoverCoords[1];
-//     } else if (questions[studyOrder[trialNumber - 1]].image[0] === "mouseover3.png" ||
-//         questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit5.png" ||
-//         questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit6.png") {
-//         coords = mouseoverCoords[2];
-//     } else if (questions[studyOrder[trialNumber - 1]].image[0] === "mouseover4.png" ||
-//         questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit7.png" ||
-//         questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit8.png") {
-//         coords = mouseoverCoords[3];
-//     }
-//     for (let i = 0; i < coords.length; i++) {
-//         let r = Math.sqrt(Math.pow(x - coords[i][0], 2) + Math.pow(y - coords[i][1], 2)) * 1.3;
-//         if (r < min) {
-//             min = r;
-//         }
-//     }
-//     return min;
-// }
+function minimumDistance(x, y) {
+    let min = Number.MAX_SAFE_INTEGER;
+    let coords;
+    if (questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover1.png" ||
+        questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover-edit1.png" ||
+        questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover-edit2.png") {
+        coords = mouseoverCoords[0];
+    } else if (questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover2.png" ||
+        questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover-edit3.png" ||
+        questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover-edit4.png") {
+        coords = mouseoverCoords[1];
+    } else if (questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover3.png" ||
+        questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover-edit5.png" ||
+        questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover-edit6.png") {
+        coords = mouseoverCoords[2];
+    } else if (questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover4.png" ||
+        questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover-edit7.png" ||
+        questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover-edit8.png") {
+        coords = mouseoverCoords[3];
+    }
+    for (let i = 0; i < coords.length; i++) {
+        let r = Math.sqrt(Math.pow(x - coords[i][0], 2) + Math.pow(y - coords[i][1], 2)) * 1.3;
+        if (r < min) {
+            min = r;
+        }
+    }
+    return min;
+}
 
 setup();
 startStudy();

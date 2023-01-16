@@ -5,64 +5,55 @@
 {% block content %}
 
 <style>
+    * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
     .answerBox {
-        position: absolute;
-        top: 200px;
-        left: 50%;
-        transform: translate(-50%, 0);
-        height: 260px;
+        margin: auto;
         width: 1250px;
         border: 1px solid black;
-        padding: 15px;
+        padding: 30px 0px;
         font-family: Verdana, sans-serif;
     }
 
     .answerCanvas {
-        position: absolute;
-        top: 550px;
-        left: 50%;
-        transform: translate(-50%, 0);
-        /* border: 1px solid red; */
+        margin: 30px auto 10px auto;
     }
 
     .answersForm {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 600px;
+        margin: auto;
+        width: 90%;
         display: flex;
         justify-content: center;
         align-items: center;
         font-family: Verdana, sans-serif;
     }
 
-    .answerLabel {
-        width: 24px;
+    .layered {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .layered>* {
+        grid-column-start: 1;
+        grid-row-start: 1;
     }
 
     .body {
         font-family: Verdana, sans-serif;
     }
 
-    .doubleImg {
-        max-height: 600px;
-        /* max-width: 900px; */
-        flex: 50%;
-    }
-
     .imageDiv {
-        position: absolute;
-        top: 550px;
-        left: 50%;
-        transform: translate(-50%, 0);
+        margin: 30px auto;
         height: 600px;
-        /* border: 1px solid black; */
         display: flex;
-        padding-bottom: 100px;
     }
 
-    .imageDoubleLabel {
+    /* .imageDoubleLabel {
         margin-left: 300px;
         margin-right: 300px;
     }
@@ -91,53 +82,114 @@
         height: 900px;
         border: 10px solid black;
         background-color: white;
+    } */
+
+    .imgDiv {
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .questionFigure {
+        max-width: 800px;
+        margin: auto;
+        flex: 50%;
+    }
+
+    .questionImage {
+        margin: 10px auto;
+        max-width: 800px;
+        max-height: 600px;
     }
 
     .instructImage {
-        position: absolute;
-        top: 5%;
-        left: 50%;
-        transform: translate(-50%, 0);
-        height: 550px;
+        margin: 10px auto;
+        max-height: 400px;
         max-width: 1000px;
     }
 
+    .imageCaption {
+        text-align: center;
+    }
+
     .instructText {
-        position: absolute;
-        top: 650px;
-        left: 50%;
-        transform: translate(-50%, 0);
-        width: 80%;
         font-size: large;
         white-space: pre-line;
     }
 
     .instructButton {
-        position: absolute;
-        bottom: 25px;
-        left: 50%;
-        transform: translate(-50%, 0);
+        margin: 20px auto 0px auto;
         font-size: larger;
     }
 
-    .multipleChoiceAnswer {
-        margin-left: 30px;
+    .instructTitle {
+        margin: 0 auto;
+        font-size: x-large;
     }
 
-    .multipleChoiceLabel {
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+
+    .modal-body {
+        display: none;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 80px auto;
+        /* 15% from the top and centered */
+        padding: 40px;
+        border: 1px solid #888;
+        width: 90%;
+        /* Could be more or less, depending on screen size */
+    }
+
+    .modal-footer {
+        margin-top: 20px;
+        background-color: #fefefe;
         display: flex;
         align-items: center;
     }
 
+    .titleDiv {
+        display: flex;
+        align-items: center;
+    }
+
+    .multipleChoiceAnswer {
+        margin: 0 5px 0 0;
+    }
+
+    .multipleChoiceLabel {
+        margin: 0 30px 0 0;
+        text-align: center;
+    }
+
     .questionBox {
-        position: absolute;
-        top: 80px;
-        left: 50%;
-        transform: translate(-50%, 0);
+        margin: 80px auto 30px auto;
         width: 60%;
         border: 1px solid black;
         padding: 30px;
         font-family: Verdana, sans-serif;
+        text-align: center;
     }
 
     .questionText {
@@ -145,29 +197,21 @@
         white-space: pre-line;
     }
 
-    .rangeAnswer {
+    /* .rangeAnswer {
         width: 300px;
         vertical-align: middle;
         margin-right: 20px;
-    }
+    }  */
 
     .reasonBoxAnswer {
         width: 500px;
-        height: 150px;
-        margin-left: 8px;
+        height: 100px;
+        margin: auto 10px;
         resize: none;
     }
 
     .reasonLabel {
-        margin-left: 32px;
-    }
-
-    .singleImg {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%, 0);
-        height: 600px;
+        margin: 0 0px 0 0;
     }
 
     .studyNumbers {
@@ -179,13 +223,14 @@
     }
 
     .submitButton {
-        max-height: 30px;
-        margin-left: 60px;
-        margin-right: 60px;
+        margin: auto 10px;
         font-size: 14px;
     }
 
     .textboxAnswer {
+        width: 500px;
+        height: 100px;
+        margin: auto 10px;
         resize: none;
     }
 </style>
@@ -203,18 +248,76 @@
     <form id="answersForm" class="answersForm" name="answersForm" onsubmit="endTrial(event)"></form>
 </div>
 
-<div class="imageLabelDiv">
+<!-- <div class="imageLabelDiv">
     <label id="imageSingleLabel" class="imageSingleLabel"></label>
     <label id="imageDoubleLabel1" class="imageDoubleLabel"></label>
     <label id="imageDoubleLabel2" class="imageDoubleLabel"></label>
-</div>
-<div class="imageDiv">
-    <img id="imageSingle" src="" class="singleImg" />
-    <img id="imageDouble1" src="" class="doubleImg" />
-    <img id="imageDouble2" src="" class="doubleImg" />
+</div> -->
+<div class="layered">
+    <div class="imageDiv">
+        <figure class="questionFigure">
+            <img id="question-img1" src="" class="questionImage" />
+            <figcaption id="figcaption1" class="imageCaption"></figcaption>
+        </figure>
+        <figure id="secondFigure" class="questionFigure">
+            <img id="question-img2" src="" class="questionImage" />
+            <figcaption id="figcaption2" class="imageCaption"></figcaption>
+        </figure>
+        <!-- <img id="imageDouble1" src="" class="doubleImg" />
+    <img id="imageDouble2" src="" class="doubleImg" /> -->
+    </div>
+    <canvas id="answerCanvas" class="answerCanvas" width="1250" height="600"></canvas>
 </div>
 
-<canvas id="answerCanvas" class="answerCanvas" width="1200" height="600"></canvas>
+
+
+<div id="instructionsModal" class="modal">
+    <div class="modal-content">
+        <!--Start Page-->
+        <div id="start-page" class="modal-body">
+            <span id="start-text1" class="instructText"></span>
+            <div class="imgDiv">
+                <img id="start-img1" class="instructImage" />
+            </div>
+            <span id="start-text2" class="instructText"></span>
+            <div class="imgDiv">
+                <img id="start-img2" class="instructImage" />
+                <img id="start-img3" class="instructImage" />
+            </div>
+            <span id="start-text3" class="instructText"></span>
+        </div>
+        <!--Vis Type Pages-->
+        <div id="vis-instructions" class="modal-body">
+            <div class="titleDiv">
+                <span id="vis-title" class="instructTitle"></span>
+            </div>
+            <div class="imgDiv" style="margin-bottom: 60px;">
+                <figure class="instructImage">
+                    <img id="vis-img1" class="instructImage" />
+                    <figcaption class="imageCaption">Variant 1</figcaption>
+                </figure>
+                <figure class="instructImage">
+                    <img id="vis-img2" class="instructImage" />
+                    <figcaption class="imageCaption">Variant 2</figcaption>
+                </figure>
+            </div>
+            <span id="vis-text" class="instructText"></span>
+        </div>
+        <!--Question Pages-->
+        <div id="question-instructions" class="modal-body">
+            <div class="titleDiv">
+                <span id="question-title" class="instructTitle"></span>
+            </div>
+            <div class="imgDiv">
+                <img id="question-img" class="instructImage" />
+            </div>
+            <span id="question-text" class="instructText"></span>
+        </div>
+        <div class="modal-footer">
+            <button class="instructButton" onclick="instructionsButton()">Continue</button>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript">
     participantID = {{ pID }};

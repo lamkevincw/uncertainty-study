@@ -10,12 +10,20 @@ const visTypes = {
     "Separate": false,
     "Mouseover": false
 };
+const letters = ["A", "B", "C", "D", "E", "F", "G"];
+const questionTypes = [
+    "multiple",
+    "multiple-text",
+    "text",
+    "click",
+    "mouseover"
+];
 const firstAnimatedID = 13;
 const mouseoverCoords = [
-    [[480, 316], [588, 376], [617, 215], [675, 277]],
-    [[518, 258], [609, 269], [656, 206], [703, 268]],
-    [[540, 376], [610, 255], [627, 356], [643, 188]],
-    [[523, 285], [540, 398], [578, 244], [663, 328]]
+    [[535, 302], [616, 347], [638, 227], [682, 272]],
+    [[564, 258], [632, 266], [666, 217], [702, 265]],
+    [[580, 346], [632, 256], [644, 330], [657, 205]],
+    [[568, 278], [580, 363], [608, 248], [673, 310]]
 ];
 const affectChart = ["Enraged", "Panicked", "Stressed", "Jittery", "Shocked", "Surprised", "Upbeat", "Festive", "Exhilarated", "Ecstatic",
     "Livid", "Furious", "Frustrated", "Tense", "Stunned", "Hyper", "Cheerful", "Motivated", "Ispired", "Elated",
@@ -28,13 +36,21 @@ const affectChart = ["Enraged", "Panicked", "Stressed", "Jittery", "Shocked", "S
     "Despondent", "Depressed", "Sullen", "Exhausted", "Fatigued", "Mellow", "Thoughtful", "Peaceful", "Comfy", "Carefree",
     "Despair", "Hopeless", "Desolate", "Spent", "Drained", "Sleepy", "Complacent", "Tranquil", "Cozy", "Serene"];
 
+// HTML variables
+let modal = document.getElementById("instructionsModal");
+
 // Study control variables
-let blockNumber = 0;
-let trialNumber = 0;
+let instructNumber = -1;
+let questionBlockNumber = -1;
+let questionNumber = 0;
+let inQuestionBlock = false;
+// let blockNumber = 0;
+// let trialNumber = 0;
 let studyOrder = [];
-let answerType = "none";
+let blockOrder = [];
+let answerType = "";
 let answerSubType = "";
-let instructions;
+// let instructions;
 
 // Canvas variables
 let canvas;
@@ -52,24 +68,27 @@ let canvasPoints = [];
 let trialStartTime;
 
 function setup() {
+
+
+
     // Set up study order here
-    let questionOrder = {};
-    for (let i = 0; i < questions.length; i++) {
-        if (questions[i].orderGroup in questionOrder) {
-            questionOrder[questions[i].orderGroup].push(i);
-        } else {
-            questionOrder[questions[i].orderGroup] = [i]
-        }
-    }
-    let sortedKeys = Object.keys(questionOrder).sort();
-    for (let i = 0; i < sortedKeys.length; i++) {
-        // let shuffledOrder = shuffleArray(questionOrder[sortedKeys[i]]);
-        let shuffledOrder = questionOrder[sortedKeys[i]];
-        for (let j = 0; j < shuffledOrder.length; j++) {
-            studyOrder.push(shuffledOrder[j]);
-        }
-    }
-    console.log(studyOrder)
+    // let questionOrder = {};
+    // for (let i = 0; i < questions.length; i++) {
+    //     if (questions[i].orderGroup in questionOrder) {
+    //         questionOrder[questions[i].orderGroup].push(i);
+    //     } else {
+    //         questionOrder[questions[i].orderGroup] = [i]
+    //     }
+    // }
+    // let sortedKeys = Object.keys(questionOrder).sort();
+    // for (let i = 0; i < sortedKeys.length; i++) {
+    //     // let shuffledOrder = shuffleArray(questionOrder[sortedKeys[i]]);
+    //     let shuffledOrder = questionOrder[sortedKeys[i]];
+    //     for (let j = 0; j < shuffledOrder.length; j++) {
+    //         studyOrder.push(shuffledOrder[j]);
+    //     }
+    // }
+    // console.log(studyOrder)
 
     // Set up event listeners
     canvas = document.getElementById("answerCanvas");
@@ -81,8 +100,9 @@ function setup() {
 }
 
 function startStudy() {
-    blockNumber = 0;
-    startBlock();
+    // blockNumber = 0;
+    // startBlock();
+    instructionsStart();
 }
 
 function endStudy() {
@@ -98,76 +118,78 @@ function endStudy() {
 
     // document.body.removeChild(element);
 
-    // Send answers to be stored in BOF
-    let submitForm = document.createElement("form");
-    submitForm.setAttribute("action", "#");
-    submitForm.setAttribute("method", "post");
-    submitForm.style.display = 'none';
-    document.body.append(submitForm);
+        // Send answers to be stored in BOF
+        let submitForm = document.createElement("form");
+        submitForm.setAttribute("action", "#");
+        submitForm.setAttribute("method", "post");
+        submitForm.style.display = 'none';
+        document.body.append(submitForm);
 
-    let submitResponses = document.createElement("input");
-    submitResponses.setAttribute("type", "text");
-    submitResponses.setAttribute("value", JSON.stringify(userReponses));
-    submitResponses.setAttribute("name", "participantResponses");
-    submitResponses.style.display = 'none';
-    submitForm.append(submitResponses);
+        let submitResponses = document.createElement("input");
+        submitResponses.setAttribute("type", "text");
+        submitResponses.setAttribute("value", JSON.stringify(userReponses));
+        submitResponses.setAttribute("name", "participantResponses");
+        submitResponses.style.display = 'none';
+        submitForm.append(submitResponses);
 
-    let submitBut = document.createElement("input");
-    submitBut.setAttribute("type", "submit");
-    submitBut.setAttribute("name", "submitButton");
-    submitBut.setAttribute("value", "Continue");
-    submitBut.style.display = 'none';
-    submitForm.append(submitBut);
-    submitBut.click();
+        let submitBut = document.createElement("input");
+        submitBut.setAttribute("type", "submit");
+        submitBut.setAttribute("name", "submitButton");
+        submitBut.setAttribute("value", "Continue");
+        submitBut.style.display = 'none';
+        submitForm.append(submitBut);
+        submitBut.click();
 }
 
-function startBlock() {
-    blockNumber++;
-    trialNumber = 0;
+// function startBlock() {
+//     blockNumber++;
+//     trialNumber = 0;
 
-    if (studyOrder[0] === firstAnimatedID) {
-        showInstructions("Animated");
-    } else {
-        showInstructions(questions[studyOrder[0]].notes);
-    }
-    // startTrial();
-}
+//     if (studyOrder[0] === firstAnimatedID) {
+//         showInstructions("Animated");
+//     } else {
+//         showInstructions(questions[studyOrder[0]].notes);
+//     }
+//     // startTrial();
+// }
 
-function endBlock() {
-    if (blockNumber < maxBlocks) {
-        startBlock();
-    } else {
-        endStudy();
-    }
-}
+// function endBlock() {
+//     if (blockNumber < maxBlocks) {
+//         startBlock();
+//     } else {
+//         endStudy();
+//     }
+// }
 
-function startTrial() {
+function startTrial(qType) {
     clearUI();
-    trialNumber++;
+    // trialNumber++;
+    // console.log(trialNumber)
 
-    let newQuestion = questions[studyOrder[trialNumber - 1]];
-    answerType = newQuestion.answers.type;
+    let newQuestion = questions[qType][studyOrder[questionNumber]];
+    answerType = qType;
     if (answerType === "mouseover") {
         answerSubType = newQuestion.answers.values[0];
     }
     console.log(newQuestion)
 
     // Set study labels
-    document.getElementById("trialNumberLabel").textContent = "Question " + trialNumber + " of " + maxTrials;
+    document.getElementById("trialNumberLabel").textContent = "Question " + (questionNumber + 1) + " of " + questions[qType].length;
 
     // Set question text
     document.getElementById("questionText").textContent = newQuestion.question;
     // Set images and labels
     switch (newQuestion.image.length) {
         case 1:
-            document.getElementById("imageSingle").src = window.origin + "/my_blueprint/images/" + newQuestion.image[0];
-            document.getElementById("imageSingleLabel").textContent = "";
+            document.getElementById("question-img1").src = window.origin + "/my_blueprint/images/" + newQuestion.image[0];
+            // document.getElementById("imageSingleLabel").textContent = "";
             break;
         case 2:
-            document.getElementById("imageDouble1").src = window.origin + "/my_blueprint/images/" + newQuestion.image[0];
-            document.getElementById("imageDouble2").src = window.origin + "/my_blueprint/images/" + newQuestion.image[1];
-            document.getElementById("imageDoubleLabel1").textContent = "A";
-            document.getElementById("imageDoubleLabel2").textContent = "B";
+            document.getElementById("question-img1").src = window.origin + "/my_blueprint/images/" + newQuestion.image[0];
+            document.getElementById("question-img2").src = window.origin + "/my_blueprint/images/" + newQuestion.image[1];
+            document.getElementById("figcaption1").textContent = "Image A";
+            document.getElementById("figcaption2").textContent = "Image B";
+            document.getElementById("secondFigure").style.display = "block";
             break;
     }
 
@@ -303,8 +325,8 @@ function startTrial() {
     // User responses initialization
     currResponse = {
         questionID: newQuestion.id,
-        blockNumber: blockNumber,
-        trialNumber: trialNumber
+        questionBlock: qType,
+        trialNumber: questionNumber
     }
 
     trialStartTime = new Date().getTime();
@@ -318,8 +340,10 @@ function endTrial(e) {
     console.log(formObj);
 
     let ansType;
+    let mouseoverType = false;
     if (answerType === "mouseover") {
         ansType = answerSubType;
+        mouseoverType = true;
     } else {
         ansType = answerType
     }
@@ -371,69 +395,121 @@ function endTrial(e) {
 
     clearUI();
 
-    if (trialNumber < maxTrials) {
-        console.log(questions[studyOrder[trialNumber]])
-        if (questions[studyOrder[trialNumber]].id === firstAnimatedID) {
-            showInstructions("Animated");
-        } else if (visTypes[questions[studyOrder[trialNumber]].notes] || trialNumber + 1 > Object.keys(visTypes).length * 2) {
-            startTrial();
+    questionNumber++;
+    if (mouseoverType) {
+        if (questionNumber < questions["mouseover"].length) {
+            startTrial("mouseover");
         } else {
-            showInstructions(questions[studyOrder[trialNumber]].notes);
+            endQuestionBlock();
         }
     } else {
-        endBlock();
+        if (questionNumber < questions[ansType].length) {
+            startTrial(ansType);
+        } else {
+            endQuestionBlock();
+        }
     }
 }
 
-function showInstructions(type) {
-    // console.log(type)
-    let imageIndex = Object.keys(visTypes).indexOf(type);
-    if (type === "Animated") {
-        imageIndex = 7;
-    } else {
-        visTypes[type] = true;
+function startQuestionBlock(qType) {
+    // Set up study order here
+    let questionOrder = {};
+    for (let i = 0; i < questions[qType].length; i++) {
+        if (questions[qType][i].orderGroup in questionOrder) {
+            questionOrder[questions[qType][i].orderGroup].push(i);
+        } else {
+            questionOrder[questions[qType][i].orderGroup] = [i]
+        }
     }
+    let sortedKeys = Object.keys(questionOrder).sort();
+    for (let i = 0; i < sortedKeys.length; i++) {
+        // let shuffledOrder = shuffleArray(questionOrder[sortedKeys[i]]);
+        let shuffledOrder = questionOrder[sortedKeys[i]];
+        for (let j = 0; j < shuffledOrder.length; j++) {
+            studyOrder.push(shuffledOrder[j]);
+        }
+    }
+    console.log(studyOrder)
 
-    instructions = document.createElement("div");
-    instructions.className = "instructionsDiv";
-    // instructions.style.width = window.innerWidth - 80;
-    // instructions.style.height = 900;
+    questionNumber = 0;
+    startTrial(qType);
+}
 
-    let instructImage = document.createElement("img");
-    instructImage.className = "instructImage";
-    instructImage.src = window.origin + "/my_blueprint/images/instruct" + (imageIndex + 1) + (type === "Animated" ? ".gif" : ".png");
-    instructions.append(instructImage);
-
-    let instructText = document.createElement("span");
-    instructText.textContent = instructionText[type];
-    instructText.className = "instructText";
-    instructions.append(instructText);
-
-    let instructButton = document.createElement("button");
-    instructButton.className = "instructButton";
-    instructButton.textContent = "Continue";
-    instructButton.onclick = instructionsButton;
-    instructions.append(instructButton);
-
-    document.body.append(instructions);
+function endQuestionBlock() {
+    questionBlockNumber++;
+    if (questionBlockNumber < questionTypes.length) {
+        instructionsQuestion(questionTypes[questionBlockNumber]);
+    } else {
+        endStudy();
+    }
 }
 
 function instructionsButton() {
-    document.body.removeChild(instructions);
-    // console.log(visTypes)
-    startTrial();
+    // document.body.removeChild(instructions);
+    // // console.log(visTypes)
+    // startTrial();
+    // alert("Clicked");
+    clearInstructions();
+    instructNumber++;
+    if (instructNumber < 7) { // 7
+        instructionsVis();
+    } else if (!inQuestionBlock) {
+        questionBlockNumber++;
+        inQuestionBlock = true;
+        instructionsQuestion(questionTypes[questionBlockNumber]);
+    } else {
+        startQuestionBlock(questionTypes[questionBlockNumber]);
+    }
+}
+
+function instructionsStart() {
+    modal.style.display = "block";
+    document.getElementById("start-page").style.display = "block";
+    document.getElementById("start-text1").textContent = instructionText.startPage["text-1"];
+    document.getElementById("start-text2").textContent = instructionText.startPage["text-2"];
+    document.getElementById("start-text3").textContent = instructionText.startPage["text-3"];
+    document.getElementById("start-img1").src = window.origin + "/my_blueprint/images/" + instructionText.startPage["img-1"];
+    document.getElementById("start-img2").src = window.origin + "/my_blueprint/images/" + instructionText.startPage["img-2"];
+    document.getElementById("start-img3").src = window.origin + "/my_blueprint/images/" + instructionText.startPage["img-3"];
+}
+
+function instructionsVis() {
+    modal.style.display = "block";
+    document.getElementById("vis-instructions").style.display = "block";
+    document.getElementById("vis-title").textContent = "Type " + letters[instructNumber];
+    document.getElementById("vis-text").textContent = instructionText.visPage[instructNumber]["text"];
+    document.getElementById("vis-img1").src = window.origin + "/my_blueprint/images/" + instructionText.visPage[instructNumber]["img-1"];
+    document.getElementById("vis-img2").src = window.origin + "/my_blueprint/images/" + instructionText.visPage[instructNumber]["img-2"];
+}
+
+function instructionsQuestion(qType) {
+    modal.style.display = "block";
+    document.getElementById("question-instructions").style.display = "block";
+    document.getElementById("question-title").textContent = instructionText.questionPage[qType]["name"];
+    document.getElementById("question-text").textContent = instructionText.questionPage[qType]["text"];
+    document.getElementById("question-img").src = window.origin + "/my_blueprint/images/" + instructionText.questionPage[qType]["img"];
+}
+
+function clearInstructions() {
+    modal.style.display = "none";
+    document.getElementById("start-page").style.display = "none";
+    document.getElementById("vis-instructions").style.display = "none";
+    document.getElementById("question-instructions").style.display = "none";
 }
 
 function clearUI() {
-    answerType = "none";
+    answerType = "";
     answerSubType = "";
 
-    document.getElementById("imageSingle").src = "";
-    document.getElementById("imageDouble1").src = "";
-    document.getElementById("imageDouble2").src = "";
-    document.getElementById("imageSingleLabel").textContent = "";
-    document.getElementById("imageDoubleLabel1").textContent = "";
-    document.getElementById("imageDoubleLabel2").textContent = "";
+    document.getElementById("question-img1").src = "";
+    document.getElementById("question-img2").src = "";
+    document.getElementById("figcaption1").textContent = "";
+    document.getElementById("figcaption2").textContent = "";
+    document.getElementById("secondFigure").style.display = "none";
+    // document.getElementById("imageDouble2").src = "";
+    // document.getElementById("imageSingleLabel").textContent = "";
+    // document.getElementById("imageDoubleLabel1").textContent = "";
+    // document.getElementById("imageDoubleLabel2").textContent = "";
 
     let answersList = document.getElementById("answersForm");
     let childCount = parseInt(answersList.childElementCount);
@@ -444,15 +520,24 @@ function clearUI() {
     clearCanvas();
 }
 
-function draw() {
-    ctx.beginPath();
-    ctx.moveTo(prevX, prevY);
-    ctx.lineTo(currX, currY);
-    ctx.strokeStyle = "red";
-    ctx.lineWidth = 5;
-    ctx.stroke();
-    ctx.closePath();
+function clearCanvas() {
+    ctx.save();
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.restore();
+
+    canvasPoints = [];
 }
+
+// function draw() {
+//     ctx.beginPath();
+//     ctx.moveTo(prevX, prevY);
+//     ctx.lineTo(currX, currY);
+//     ctx.strokeStyle = "red";
+//     ctx.lineWidth = 5;
+//     ctx.stroke();
+//     ctx.closePath();
+// }
 
 function drawCircle() {
     // Draw circle
@@ -486,20 +571,13 @@ function drawTooltip() {
     ctx.font = "14px sans-serif";
     ctx.fillText("Model Certainty:", currX + 30, currY + 30);
     ctx.fillText(
-        // currX + ", " + currY + ", " +
+        currX + ", " + currY + ", " +
         Math.max(100 - Math.round(minimumDistance(currX, currY)), 0) + "%", currX + 30, currY + 50
     );
     ctx.closePath();
 }
 
-function clearCanvas() {
-    ctx.save();
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.restore();
 
-    canvasPoints = [];
-}
 
 function getXY(mode, e) {
     if (answerType === "click" || answerType === "draw") {
@@ -558,19 +636,19 @@ function getXY(mode, e) {
     }
 }
 
-function selectAffectAnswer(e) {
-    console.log(e.target)
-    console.log(e.target.textContent)
-    if (e.target.tagName === "TD") {
-        for (let i = 0; i < 10; i++) {
-            for (let j = 0; j < 10; j++) {
-                document.getElementById("tableAnswer" + (i * 10 + j)).style.border = "1px solid black";
-            }
-        }
-        e.target.style.border = "3px solid red"
-    }
-    currResponse["userAnswer"] = e.target.textContent;
-}
+// function selectAffectAnswer(e) {
+//     console.log(e.target)
+//     console.log(e.target.textContent)
+//     if (e.target.tagName === "TD") {
+//         for (let i = 0; i < 10; i++) {
+//             for (let j = 0; j < 10; j++) {
+//                 document.getElementById("tableAnswer" + (i * 10 + j)).style.border = "1px solid black";
+//             }
+//         }
+//         e.target.style.border = "3px solid red"
+//     }
+//     currResponse["userAnswer"] = e.target.textContent;
+// }
 
 function shuffleArray(array) {
     let sorted = array.slice(0);
@@ -584,21 +662,21 @@ function shuffleArray(array) {
 function minimumDistance(x, y) {
     let min = Number.MAX_SAFE_INTEGER;
     let coords;
-    if (questions[studyOrder[trialNumber - 1]].image[0] === "mouseover1.png" ||
-        questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit1.png" ||
-        questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit2.png") {
+    if (questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover1.png" ||
+        questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover-edit1.png" ||
+        questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover-edit2.png") {
         coords = mouseoverCoords[0];
-    } else if (questions[studyOrder[trialNumber - 1]].image[0] === "mouseover2.png" ||
-        questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit3.png" ||
-        questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit4.png") {
+    } else if (questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover2.png" ||
+        questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover-edit3.png" ||
+        questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover-edit4.png") {
         coords = mouseoverCoords[1];
-    } else if (questions[studyOrder[trialNumber - 1]].image[0] === "mouseover3.png" ||
-        questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit5.png" ||
-        questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit6.png") {
+    } else if (questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover3.png" ||
+        questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover-edit5.png" ||
+        questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover-edit6.png") {
         coords = mouseoverCoords[2];
-    } else if (questions[studyOrder[trialNumber - 1]].image[0] === "mouseover4.png" ||
-        questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit7.png" ||
-        questions[studyOrder[trialNumber - 1]].image[0] === "mouseover-edit8.png") {
+    } else if (questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover4.png" ||
+        questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover-edit7.png" ||
+        questions[answerType][studyOrder[questionNumber]].image[0] === "mouseover-edit8.png") {
         coords = mouseoverCoords[3];
     }
     for (let i = 0; i < coords.length; i++) {

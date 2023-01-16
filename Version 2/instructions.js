@@ -71,6 +71,11 @@ const instructionText = {
             "name": "Text Box",
             "text": "The following set of questions will be a short answer question. Read the question carefully and enter your answer in the provided text box.",
             "img": "text-instruction.png"
+        },
+        "mouseover": {
+            "name": "Mouseover",
+            "text": "The following set of questions will include a mix of question types. In order to answer the questions, use your mouse to hover over the image, where a tooltip will inform you of the pollution model's certainty at that mouse location. Read the question carefully before providing your response.",
+            "img": "mouseover-instruct.png"
         }
     }
 }
