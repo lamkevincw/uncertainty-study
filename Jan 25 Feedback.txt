@@ -1,0 +1,11 @@
+based on your interpretation, how likely is it to cross the boundary
+remove baseline image in vis type instructions
+
+factory, town, pipeline backgrounds
+read, interpret (likely go over boundary), click
+remove mouseover
+
+which do you like? which do you think you are more accurate? which do you think is a better situation?
+which vis type is your favourite? easiest to read, fastest to read
+
+no colour means no pollution in legend

@@ -1,22 +1,14 @@
 // Study constants
 const maxBlocks = 1;
 const maxTrials = questions.length;
-const visTypes = {
-    "Texture/Colour": false,
-    "HSV": false,
-    "Static/Animated": false,
-    "VSUP": false,
-    "Multiples": false,
-    "Separate": false,
-    "Mouseover": false
-};
+
 const letters = ["A", "B", "C", "D", "E", "F", "G"];
 const questionTypes = [
     "multiple",
-    "multiple-text",
-    "text",
+    // "multiple-text",
+    // "text",
     "click",
-    "mouseover"
+    // "mouseover"
 ];
 const firstAnimatedID = 13;
 const mouseoverCoords = [
@@ -50,6 +42,7 @@ let studyOrder = [];
 let blockOrder = [];
 let answerType = "";
 let answerSubType = "";
+let zoom_level = [];
 // let instructions;
 
 // Canvas variables
@@ -97,6 +90,11 @@ function setup() {
     canvas.addEventListener("mousemove", function (e) { getXY("move", e) });
     canvas.addEventListener("mouseup", function (e) { getXY("up", e) });
     canvas.addEventListener("mouseout", function (e) { getXY("out", e) });
+
+    window.addEventListener('resize', () => {
+        const browserZoomLevel = window.devicePixelRatio;
+        zoom_level.push(Math.round(browserZoomLevel * 100) / 100)
+    })
 }
 
 function startStudy() {
@@ -415,16 +413,21 @@ function startQuestionBlock(qType) {
     // Set up study order here
     let questionOrder = {};
     for (let i = 0; i < questions[qType].length; i++) {
-        if (questions[qType][i].orderGroup in questionOrder) {
-            questionOrder[questions[qType][i].orderGroup].push(i);
+        // if (questions[qType][i].orderGroup in questionOrder) {
+        //     questionOrder[questions[qType][i].orderGroup].push(i);
+        // } else {
+        //     questionOrder[questions[qType][i].orderGroup] = [i]
+        // }
+        if ("1" in questionOrder) {
+            questionOrder["1"].push(i);
         } else {
-            questionOrder[questions[qType][i].orderGroup] = [i]
-        }
+            questionOrder["1"] = [i];
+        }   
     }
     let sortedKeys = Object.keys(questionOrder).sort();
     for (let i = 0; i < sortedKeys.length; i++) {
-        // let shuffledOrder = shuffleArray(questionOrder[sortedKeys[i]]);
-        let shuffledOrder = questionOrder[sortedKeys[i]];
+        let shuffledOrder = shuffleArray(questionOrder[sortedKeys[i]]);
+        // let shuffledOrder = questionOrder[sortedKeys[i]];
         for (let j = 0; j < shuffledOrder.length; j++) {
             studyOrder.push(shuffledOrder[j]);
         }
@@ -436,6 +439,8 @@ function startQuestionBlock(qType) {
 }
 
 function endQuestionBlock() {
+    studyOrder = [];
+
     questionBlockNumber++;
     if (questionBlockNumber < questionTypes.length) {
         instructionsQuestion(questionTypes[questionBlockNumber]);
@@ -445,11 +450,9 @@ function endQuestionBlock() {
 }
 
 function instructionsButton() {
-    // document.body.removeChild(instructions);
-    // // console.log(visTypes)
-    // startTrial();
-    // alert("Clicked");
     clearInstructions();
+    window.scrollTo(0, 0);
+
     instructNumber++;
     if (instructNumber < 7) { // 7
         instructionsVis();
@@ -476,15 +479,27 @@ function instructionsStart() {
 function instructionsVis() {
     modal.style.display = "block";
     document.getElementById("vis-instructions").style.display = "block";
+
+    // Resets instructions to rescroll to top of the page
+    document.getElementById("vis-title").textContent = "";
+    document.getElementById("vis-text").textContent = "";
+    document.getElementById("vis-img2").src = "";
+
     document.getElementById("vis-title").textContent = "Type " + letters[instructNumber];
     document.getElementById("vis-text").textContent = instructionText.visPage[instructNumber]["text"];
-    document.getElementById("vis-img1").src = window.origin + "/my_blueprint/images/" + instructionText.visPage[instructNumber]["img-1"];
+    // document.getElementById("vis-img1").src = window.origin + "/my_blueprint/images/" + instructionText.visPage[instructNumber]["img-1"];
     document.getElementById("vis-img2").src = window.origin + "/my_blueprint/images/" + instructionText.visPage[instructNumber]["img-2"];
 }
 
 function instructionsQuestion(qType) {
     modal.style.display = "block";
     document.getElementById("question-instructions").style.display = "block";
+
+    // Resets instructions to rescroll to top of the page
+    document.getElementById("question-title").textContent = "";
+    document.getElementById("question-text").textContent = "";
+    document.getElementById("question-img").src = "";
+
     document.getElementById("question-title").textContent = instructionText.questionPage[qType]["name"];
     document.getElementById("question-text").textContent = instructionText.questionPage[qType]["text"];
     document.getElementById("question-img").src = window.origin + "/my_blueprint/images/" + instructionText.questionPage[qType]["img"];
@@ -571,7 +586,7 @@ function drawTooltip() {
     ctx.font = "14px sans-serif";
     ctx.fillText("Model Certainty:", currX + 30, currY + 30);
     ctx.fillText(
-        currX + ", " + currY + ", " +
+        // currX + ", " + currY + ", " +
         Math.max(100 - Math.round(minimumDistance(currX, currY)), 0) + "%", currX + 30, currY + 50
     );
     ctx.closePath();

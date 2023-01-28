@@ -12,6 +12,9 @@
     }
 
     .answerBox {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
         margin: auto;
         width: 1250px;
         border: 1px solid black;
@@ -49,7 +52,7 @@
 
     .imageDiv {
         margin: 30px auto;
-        height: 600px;
+        height: 800px;
         display: flex;
     }
 
@@ -91,15 +94,15 @@
     }
 
     .questionFigure {
-        max-width: 800px;
+        max-width: 1200px;
         margin: auto;
         flex: 50%;
     }
 
     .questionImage {
         margin: 10px auto;
-        max-width: 800px;
-        max-height: 600px;
+        max-width: 1200px;
+        max-height: 800px;
     }
 
     .instructImage {
@@ -184,12 +187,16 @@
     }
 
     .questionBox {
-        margin: 80px auto 30px auto;
-        width: 60%;
+        margin: 20px auto 30px auto;
+        width: 80%;
         border: 1px solid black;
         padding: 30px;
         font-family: Verdana, sans-serif;
         text-align: center;
+    }
+
+    .questionInstructImage {
+        border: 10px solid black;
     }
 
     .questionText {
@@ -235,13 +242,14 @@
     }
 </style>
 
+<div id="top"></div>
 <div class="studyNumbers">
     <label id="blockNumberLabel"></label>
     <label id="trialNumberLabel"></label>
 </div>
 
 <div class="questionBox">
-    <span id="questionText" class="questionText">Test</span>
+    <span id="questionText" class="questionText"></span>
 </div>
 
 <div class="answerBox">
@@ -266,10 +274,8 @@
         <!-- <img id="imageDouble1" src="" class="doubleImg" />
     <img id="imageDouble2" src="" class="doubleImg" /> -->
     </div>
-    <canvas id="answerCanvas" class="answerCanvas" width="1250" height="600"></canvas>
+    <canvas id="answerCanvas" class="answerCanvas" width="1200" height="800"></canvas>
 </div>
-
-
 
 <div id="instructionsModal" class="modal">
     <div class="modal-content">
@@ -292,14 +298,14 @@
                 <span id="vis-title" class="instructTitle"></span>
             </div>
             <div class="imgDiv" style="margin-bottom: 60px;">
-                <figure class="instructImage">
+                <!-- <figure class="instructImage">
                     <img id="vis-img1" class="instructImage" />
                     <figcaption class="imageCaption">Variant 1</figcaption>
-                </figure>
-                <figure class="instructImage">
+                </figure> -->
+                <!-- <figure class="instructImage"> -->
                     <img id="vis-img2" class="instructImage" />
-                    <figcaption class="imageCaption">Variant 2</figcaption>
-                </figure>
+                    <!-- <figcaption class="imageCaption">Variant 2</figcaption> -->
+                <!-- </figure> -->
             </div>
             <span id="vis-text" class="instructText"></span>
         </div>
@@ -309,7 +315,7 @@
                 <span id="question-title" class="instructTitle"></span>
             </div>
             <div class="imgDiv">
-                <img id="question-img" class="instructImage" />
+                <img id="question-img" class="instructImage questionInstructImage" />
             </div>
             <span id="question-text" class="instructText"></span>
         </div>
