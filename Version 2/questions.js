@@ -668,7 +668,67 @@ const questions = {
             "orderGroup": 2,
             "RQ": 1
         },
-        
+        // No concentration questions
+        {
+            "id": 77,
+            "question": "What is the predicted concentration of the pollutant at the blue X-marked location?",
+            "answers": {
+                "type": "multiple",
+                "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
+            },
+            "image": ["texture-edit7.png"],
+            "type": "technical",
+            "orderGroup": 1,
+            "RQ": 1
+        },
+        {
+            "id": 78,
+            "question": "What is the predicted concentration of the pollutant at the blue X-marked location?",
+            "answers": {
+                "type": "multiple",
+                "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
+            },
+            "image": ["hsv-edit7.png"],
+            "type": "technical",
+            "orderGroup": 1,
+            "RQ": 1
+        },
+        {
+            "id": 79,
+            "question": "What is the predicted concentration of the pollutant at the blue X-marked location?",
+            "answers": {
+                "type": "multiple",
+                "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
+            },
+            "image": ["vsup-edit4.png"],
+            "type": "technical",
+            "orderGroup": 1,
+            "RQ": 1
+        },
+        {
+            "id": 80,
+            "question": "What is the predicted concentration of the pollutant at the blue X-marked location?",
+            "answers": {
+                "type": "multiple",
+                "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
+            },
+            "image": ["static-edit4.png"],
+            "type": "technical",
+            "orderGroup": 1,
+            "RQ": 1
+        },
+        {
+            "id": 81,
+            "question": "What is the predicted concentration of the pollutant at the blue X-marked location?",
+            "answers": {
+                "type": "multiple",
+                "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
+            },
+            "image": ["separate-edit7.png"],
+            "type": "technical",
+            "orderGroup": 1,
+            "RQ": 1
+        },
 
 
 
