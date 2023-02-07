@@ -8,6 +8,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Low",
             "image": ["texture-edit1.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -21,6 +22,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Somewhat High",
             "image": ["texture-edit3.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -34,6 +36,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Medium",
             "image": ["texture-edit5.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -47,6 +50,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "High",
             "image": ["hsv-edit1.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -60,6 +64,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Medium",
             "image": ["hsv-edit3.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -73,6 +78,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "High",
             "image": ["hsv-edit5.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -86,6 +92,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Medium",
             "image": ["vsup-edit1.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -99,6 +106,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Medium",
             "image": ["vsup-edit2.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -112,6 +120,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Somewhat High",
             "image": ["vsup-edit3.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -125,6 +134,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Low",
             "image": ["separate-edit2.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -138,6 +148,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Very Low",
             "image": ["separate-edit4.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -151,6 +162,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Somewhat High",
             "image": ["separate-edit6.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -164,6 +176,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Somewhat Low",
             "image": ["static-edit1.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -177,6 +190,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Medium",
             "image": ["static-edit2.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -190,6 +204,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Low",
             "image": ["static-edit3.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -206,6 +221,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Medium",
             "image": ["texture-edit2.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -219,6 +235,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Somewhat High",
             "image": ["texture-edit4.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -232,6 +249,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "High",
             "image": ["texture-edit6.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -245,6 +263,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Very Low",
             "image": ["hsv-edit2.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -258,6 +277,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Low",
             "image": ["hsv-edit4.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -271,6 +291,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "High",
             "image": ["hsv-edit6.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -284,6 +305,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Somewhat Low",
             "image": ["vsup-edit1.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -297,6 +319,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Somewhat High",
             "image": ["vsup-edit2.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -310,6 +333,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Somewhat High",
             "image": ["vsup-edit3.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -323,6 +347,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Medium",
             "image": ["separate-edit1.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -336,6 +361,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "High",
             "image": ["separate-edit3.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -349,6 +375,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Very Low",
             "image": ["separate-edit5.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -362,6 +389,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Medium",
             "image": ["static-edit1.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -375,6 +403,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Low",
             "image": ["static-edit2.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -388,6 +417,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Medium",
             "image": ["static-edit3.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -404,6 +434,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Very Unlikely",
             "image": ["texture-edit2.png"],
             "type": "subjective",
             "orderGroup": 2,
@@ -416,6 +447,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Neutral",
             "image": ["texture-edit4.png"],
             "type": "subjective",
             "orderGroup": 2,
@@ -428,6 +460,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Likely",
             "image": ["texture-edit6.png"],
             "type": "subjective",
             "orderGroup": 2,
@@ -440,6 +473,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Unlikely",
             "image": ["hsv-edit2.png"],
             "type": "subjective",
             "orderGroup": 2,
@@ -452,6 +486,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Unlikely",
             "image": ["hsv-edit4.png"],
             "type": "subjective",
             "orderGroup": 2,
@@ -464,6 +499,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Slightly Likely",
             "image": ["hsv-edit6.png"],
             "type": "subjective",
             "orderGroup": 2,
@@ -476,6 +512,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Neutral",
             "image": ["vsup-edit1.png"],
             "type": "subjective",
             "orderGroup": 2,
@@ -488,6 +525,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Neutral",
             "image": ["vsup-edit2.png"],
             "type": "subjective",
             "orderGroup": 2,
@@ -500,6 +538,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Likely",
             "image": ["vsup-edit3.png"],
             "type": "subjective",
             "orderGroup": 2,
@@ -512,6 +551,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Likely",
             "image": ["static1.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -525,6 +565,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Very Likely",
             "image": ["static2.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -538,6 +579,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Very Unlikely",
             "image": ["static3.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -551,6 +593,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Likely",
             "image": ["animated1.gif"],
             "type": "subjective",
             "orderGroup": 2,
@@ -563,6 +606,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Very Likely",
             "image": ["animated2.gif"],
             "type": "subjective",
             "orderGroup": 2,
@@ -575,6 +619,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Very Unlikely",
             "image": ["animated3.gif"],
             "type": "subjective",
             "orderGroup": 2,
@@ -587,6 +632,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Unlikely",
             "image": ["multiples1.png"],
             "type": "subjective",
             "orderGroup": 1,
@@ -600,6 +646,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Very Likely",
             "image": ["multiples2.png"],
             "type": "subjective",
             "orderGroup": 1,
@@ -613,6 +660,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Unlikely",
             "image": ["multiples5.png"],
             "type": "subjective",
             "orderGroup": 1,
@@ -626,6 +674,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Very Likely",
             "image": ["multiples6.png"],
             "type": "subjective",
             "orderGroup": 1,
@@ -639,6 +688,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Very Likely",
             "image": ["separate1.png"],
             "type": "subjective",
             "orderGroup": 2,
@@ -651,6 +701,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Slightly Likely",
             "image": ["separate2.png"],
             "type": "subjective",
             "orderGroup": 2,
@@ -663,6 +714,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
+            "correctAnswer": "Slightly Likely",
             "image": ["separate3.png"],
             "type": "subjective",
             "orderGroup": 2,
@@ -676,6 +728,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Very Low",
             "image": ["texture-edit7.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -688,6 +741,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Very Low",
             "image": ["hsv-edit7.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -700,6 +754,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Very Low",
             "image": ["vsup-edit4.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -712,6 +767,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Very Low",
             "image": ["static-edit4.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -724,6 +780,7 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
             },
+            "correctAnswer": "Very Low",
             "image": ["separate-edit7.png"],
             "type": "technical",
             "orderGroup": 1,
@@ -736,591 +793,637 @@ const questions = {
 
 
         
-        // {
-        //     "id": 4,
-        //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // // {
+        // //     "id": 4,
+        // //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["texture4.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 5,
-        //     "question": "To what extent does the visualization make you feel positive or negative?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"]
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 5,
+        // //     "question": "To what extent does the visualization make you feel positive or negative?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["texture3.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
         
         
-        // {
-        //     "id": 10,
-        //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // // {
+        // //     "id": 10,
+        // //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["hsv1.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 11,
-        //     "question": "To what extent does the visualization make you feel positive or negative?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"]
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 11,
+        // //     "question": "To what extent does the visualization make you feel positive or negative?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["hsv1.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
         
-        // {
-        //     "id": 16,
-        //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // // {
+        // //     "id": 16,
+        // //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["static1.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 17,
-        //     "question": "To what extent does the visualization make you feel positive or negative?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"]
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 17,
+        // //     "question": "To what extent does the visualization make you feel positive or negative?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["animated1.gif"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
         
-        // {
-        //     "id": 22,
-        //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // // {
+        // //     "id": 22,
+        // //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["vsup1.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 23,
-        //     "question": "To what extent does the visualization make you feel positive or negative?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"]
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 23,
+        // //     "question": "To what extent does the visualization make you feel positive or negative?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["vsup1.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
         
-        // {
-        //     "id": 28,
-        //     "question": "Does the set of images demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // // {
+        // //     "id": 28,
+        // //     "question": "Does the set of images demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["multiples1.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 29,
-        //     "question": "To what extent does the set of visualizations make you feel positive or negative?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"]
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 29,
+        // //     "question": "To what extent does the set of visualizations make you feel positive or negative?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["multiples5.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 30, // Unique ID to associate participant responses to corresponding question
-        //     "question": "What is the pollutant concentration at the blue X-marked location?", // Question text
-        //     "answers": {
-        //         "type": "multiple", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
-        //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 30, // Unique ID to associate participant responses to corresponding question
+        // //     "question": "What is the pollutant concentration at the blue X-marked location?", // Question text
+        // //     "answers": {
+        // //         "type": "multiple", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
+        // //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["separate-edit1.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
-        //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
-        //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
-        //     "RQ": 1, // The research question that this question is trying to help answer
-        //     "notes": "Separate"
-        // },
+        // //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
+        // //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
+        // //     "RQ": 1, // The research question that this question is trying to help answer
+        // //     "notes": "Separate"
+        // // },
         
         
-        // {
-        //     "id": 34,
-        //     "question": "Does the situation at this site demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // // {
+        // //     "id": 34,
+        // //     "question": "Does the situation at this site demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["separate1.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 35,
-        //     "question": "To what extent does the visualization make you feel positive or negative?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"]
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 35,
+        // //     "question": "To what extent does the visualization make you feel positive or negative?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["separate1.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
         
         
-        // {
-        //     "id": 46,
-        //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // // {
+        // //     "id": 46,
+        // //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["texture8.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
         
         
-        // {
-        //     "id": 52,
-        //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // // {
+        // //     "id": 52,
+        // //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["hsv2.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
         
         
-        // {
-        //     "id": 58,
-        //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // // {
+        // //     "id": 58,
+        // //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["static2.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
         
-        // {
-        //     "id": 64,
-        //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // // {
+        // //     "id": 64,
+        // //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["vsup2.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 67,
-        //     "question": "To what extent does the set of visualizations make you feel positive or negative?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"]
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 67,
+        // //     "question": "To what extent does the set of visualizations make you feel positive or negative?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["multiples6.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 70, 
-        //     "question": "Does the set of images demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 70, 
+        // //     "question": "Does the set of images demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["multiples2.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 72, // Unique ID to associate participant responses to corresponding question
-        //     "question": "What is the pollutant concentration at the blue X-marked location?", // Question text
-        //     "answers": {
-        //         "type": "multiple", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
-        //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 72, // Unique ID to associate participant responses to corresponding question
+        // //     "question": "What is the pollutant concentration at the blue X-marked location?", // Question text
+        // //     "answers": {
+        // //         "type": "multiple", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
+        // //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["separate-edit3.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
-        //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
-        //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
-        //     "RQ": 1, // The research question that this question is trying to help answer
-        //     "notes": "Separate"
-        // },
+        // //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
+        // //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
+        // //     "RQ": 1, // The research question that this question is trying to help answer
+        // //     "notes": "Separate"
+        // // },
         
         
-        // {
-        //     "id": 76,
-        //     "question": "Does the situation at this site demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // // {
+        // //     "id": 76,
+        // //     "question": "Does the situation at this site demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["separate2.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
         
         
-        // {
-        //     "id": 88,
-        //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // // {
+        // //     "id": 88,
+        // //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["texture12.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
         
         
-        // {
-        //     "id": 94,
-        //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // // {
+        // //     "id": 94,
+        // //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["hsv3.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
         
-        // {
-        //     "id": 100,
-        //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // // {
+        // //     "id": 100,
+        // //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["static3.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
         
-        // {
-        //     "id": 106,
-        //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // // {
+        // //     "id": 106,
+        // //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["vsup3.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 109,
-        //     "question": "To what extent does the set of visualizations make you feel positive or negative?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"]
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 109,
+        // //     "question": "To what extent does the set of visualizations make you feel positive or negative?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["multiples7.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 112, 
-        //     "question": "Does the set of images demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 112, 
+        // //     "question": "Does the set of images demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["multiples3.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 114, // Unique ID to associate participant responses to corresponding question
-        //     "question": "What is the pollutant concentration at the blue X-marked location?", // Question text
-        //     "answers": {
-        //         "type": "multiple", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
-        //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 114, // Unique ID to associate participant responses to corresponding question
+        // //     "question": "What is the pollutant concentration at the blue X-marked location?", // Question text
+        // //     "answers": {
+        // //         "type": "multiple", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
+        // //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["separate-edit5.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
-        //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
-        //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
-        //     "RQ": 1, // The research question that this question is trying to help answer
-        //     "notes": "Separate"
-        // },
+        // //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
+        // //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
+        // //     "RQ": 1, // The research question that this question is trying to help answer
+        // //     "notes": "Separate"
+        // // },
         
         
-        // {
-        //     "id": 118,
-        //     "question": "Does the situation at this site demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // // {
+        // //     "id": 118,
+        // //     "question": "Does the situation at this site demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["separate3.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 127,
-        //     "question": "What is the degree of certainty at the blue X-marked location?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 127,
+        // //     "question": "What is the degree of certainty at the blue X-marked location?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["texture-edit7.png"],
-        //     "type": "technical",
-        //     "orderGroup": 1,
-        //     "RQ": 1,
-        //     "notes": "Texture/Colour"
-        // },
-        // {
-        //     "id": 128,
-        //     "question": "What is the likelihood that the blue X-marked location has a low concentration of pollutants?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
-        //     },
+        // //     "type": "technical",
+        // //     "orderGroup": 1,
+        // //     "RQ": 1,
+        // //     "notes": "Texture/Colour"
+        // // },
+        // // {
+        // //     "id": 128,
+        // //     "question": "What is the likelihood that the blue X-marked location has a low concentration of pollutants?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["texture-edit8.png"],
-        //     "type": "subjective",
-        //     "orderGroup": 2,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 130,
-        //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // //     "type": "subjective",
+        // //     "orderGroup": 2,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 130,
+        // //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["texture16.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 133,
-        //     "question": "What is the degree of certainty at the blue X-marked location?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 133,
+        // //     "question": "What is the degree of certainty at the blue X-marked location?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["hsv-edit7.png"],
-        //     "type": "technical",
-        //     "orderGroup": 1,
-        //     "RQ": 1,
-        //     "notes": "HSV"
-        // },
-        // {
-        //     "id": 134,
-        //     "question": "What is the likelihood that the blue X-marked location has no pollutants?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
-        //     },
+        // //     "type": "technical",
+        // //     "orderGroup": 1,
+        // //     "RQ": 1,
+        // //     "notes": "HSV"
+        // // },
+        // // {
+        // //     "id": 134,
+        // //     "question": "What is the likelihood that the blue X-marked location has no pollutants?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["hsv-edit8.png"],
-        //     "type": "subjective",
-        //     "orderGroup": 2,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 136,
-        //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // //     "type": "subjective",
+        // //     "orderGroup": 2,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 136,
+        // //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["hsv4.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 139,
-        //     "question": "What is the likelihood that the polluted area is NOT exceeding the property boundary?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 139,
+        // //     "question": "What is the likelihood that the polluted area is NOT exceeding the property boundary?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["static-edit4.png"],
-        //     "type": "technical",
-        //     "orderGroup": 1,
-        //     "RQ": 1,
-        //     "notes": "Static/Animated"
-        // },
-        // {
-        //     "id": 140,
-        //     "question": "What is the likelihood that the polluted area is NOT exceeding the property boundary?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
-        //     },
+        // //     "type": "technical",
+        // //     "orderGroup": 1,
+        // //     "RQ": 1,
+        // //     "notes": "Static/Animated"
+        // // },
+        // // {
+        // //     "id": 140,
+        // //     "question": "What is the likelihood that the polluted area is NOT exceeding the property boundary?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["animated4.gif"],
-        //     "type": "subjective",
-        //     "orderGroup": 2,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 142,
-        //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // //     "type": "subjective",
+        // //     "orderGroup": 2,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 142,
+        // //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["static4.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 145,
-        //     "question": "What is the degree of certainty at the blue X-marked location?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 145,
+        // //     "question": "What is the degree of certainty at the blue X-marked location?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["vsup-edit4.png"],
-        //     "type": "technical",
-        //     "orderGroup": 1,
-        //     "RQ": 1,
-        //     "notes": "VSUP"
-        // },
-        // {
-        //     "id": 148,
-        //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // //     "type": "technical",
+        // //     "orderGroup": 1,
+        // //     "RQ": 1,
+        // //     "notes": "VSUP"
+        // // },
+        // // {
+        // //     "id": 148,
+        // //     "question": "Does this visualization demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["vsup4.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 151,
-        //     "question": "To what extent does the set of visualizations make you feel positive or negative?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"]
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 151,
+        // //     "question": "To what extent does the set of visualizations make you feel positive or negative?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["multiples8.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 154, 
-        //     "question": "Does the set of images demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 154, 
+        // //     "question": "Does the set of images demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["multiples4.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 156, // Unique ID to associate participant responses to corresponding question
-        //     "question": "What is the pollutant concentration at the blue X-marked location?", // Question text
-        //     "answers": {
-        //         "type": "multiple", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
-        //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
-        //     },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 156, // Unique ID to associate participant responses to corresponding question
+        // //     "question": "What is the pollutant concentration at the blue X-marked location?", // Question text
+        // //     "answers": {
+        // //         "type": "multiple", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
+        // //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["separate-edit7.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
-        //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
-        //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
-        //     "RQ": 1, // The research question that this question is trying to help answer
-        //     "notes": "Separate"
-        // },
-        // {
-        //     "id": 157,
-        //     "question": "What is the degree of certainty at the blue X-marked location?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
-        //     },
+        // //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
+        // //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
+        // //     "RQ": 1, // The research question that this question is trying to help answer
+        // //     "notes": "Separate"
+        // // },
+        // // {
+        // //     "id": 157,
+        // //     "question": "What is the degree of certainty at the blue X-marked location?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["separate-edit8.png"],
-        //     "type": "technical",
-        //     "orderGroup": 1,
-        //     "RQ": 1,
-        //     "notes": "Separate"
-        // },
-        // {
-        //     "id": 158,
-        //     "question": "What is the likelihood that the high concentration area has been modelled with high certainty?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
-        //     },
+        // //     "type": "technical",
+        // //     "orderGroup": 1,
+        // //     "RQ": 1,
+        // //     "notes": "Separate"
+        // // },
+        // // {
+        // //     "id": 158,
+        // //     "question": "What is the likelihood that the high concentration area has been modelled with high certainty?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["separate4.png"],
-        //     "type": "subjective",
-        //     "orderGroup": 2,
-        //     "RQ": 1
-        // },
-        // {
-        //     "id": 160,
-        //     "question": "Does the situation at this site demonstrate a low risk, or a high risk situation?",
-        //     "answers": {
-        //         "type": "multiple",
-        //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
-        //     },
+        // //     "type": "subjective",
+        // //     "orderGroup": 2,
+        // //     "RQ": 1
+        // // },
+        // // {
+        // //     "id": 160,
+        // //     "question": "Does the situation at this site demonstrate a low risk, or a high risk situation?",
+        // //     "answers": {
+        // //         "type": "multiple",
+        // //         "values": ["Very Low Risk", "Low Risk", "Somewhat Low Risk", "Neutral", "Somewhat High Risk", "High Risk", "Very High Risk"]
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["separate4.png"],
-        //     "type": "affective",
-        //     "orderGroup": 3,
-        //     "RQ": 1
-        // },
+        // //     "type": "affective",
+        // //     "orderGroup": 3,
+        // //     "RQ": 1
+        // // },
     ],
     
     "click": [
@@ -1331,6 +1434,7 @@ const questions = {
                 "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
                 "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
             },
+            "correctAnswer": "",
             "image": ["texture1.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
             "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
             "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
@@ -1344,6 +1448,7 @@ const questions = {
                 "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
                 "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
             },
+            "correctAnswer": "",
             "image": ["texture5.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
             "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
             "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
@@ -1357,6 +1462,7 @@ const questions = {
                 "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
                 "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
             },
+            "correctAnswer": "",
             "image": ["texture9.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
             "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
             "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
@@ -1370,6 +1476,7 @@ const questions = {
                 "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
                 "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
             },
+            "correctAnswer": "",
             "image": ["hsv1.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
             "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
             "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
@@ -1383,6 +1490,7 @@ const questions = {
                 "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
                 "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
             },
+            "correctAnswer": "",
             "image": ["hsv2.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
             "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
             "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
@@ -1396,6 +1504,7 @@ const questions = {
                 "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
                 "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
             },
+            "correctAnswer": "",
             "image": ["hsv3.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
             "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
             "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
@@ -1409,6 +1518,7 @@ const questions = {
                 "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
                 "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
             },
+            "correctAnswer": "",
             "image": ["static1.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
             "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
             "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
@@ -1422,6 +1532,7 @@ const questions = {
                 "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
                 "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
             },
+            "correctAnswer": "",
             "image": ["static2.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
             "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
             "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
@@ -1435,6 +1546,7 @@ const questions = {
                 "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
                 "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
             },
+            "correctAnswer": "",
             "image": ["static3.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
             "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
             "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
@@ -1448,6 +1560,7 @@ const questions = {
                 "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
                 "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
             },
+            "correctAnswer": "",
             "image": ["vsup1.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
             "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
             "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
@@ -1461,6 +1574,7 @@ const questions = {
                 "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
                 "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
             },
+            "correctAnswer": "",
             "image": ["vsup2.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
             "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
             "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
@@ -1474,64 +1588,69 @@ const questions = {
                 "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
                 "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
             },
+            "correctAnswer": "",
             "image": ["vsup3.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
             "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
             "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
             "RQ": 1, // The research question that this question is trying to help answer
             "notes": "VSUP"
         },
-        // {
-        //     "id": 126, // Unique ID to associate participant responses to corresponding question
-        //     "question": "Click on the location of the map where concentration is highest. The reset button will clear the marker.", // Question text
-        //     "answers": {
-        //         "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
-        //         "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
-        //     },
+        // // {
+        // //     "id": 126, // Unique ID to associate participant responses to corresponding question
+        // //     "question": "Click on the location of the map where concentration is highest. The reset button will clear the marker.", // Question text
+        // //     "answers": {
+        // //         "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
+        // //         "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["texture13.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
-        //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
-        //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
-        //     "RQ": 1, // The research question that this question is trying to help answer
-        //     "notes": "Texture/Colour"
-        // },
-        // {
-        //     "id": 132, // Unique ID to associate participant responses to corresponding question
-        //     "question": "Click on the location of the map where concentration is highest. The reset button will clear the marker.", // Question text
-        //     "answers": {
-        //         "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
-        //         "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
-        //     },
+        // //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
+        // //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
+        // //     "RQ": 1, // The research question that this question is trying to help answer
+        // //     "notes": "Texture/Colour"
+        // // },
+        // // {
+        // //     "id": 132, // Unique ID to associate participant responses to corresponding question
+        // //     "question": "Click on the location of the map where concentration is highest. The reset button will clear the marker.", // Question text
+        // //     "answers": {
+        // //         "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
+        // //         "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["hsv4.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
-        //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
-        //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
-        //     "RQ": 1, // The research question that this question is trying to help answer
-        //     "notes": "HSV"
-        // },
-        // {
-        //     "id": 138, // Unique ID to associate participant responses to corresponding question
-        //     "question": "Click on an area enclosed by a boundary where concentration is highest. The reset button will clear the marker.", // Question text
-        //     "answers": {
-        //         "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
-        //         "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
-        //     },
+        // //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
+        // //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
+        // //     "RQ": 1, // The research question that this question is trying to help answer
+        // //     "notes": "HSV"
+        // // },
+        // // {
+        // //     "id": 138, // Unique ID to associate participant responses to corresponding question
+        // //     "question": "Click on an area enclosed by a boundary where concentration is highest. The reset button will clear the marker.", // Question text
+        // //     "answers": {
+        // //         "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
+        // //         "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["static4.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
-        //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
-        //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
-        //     "RQ": 1, // The research question that this question is trying to help answer
-        //     "notes": "Static/Animated"
-        // },
-        // {
-        //     "id": 144, // Unique ID to associate participant responses to corresponding question
-        //     "question": "Click on the location of the map with the lowest concentration and highest degree of certainty. The reset button will clear the marker.", // Question text
-        //     "answers": {
-        //         "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
-        //         "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
-        //     },
+        // //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
+        // //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
+        // //     "RQ": 1, // The research question that this question is trying to help answer
+        // //     "notes": "Static/Animated"
+        // // },
+        // // {
+        // //     "id": 144, // Unique ID to associate participant responses to corresponding question
+        // //     "question": "Click on the location of the map with the lowest concentration and highest degree of certainty. The reset button will clear the marker.", // Question text
+        // //     "answers": {
+        // //         "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
+        // //         "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
+        // //     },
+        // //     "correctAnswer": "",
         //     "image": ["vsup4.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
-        //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
-        //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
-        //     "RQ": 1, // The research question that this question is trying to help answer
-        //     "notes": "VSUP"
-        // },
+        // //     "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
+        // //     "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
+        // //     "RQ": 1, // The research question that this question is trying to help answer
+        // //     "notes": "VSUP"
+        // // },
     ],
     
 }

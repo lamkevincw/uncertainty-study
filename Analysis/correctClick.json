@@ -1,0 +1,62 @@
+[
+    {
+        "questionID": 68,
+        "xlim": [430, 530],
+        "ylim": [380, 500]
+    },
+    {
+        "questionID": 72,
+        "xlim": [560, 654],
+        "ylim": [300, 350]
+    },
+    {
+        "questionID": 73,
+        "xlim": [580, 635],
+        "ylim": [420, 470]
+    },
+    {
+        "questionID": 76,
+        "xlim": [620, 670],
+        "ylim": [240, 280]
+    },
+    {
+        "questionID": 65,
+        "xlim": [410, 550],
+        "ylim": [390, 540]
+    },
+    {
+        "questionID": 71,
+        "xlim": [410, 550],
+        "ylim": [390, 540]
+    },
+    {
+        "questionID": 70,
+        "xlim": [580, 635],
+        "ylim": [420, 470]
+    },
+    {
+        "questionID": 66,
+        "xlim": [560, 654],
+        "ylim": [300, 350]
+    },
+    {
+        "questionID": 69,
+        "xlim": [560, 654],
+        "ylim": [300, 351]
+    },
+    {
+        "questionID": 74,
+        "xlim": [600, 660],
+        "ylim": [260, 311]
+    },
+    {
+        "questionID": 75,
+        "xlim": [635, 655],
+        "ylim": [290, 305]
+    },
+    {
+        "questionID": 67,
+        "xlim": [580, 635],
+        "ylim": [420, 470]
+    }
+]
