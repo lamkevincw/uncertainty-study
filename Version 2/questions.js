@@ -501,7 +501,7 @@ const questions = {
         },
         {
             "id": 74, // Unique ID to associate participant responses to corresponding question
-            "question": "Click on the location of the map with the lowest concentration and highest degree of certainty. The reset button will clear the marker.", // Question text
+            "question": "Click on the location of the map where concentration is highest. The reset button will clear the marker.", // Question text
             "answers": {
                 "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
                 "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
@@ -515,7 +515,7 @@ const questions = {
         },
         {
             "id": 75, // Unique ID to associate participant responses to corresponding question
-            "question": "Click on the location of the map with the lowest concentration and highest degree of certainty. The reset button will clear the marker.", // Question text
+            "question": "Click on the location of the map where concentration is highest. The reset button will clear the marker.", // Question text
             "answers": {
                 "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
                 "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
@@ -529,7 +529,7 @@ const questions = {
         },
         {
             "id": 76, // Unique ID to associate participant responses to corresponding question
-            "question": "Click on the location of the map with the lowest concentration and highest degree of certainty. The reset button will clear the marker.", // Question text
+            "question": "Click on the location of the map where concentration is highest. The reset button will clear the marker.", // Question text
             "answers": {
                 "type": "click", // Answer type (click, multiple, multiple-text, range, text, draw); click creates a target on the user's last mousedown position
                 "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)

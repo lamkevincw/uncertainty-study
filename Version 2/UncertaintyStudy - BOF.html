@@ -172,6 +172,12 @@
         align-items: center;
     }
 
+    .multiplesSeparateImage {
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
     .titleDiv {
         display: flex;
         align-items: center;
@@ -188,7 +194,7 @@
 
     .questionBox {
         margin: 20px auto 30px auto;
-        width: 80%;
+        width: 90%;
         border: 1px solid black;
         padding: 30px;
         font-family: Verdana, sans-serif;
@@ -223,7 +229,7 @@
 
     .studyNumbers {
         position: absolute;
-        top: 25px;
+        top: 20px;
         right: 2%;
         width: 150px;
         font-size: 16px;
@@ -245,6 +251,7 @@
 <div id="top"></div>
 <div class="studyNumbers">
     <label id="blockNumberLabel"></label>
+    <br />
     <label id="trialNumberLabel"></label>
 </div>
 
@@ -261,6 +268,7 @@
     <label id="imageDoubleLabel1" class="imageDoubleLabel"></label>
     <label id="imageDoubleLabel2" class="imageDoubleLabel"></label>
 </div> -->
+
 <div class="layered">
     <div class="imageDiv">
         <figure class="questionFigure">
@@ -275,6 +283,9 @@
     <img id="imageDouble2" src="" class="doubleImg" /> -->
     </div>
     <canvas id="answerCanvas" class="answerCanvas" width="1200" height="800"></canvas>
+</div>
+<div id="multSepDiv" class="multiplesSeparateImage imageDiv">
+    <img id="question-img3" src="" class="questionImage" />
 </div>
 
 <div id="instructionsModal" class="modal">

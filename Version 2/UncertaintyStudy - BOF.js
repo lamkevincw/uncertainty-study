@@ -10,6 +10,15 @@ const questionTypes = [
     "click",
     // "mouseover"
 ];
+const visTypes = {
+    "texture": "A",
+    "hsv": "B",
+    "vsup": "C",
+    "static": "D",
+    "animated": "E",
+    "multiples": "F",
+    "separate": "G"
+};
 const firstAnimatedID = 13;
 const mouseoverCoords = [
     [[535, 302], [616, 347], [638, 227], [682, 272]],
@@ -61,27 +70,8 @@ let canvasPoints = [];
 let trialStartTime;
 
 function setup() {
-
-
-
     // Set up study order here
-    // let questionOrder = {};
-    // for (let i = 0; i < questions.length; i++) {
-    //     if (questions[i].orderGroup in questionOrder) {
-    //         questionOrder[questions[i].orderGroup].push(i);
-    //     } else {
-    //         questionOrder[questions[i].orderGroup] = [i]
-    //     }
-    // }
-    // let sortedKeys = Object.keys(questionOrder).sort();
-    // for (let i = 0; i < sortedKeys.length; i++) {
-    //     // let shuffledOrder = shuffleArray(questionOrder[sortedKeys[i]]);
-    //     let shuffledOrder = questionOrder[sortedKeys[i]];
-    //     for (let j = 0; j < shuffledOrder.length; j++) {
-    //         studyOrder.push(shuffledOrder[j]);
-    //     }
-    // }
-    // console.log(studyOrder)
+    blockOrder = shuffleArray(Object.keys(visTypes));
 
     // Set up event listeners
     canvas = document.getElementById("answerCanvas");
@@ -93,7 +83,7 @@ function setup() {
 
     window.addEventListener('resize', () => {
         const browserZoomLevel = window.devicePixelRatio;
-        zoom_level.push(Math.round(browserZoomLevel * 100) / 100)
+        zoom_level.push(Math.round(browserZoomLevel * 100) / 100);
     })
 }
 
@@ -116,27 +106,27 @@ function endStudy() {
 
     // document.body.removeChild(element);
 
-        // Send answers to be stored in BOF
-        let submitForm = document.createElement("form");
-        submitForm.setAttribute("action", "#");
-        submitForm.setAttribute("method", "post");
-        submitForm.style.display = 'none';
-        document.body.append(submitForm);
+    // Send answers to be stored in BOF
+    let submitForm = document.createElement("form");
+    submitForm.setAttribute("action", "#");
+    submitForm.setAttribute("method", "post");
+    submitForm.style.display = 'none';
+    document.body.append(submitForm);
 
-        let submitResponses = document.createElement("input");
-        submitResponses.setAttribute("type", "text");
-        submitResponses.setAttribute("value", JSON.stringify(userReponses));
-        submitResponses.setAttribute("name", "participantResponses");
-        submitResponses.style.display = 'none';
-        submitForm.append(submitResponses);
+    let submitResponses = document.createElement("input");
+    submitResponses.setAttribute("type", "text");
+    submitResponses.setAttribute("value", JSON.stringify(userReponses));
+    submitResponses.setAttribute("name", "participantResponses");
+    submitResponses.style.display = 'none';
+    submitForm.append(submitResponses);
 
-        let submitBut = document.createElement("input");
-        submitBut.setAttribute("type", "submit");
-        submitBut.setAttribute("name", "submitButton");
-        submitBut.setAttribute("value", "Continue");
-        submitBut.style.display = 'none';
-        submitForm.append(submitBut);
-        submitBut.click();
+    let submitBut = document.createElement("input");
+    submitBut.setAttribute("type", "submit");
+    submitBut.setAttribute("name", "submitButton");
+    submitBut.setAttribute("value", "Continue");
+    submitBut.style.display = 'none';
+    submitForm.append(submitBut);
+    submitBut.click();
 }
 
 // function startBlock() {
@@ -165,13 +155,14 @@ function startTrial(qType) {
     // console.log(trialNumber)
 
     let newQuestion = questions[qType][studyOrder[questionNumber]];
-    answerType = qType;
+    answerType = newQuestion.answers.type;
     if (answerType === "mouseover") {
         answerSubType = newQuestion.answers.values[0];
     }
     console.log(newQuestion)
 
     // Set study labels
+    document.getElementById("blockNumberLabel").textContent = "Block " + (questionBlockNumber + 1) + " of " + blockOrder.length;
     document.getElementById("trialNumberLabel").textContent = "Question " + (questionNumber + 1) + " of " + questions[qType].length;
 
     // Set question text
@@ -179,7 +170,20 @@ function startTrial(qType) {
     // Set images and labels
     switch (newQuestion.image.length) {
         case 1:
-            document.getElementById("question-img1").src = window.origin + "/my_blueprint/images/" + newQuestion.image[0];
+            if (qType === "multiples" && answerType === "click") {
+                let imageNumber = parseInt(newQuestion.image[0].substring(newQuestion.image[0].length - 5, newQuestion.image[0].length - 4)) - 4;
+                document.getElementById("question-img1").src = window.origin + "/my_blueprint/images/base" + imageNumber + ".png";
+                document.getElementById("multSepDiv").style.display = "flex";
+                document.getElementById("question-img3").src = window.origin + "/my_blueprint/images/" + newQuestion.image[0];
+            } else if (qType === "separate" && answerType === "click") {
+                let imageNumber = parseInt(newQuestion.image[0].substring(newQuestion.image[0].length - 5, newQuestion.image[0].length - 4)) + 3;
+                document.getElementById("question-img1").src = window.origin + "/my_blueprint/images/base" + imageNumber + ".png";
+                document.getElementById("multSepDiv").style.display = "flex";
+                document.getElementById("question-img3").src = window.origin + "/my_blueprint/images/" + newQuestion.image[0];
+            } else {
+                document.getElementById("question-img1").src = window.origin + "/my_blueprint/images/" + newQuestion.image[0];
+            }
+
             // document.getElementById("imageSingleLabel").textContent = "";
             break;
         case 2:
@@ -323,8 +327,10 @@ function startTrial(qType) {
     // User responses initialization
     currResponse = {
         questionID: newQuestion.id,
-        questionBlock: qType,
-        trialNumber: questionNumber
+        visType: qType,
+        questionType: newQuestion.answers.type,
+        trialNumber: questionNumber,
+        correctAnswer: newQuestion.correctAnswer
     }
 
     trialStartTime = new Date().getTime();
@@ -394,18 +400,23 @@ function endTrial(e) {
     clearUI();
 
     questionNumber++;
-    if (mouseoverType) {
-        if (questionNumber < questions["mouseover"].length) {
-            startTrial("mouseover");
-        } else {
-            endQuestionBlock();
-        }
+    // if (mouseoverType) {
+    //     if (questionNumber < questions["mouseover"].length) {
+    //         startTrial("mouseover");
+    //     } else {
+    //         endQuestionBlock();
+    //     }
+    // } else {
+    //     if (questionNumber < questions[ansType].length) {
+    //         startTrial(ansType);
+    //     } else {
+    //         endQuestionBlock();
+    //     }
+    // }
+    if (questionNumber < questions[blockOrder[questionBlockNumber]].length) {
+        startTrial(blockOrder[questionBlockNumber]);
     } else {
-        if (questionNumber < questions[ansType].length) {
-            startTrial(ansType);
-        } else {
-            endQuestionBlock();
-        }
+        endQuestionBlock();
     }
 }
 
@@ -422,7 +433,7 @@ function startQuestionBlock(qType) {
             questionOrder["1"].push(i);
         } else {
             questionOrder["1"] = [i];
-        }   
+        }
     }
     let sortedKeys = Object.keys(questionOrder).sort();
     for (let i = 0; i < sortedKeys.length; i++) {
@@ -442,8 +453,8 @@ function endQuestionBlock() {
     studyOrder = [];
 
     questionBlockNumber++;
-    if (questionBlockNumber < questionTypes.length) {
-        instructionsQuestion(questionTypes[questionBlockNumber]);
+    if (questionBlockNumber < blockOrder.length) {
+        instructionsVis(questionBlockNumber);
     } else {
         endStudy();
     }
@@ -454,14 +465,15 @@ function instructionsButton() {
     window.scrollTo(0, 0);
 
     instructNumber++;
-    if (instructNumber < 7) { // 7
-        instructionsVis();
+    if (instructNumber < questionTypes.length) { // 7
+        // instructionsVis();
+        instructionsQuestion(questionTypes[instructNumber]);
     } else if (!inQuestionBlock) {
         questionBlockNumber++;
         inQuestionBlock = true;
-        instructionsQuestion(questionTypes[questionBlockNumber]);
+        instructionsVis(questionBlockNumber);
     } else {
-        startQuestionBlock(questionTypes[questionBlockNumber]);
+        startQuestionBlock(blockOrder[questionBlockNumber]);
     }
 }
 
@@ -476,7 +488,7 @@ function instructionsStart() {
     document.getElementById("start-img3").src = window.origin + "/my_blueprint/images/" + instructionText.startPage["img-3"];
 }
 
-function instructionsVis() {
+function instructionsVis(visNumber) {
     modal.style.display = "block";
     document.getElementById("vis-instructions").style.display = "block";
 
@@ -485,10 +497,10 @@ function instructionsVis() {
     document.getElementById("vis-text").textContent = "";
     document.getElementById("vis-img2").src = "";
 
-    document.getElementById("vis-title").textContent = "Type " + letters[instructNumber];
-    document.getElementById("vis-text").textContent = instructionText.visPage[instructNumber]["text"];
-    // document.getElementById("vis-img1").src = window.origin + "/my_blueprint/images/" + instructionText.visPage[instructNumber]["img-1"];
-    document.getElementById("vis-img2").src = window.origin + "/my_blueprint/images/" + instructionText.visPage[instructNumber]["img-2"];
+    let currentVisNumber = Object.keys(visTypes).indexOf(blockOrder[visNumber]);
+    document.getElementById("vis-title").textContent = "Type " + letters[currentVisNumber];
+    document.getElementById("vis-text").textContent = instructionText.visPage[currentVisNumber]["text"];
+    document.getElementById("vis-img2").src = window.origin + "/my_blueprint/images/" + instructionText.visPage[currentVisNumber]["img-2"];
 }
 
 function instructionsQuestion(qType) {
@@ -518,6 +530,8 @@ function clearUI() {
 
     document.getElementById("question-img1").src = "";
     document.getElementById("question-img2").src = "";
+    document.getElementById("question-img3").src = "";
+    document.getElementById("multSepDiv").style.display = "block";
     document.getElementById("figcaption1").textContent = "";
     document.getElementById("figcaption2").textContent = "";
     document.getElementById("secondFigure").style.display = "none";
