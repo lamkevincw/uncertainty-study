@@ -71,7 +71,16 @@ let trialStartTime;
 
 function setup() {
     // Set up study order here
-    blockOrder = shuffleArray(Object.keys(visTypes));
+    // blockOrder = shuffleArray(Object.keys(visTypes));
+    let conditionNum = participantID % 7;
+    let j = conditionNum - 1;
+    for (let i = 0; i < 7; i++) {
+        blockOrder.push(Object.keys(visTypes)[j]);
+        j++;
+        if (j > 6) {
+            j = 0;
+        }
+    }
 
     // Set up event listeners
     canvas = document.getElementById("answerCanvas");

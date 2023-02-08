@@ -154,6 +154,35 @@ ggplot(data=vAnsSummary, aes(x=Vis.Type, y=Answer.Value, fill=Answer)) +
                      name="") +
   ggtitle("Answer Comparison by Visualization Type")
 
+bothTypeSummary <- mcData %>% group_by(Vis.Type, Question.Type) %>%
+  summarise(N=n(),
+            Completion.Time=mean(completionTime),
+            CTStdDev=sd(completionTime),
+            User.Answer=mean(Num.Answer),
+            UserAnsStdDev=sd(Num.Answer),
+            Correct.Answer=mean(Num.Correct),
+            CorrectStdDev=sd(Num.Correct),
+            Diff.Mean=mean(Answer.Diff),
+            Diff.StdDev=sd(Answer.Diff),
+            CTSE=CTStdDev/sqrt(N),
+            UserSE=UserAnsStdDev/sqrt(N),
+            CorrectSE=CorrectStdDev/sqrt(N),
+            DiffSE=Diff.StdDev/sqrt(N))
+bothTypeSummary$Vis.Type <- factor(visTypeSummary$Vis.Type, levels = c("texture", "hsv", "vsup", "static", "animated", "multiples", "separate"))
+print(bothTypeSummary)
+
+# CT plot sorted by vis type and question type
+ggplot(data=bothTypeSummary, aes(x=Question.Type, y=Completion.Time, fill=Vis.Type)) + 
+  geom_bar(stat="identity", position="dodge") +
+  geom_errorbar(aes(ymin=Completion.Time-CTSE, ymax=Completion.Time+CTSE), width=.1,position=position_dodge(0.9)) +
+  ggtitle("Completion Time by Visualization Type and Question Type")
+
+# Error difference sorted by vis type and question type
+ggplot(data=bothTypeSummary, aes(x=Question.Type, y=Diff.Mean, fill=Vis.Type)) + 
+  geom_bar(stat="identity", position="dodge") +
+  geom_errorbar(aes(ymin=Diff.Mean-DiffSE, ymax=Diff.Mean+DiffSE), width=.1,position=position_dodge(0.9)) +
+  ggtitle("Error Difference by Visualization Type and Question Type")
+
 questionSummary <- mcData %>% group_by(questionID) %>%
   summarise(N=n(),
             Completion.Time=mean(completionTime),
