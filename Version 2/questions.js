@@ -1180,21 +1180,21 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
-            "correctAnswer": "Very Likely",
-            "image": ["separate1.png"],
+            "correctAnswer": "Slightly Unlikely",
+            "image": ["separate-edit2.png"],
             "type": "subjective",
             "orderGroup": 2,
             "RQ": 1
         },
         {
             "id": 63,
-            "question": "What is the likelihood that the blue X-marked location has a high concentration of pollutants?",
+            "question": "What is the likelihood that the blue X-marked location has a low concentration of pollutants?",
             "answers": {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
-            "correctAnswer": "Slightly Likely",
-            "image": ["separate2.png"],
+            "correctAnswer": "Very Unlikely",
+            "image": ["separate-edit4.png"],
             "type": "subjective",
             "orderGroup": 2,
             "RQ": 1
@@ -1206,8 +1206,8 @@ const questions = {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
             },
-            "correctAnswer": "Slightly Likely",
-            "image": ["separate3.png"],
+            "correctAnswer": "Neutral",
+            "image": ["separate-edit6.png"],
             "type": "subjective",
             "orderGroup": 2,
             "RQ": 1
