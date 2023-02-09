@@ -1175,7 +1175,7 @@ const questions = {
         },
         {
             "id": 62,
-            "question": "What is the likelihood that the high concentration area has been modelled with high certainty?",
+            "question": "What is the likelihood that the blue X-marked location has a high concentration of pollutants?",
             "answers": {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
@@ -1188,7 +1188,7 @@ const questions = {
         },
         {
             "id": 63,
-            "question": "What is the likelihood that the high concentration area has been modelled with high certainty?",
+            "question": "What is the likelihood that the blue X-marked location has a high concentration of pollutants?",
             "answers": {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]
@@ -1201,7 +1201,7 @@ const questions = {
         },
         {
             "id": 64,
-            "question": "What is the likelihood that the high concentration area has been modelled with high certainty?",
+            "question": "What is the likelihood that the blue X-marked location has a high concentration of pollutants?",
             "answers": {
                 "type": "multiple",
                 "values": ["Very Unlikely", "Unlikely", "Slightly Unlikely", "Neutral", "Slightly Likely", "Likely", "Very Likely"]

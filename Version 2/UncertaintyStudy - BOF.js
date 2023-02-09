@@ -72,8 +72,8 @@ let trialStartTime;
 function setup() {
     // Set up study order here
     // blockOrder = shuffleArray(Object.keys(visTypes));
-    let conditionNum = participantID % 7;
-    let j = conditionNum - 1;
+    let conditionNum = (participantID - 1) % 7;
+    let j = conditionNum;
     for (let i = 0; i < 7; i++) {
         blockOrder.push(Object.keys(visTypes)[j]);
         j++;
