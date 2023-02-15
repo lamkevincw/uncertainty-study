@@ -71,7 +71,7 @@ let trialStartTime;
 
 function setup() {
     // Set up study order here
-    blockOrder = shuffleArray(Object.keys(visTypes));
+    blockOrder = Object.keys(visTypes);
 
     // Set up event listeners
     canvas = document.getElementById("answerCanvas");
@@ -600,8 +600,7 @@ function drawTooltip() {
     ctx.font = "14px sans-serif";
     ctx.fillText("Model Certainty:", currX + 30, currY + 30);
     ctx.fillText(
-        // currX + ", " + currY + ", " +
-        Math.max(100 - Math.round(minimumDistance(currX, currY)), 0) + "%", currX + 30, currY + 50
+        currX + ", " + currY + ", " , currX + 30, currY + 50
     );
     ctx.closePath();
 }
@@ -609,7 +608,7 @@ function drawTooltip() {
 
 
 function getXY(mode, e) {
-    if (answerType === "click" || answerType === "draw") {
+    if (answerType === "draw") {
         switch (mode) {
             case "down":
                 prevX = currX;
@@ -628,27 +627,27 @@ function getXY(mode, e) {
                 }
                 canvasPoints.push([currX, currY]);
                 break;
-            case "move":
-                if (drawing) {
-                    prevX = currX;
-                    prevY = currY;
-                    currX = e.clientX - canvas.getBoundingClientRect().left;
-                    currY = e.clientY - canvas.getBoundingClientRect().top;
-                    // console.log(currX + "," + currY)
-                    if (answerType === "draw") {
-                        draw();
-                    } else {
-                        clearCanvas();
-                        drawCircle();
-                    }
-                    canvasPoints.push([currX, currY]);
-                }
-                break;
+            // case "move":
+            //     if (drawing) {
+            //         prevX = currX;
+            //         prevY = currY;
+            //         currX = e.clientX - canvas.getBoundingClientRect().left;
+            //         currY = e.clientY - canvas.getBoundingClientRect().top;
+            //         // console.log(currX + "," + currY)
+            //         if (answerType === "draw") {
+            //             draw();
+            //         } else {
+            //             clearCanvas();
+            //             drawCircle();
+            //         }
+            //         canvasPoints.push([currX, currY]);
+            //     }
+            //     break;
             case "up":
             case "out":
                 drawing = false;
         }
-    } else if (answerType === "mouseover") {
+    } else if (answerType === "mouseover" || answerType === "click") {
         switch (mode) {
             case "move":
                 currX = e.clientX - canvas.getBoundingClientRect().left;

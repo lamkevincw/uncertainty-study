@@ -1,0 +1,386 @@
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(jsonlite)
+setwd("D:/EMS-Alliance/Uncertainty User Study/Analysis")
+
+# Answer conversions
+highAnswers <- c("Very Low"=1, "Low"=2, "Somewhat Low"=3, "Medium"=4, "Somewhat High"=5, "High"=6, "Very High"=7)
+likeAnswers <- c("Very Unlikely"=1, "Unlikely"=2, "Slightly Unlikely"=3, "Neutral"=4, "Slightly Likely"=5, "Likely"=6, "Very Likely"=7)
+
+# Backgrounds
+bg1 <- c(1, 22, 77, 43, 65, 4, 25, 46, 78, 68, 7, 28, 49, 79, 74, 13, 34, 52, 80, 71, 16, 37, 55, 82, 83, 19, 40, 58, 86, 87, 10, 31, 62, 81, 90)
+bg2 <- c(2, 23, 44, 66, 5, 26, 47, 69, 8, 29, 50, 75, 14, 35, 53, 72, 17, 38, 56, 84, 20, 41, 59, 88, 11, 32, 63, 91)
+bg3 <- c(3, 24, 45, 67, 6, 27, 48, 70, 9, 30, 51, 76, 15, 36, 54, 73, 18, 39, 57, 85, 21, 42, 60, 89, 12, 33, 64, 92)
+
+file <- read.csv("data/UncertaintyVis_log_2023-02-14.csv")
+clickAnswers <- jsonlite::fromJSON("correctClick.json")
+
+rawData <- cbind(PID=file$participantID[1] ,jsonlite::fromJSON(file$participantData[1]))
+for (i in 2:nrow(file)) {
+  rawData <- rbind(rawData, cbind(PID=file$participantID[i] ,jsonlite::fromJSON(file$participantData[i])))
+}
+
+questions <- jsonlite::fromJSON("questionsMain.json")
+#multipleQuestions <- questions[[1]]
+#clickQuestions <- questions[[2]]
+
+data <- rawData
+# Remove participants
+#data <- data[data$PID!=13,]
+# Remove based on CT
+data <- data[data$completionTime>5000,]
+data <- data[data$completionTime<60000,]
+
+for (i in 1:nrow(data)) {
+  if (data$questionID[i] <= 21) {
+    data$Question.Type[i] <- "Certainty"
+  } else if (data$questionID[i] >= 22 && data$questionID[i] <= 42) {
+    data$Question.Type[i] <- "Concentration"
+  } else if (data$questionID[i] >= 43 && data$questionID[i] <= 64) {
+    data$Question.Type[i] <- "Likelihood"
+  } else if (data$questionID[i] >= 77 && data$questionID[i] <= 82) {
+    data$Question.Type[i] <- "Zero Concentration"
+  } else if (data$questionID[i] >= 65 && data$questionID[i] <= 76) {
+    data$Question.Type[i] <- "Click"
+  } else if (data$questionID[i] >= 83 && data$questionID[i] <= 85) {
+    data$Question.Type[i] <- "Click"
+  } else if (data$questionID[i] == 86) {
+    data$Question.Type[i] <- "Zero Concentration"
+  } else if (data$questionID[i] >= 87 && data$questionID[i] <= 92) {
+    data$Question.Type[i] <- "Click"
+  }
+  
+  for (j in 1:length(bg1)) {
+    if (data$questionID[i] == bg1[j]) {
+      data$Background[i] <- "Refinery"
+    }
+  }
+  for (j in 1:length(bg2)) {
+    if (data$questionID[i] == bg2[j]) {
+      data$Background[i] <- "Power Lines"
+    }
+  }
+  for (j in 1:length(bg3)) {
+    if (data$questionID[i] == bg3[j]) {
+      data$Background[i] <- "Town"
+    }
+  }
+}
+
+# Split multiple choice answers and click answers
+data$Num.Answer <- 0
+data$Num.Correct <- 0
+data$Answer.Diff[i] <- -1
+mcData <- data[data$questionType=="multiple",]
+
+for (i in 1:nrow(data)) {
+  # Set correct answers
+  #mcData$Correct.Answer[i] <- multipleQuestions[multipleQuestions$id==mcData$questionID[i],]$correctAnswer
+  
+  if (data$questionType[i] == "multiple") {
+    # Set answers as numbers
+    data$Num.Answer[i] <- highAnswers[data$userAnswer[[i]]]
+    data$Num.Correct[i] <- highAnswers[data$correctAnswer[[i]]]
+    if (is.na(data$Num.Answer[i])) {
+      data$Num.Answer[i] <- likeAnswers[data$userAnswer[[i]]]
+      data$Num.Correct[i] <- likeAnswers[data$correctAnswer[[i]]]
+    }
+    
+    if (!is.na(data$Num.Answer[i])) {
+      # Calculate how far off user was from correct answer
+      data$Answer.Diff[i] <- data$Num.Answer[i] - data$Num.Correct[i]
+    }
+    
+  }
+  
+  
+  # if (gregexpr("-",multipleQuestions[multipleQuestions$id==mcData$questionID[i],]$image)[[1]][1] != -1) {
+  #   mcData$Vis.Type[i] <- substring(multipleQuestions[multipleQuestions$id==mcData$questionID[i],]$image,
+  #                                 0,gregexpr("-",multipleQuestions[multipleQuestions$id==mcData$questionID[i],]$image)[[1]][1]-1)
+  # } else if (gregexpr(".png",multipleQuestions[multipleQuestions$id==mcData$questionID[i],]$image)[[1]][1] != -1) {
+  #   mcData$Vis.Type[i] <- substring(multipleQuestions[multipleQuestions$id==mcData$questionID[i],]$image,
+  #                                 0,gregexpr(".png",multipleQuestions[multipleQuestions$id==mcData$questionID[i],]$image)[[1]][1]-2)
+  # } else {
+  #   mcData$Vis.Type[i] <- substring(multipleQuestions[multipleQuestions$id==mcData$questionID[i],]$image,
+  #                                   0,gregexpr(".gif",multipleQuestions[multipleQuestions$id==mcData$questionID[i],]$image)[[1]][1]-2)
+  # }
+}
+
+clickData <- data[data$questionType=="click",]
+
+
+#### Multiple choice analysis ####
+
+qTypeSummary <- data %>% group_by(Question.Type) %>%
+  summarise(N=n(),
+            Completion.Time=mean(completionTime),
+            CTStdDev=sd(completionTime),
+            User.Answer=mean(Num.Answer),
+            UserAnsStdDev=sd(Num.Answer),
+            Correct.Answer=mean(Num.Correct),
+            CorrectStdDev=sd(Num.Correct),
+            Diff.Mean=mean(Answer.Diff),
+            Diff.StdDev=sd(Answer.Diff),
+            Abs.Diff.Mean=abs(mean(Answer.Diff)),
+            CTSE=CTStdDev/sqrt(N),
+            UserSE=UserAnsStdDev/sqrt(N),
+            CorrectSE=CorrectStdDev/sqrt(N))
+print(qTypeSummary)
+
+# CT plot sorted by question type
+ggplot(data=qTypeSummary, aes(x=Question.Type, y=Completion.Time, fill=Question.Type)) + 
+  geom_col() +
+  geom_errorbar(aes(ymin=Completion.Time-CTSE, ymax=Completion.Time+CTSE), width=.1) +
+  ggtitle("Completion Time by Question Type")
+
+qAnsSummary <- data.frame(Question.Type=character(), Answer=character(), Answer.Value=numeric(), Error=numeric())
+for (i in 1:nrow(qTypeSummary)) {
+  if (qTypeSummary$Question.Type[i] != "Click") {
+    qAnsSummary <- qAnsSummary %>% add_row(Question.Type=qTypeSummary$Question.Type[i],
+                                           Answer="User", Answer.Value=qTypeSummary$User.Answer[i],
+                                           Error=qTypeSummary$UserSE[i])
+    qAnsSummary <- qAnsSummary %>% add_row(Question.Type=qTypeSummary$Question.Type[i],
+                                           Answer="Correct", Answer.Value=qTypeSummary$Correct.Answer[i],
+                                           Error=qTypeSummary$CorrectSE[i])
+  }
+}
+#qAnsSummary$Question.Type <- factor(qAnsSummary$Question.Type, levels = c("Certainty", "Concentration", "Zero Concentration", "Likelihood"))
+qAnsSummary$Answer <- factor(qAnsSummary$Answer, levels = c("User", "Correct"))
+ggplot(data=qAnsSummary, aes(x=Question.Type, y=Answer.Value, fill=Answer)) + 
+  geom_bar(stat="identity", width=0.75, position = "dodge") +
+  geom_errorbar(aes(ymin=Answer.Value-Error, ymax=Answer.Value+Error), width=.1, position=position_dodge(0.75)) +
+  scale_y_continuous(breaks=1:7, limits=c(0,7),
+                     labels=c("Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"),
+                     name="") +
+  ggtitle("Answer Comparison by Question Type")
+
+visTypeSummary <- data %>% group_by(visType) %>%
+  summarise(N=n(),
+            Completion.Time=mean(completionTime),
+            CTStdDev=sd(completionTime),
+            User.Answer=mean(Num.Answer),
+            UserAnsStdDev=sd(Num.Answer),
+            Correct.Answer=mean(Num.Correct),
+            CorrectStdDev=sd(Num.Correct),
+            Diff.Mean=mean(Answer.Diff),
+            Diff.StdDev=sd(Answer.Diff),
+            Abs.Diff.Mean=abs(mean(Answer.Diff)),
+            CTSE=CTStdDev/sqrt(N),
+            UserSE=UserAnsStdDev/sqrt(N),
+            CorrectSE=CorrectStdDev/sqrt(N))
+visTypeSummary$visType <- factor(visTypeSummary$visType, levels = c("texture", "hsv", "vsup", "static", "animated", "multiples", "separate"))
+print(visTypeSummary)
+
+# CT plot sorted by vis type
+ggplot(data=visTypeSummary, aes(x=visType, y=Completion.Time, fill=visType)) +
+  geom_bar(stat="identity") +
+  geom_errorbar(aes(ymin=Completion.Time-CTSE, ymax=Completion.Time+CTSE), width=.1) +
+  ggtitle("Completion Time by Visualization Type")
+
+vAnsSummary <- data.frame(Vis.Type=character(), Answer=character(), Answer.Value=numeric(), Error=numeric())
+for (i in 1:nrow(visTypeSummary)) {
+  vAnsSummary <- vAnsSummary %>% add_row(Vis.Type=visTypeSummary$visType[i],
+                                         Answer="User", Answer.Value=visTypeSummary$User.Answer[i],
+                                         Error=visTypeSummary$UserSE[i])
+  vAnsSummary <- vAnsSummary %>% add_row(Vis.Type=visTypeSummary$visType[i],
+                                         Answer="Correct", Answer.Value=visTypeSummary$Correct.Answer[i],
+                                         Error=visTypeSummary$CorrectSE[i])
+}
+vAnsSummary$Vis.Type <- factor(vAnsSummary$Vis.Type, levels = c("texture", "hsv", "vsup", "static", "animated", "multiples", "separate"))
+vAnsSummary$Answer <- factor(vAnsSummary$Answer, levels = c("User", "Correct"))
+ggplot(data=vAnsSummary, aes(x=Vis.Type, y=Answer.Value, fill=Answer)) +
+  geom_bar(stat="identity", width=0.75, position = "dodge") +
+  geom_errorbar(aes(ymin=Answer.Value-Error, ymax=Answer.Value+Error), width=.1, position=position_dodge(0.75)) +
+  scale_y_continuous(breaks=1:7, limits=c(0,7),
+                     labels=c("Very Low", "Low", "Somewhat Low", "Medium", "Somewhat High", "High", "Very High"),
+                     name="") +
+  ggtitle("Answer Comparison by Visualization Type")
+
+backgroundSummary <- data %>% group_by(Background) %>%
+  summarise(N=n(),
+            Completion.Time=mean(completionTime),
+            CTStdDev=sd(completionTime),
+            User.Answer=mean(Num.Answer),
+            UserAnsStdDev=sd(Num.Answer),
+            Correct.Answer=mean(Num.Correct),
+            CorrectStdDev=sd(Num.Correct),
+            Diff.Mean=mean(Answer.Diff),
+            Diff.StdDev=sd(Answer.Diff),
+            Abs.Diff.Mean=abs(mean(Answer.Diff)),
+            CTSE=CTStdDev/sqrt(N),
+            UserSE=UserAnsStdDev/sqrt(N),
+            CorrectSE=CorrectStdDev/sqrt(N))
+print(backgroundSummary)
+
+# CT plot by background type
+ggplot(data=backgroundSummary, aes(x=Background, y=Completion.Time, fill=Background)) +
+  geom_bar(stat="identity") +
+  geom_errorbar(aes(ymin=Completion.Time-CTSE, ymax=Completion.Time+CTSE), width=.1) +
+  ggtitle("Completion Time by Image Background")
+
+bothTypeSummary <- data %>% group_by(visType, Question.Type) %>%
+  summarise(N=n(),
+            Completion.Time=mean(completionTime),
+            CTStdDev=sd(completionTime),
+            User.Answer=mean(Num.Answer),
+            UserAnsStdDev=sd(Num.Answer),
+            Correct.Answer=mean(Num.Correct),
+            CorrectStdDev=sd(Num.Correct),
+            Diff.Mean=mean(Answer.Diff),
+            Diff.StdDev=sd(Answer.Diff),
+            Abs.Diff.Mean=abs(mean(Answer.Diff)),
+            CTSE=CTStdDev/sqrt(N),
+            UserSE=UserAnsStdDev/sqrt(N),
+            CorrectSE=CorrectStdDev/sqrt(N),
+            DiffSE=Diff.StdDev/sqrt(N))
+bothTypeSummary$visType <- factor(bothTypeSummary$visType, levels = c("texture", "hsv", "vsup", "static", "animated", "multiples", "separate"))
+print(bothTypeSummary)
+
+# CT plot sorted by vis type and question type
+ggplot(data=bothTypeSummary, aes(x=Question.Type, y=Completion.Time, fill=visType)) + 
+  geom_bar(stat="identity", position="dodge") +
+  geom_errorbar(aes(ymin=Completion.Time-CTSE, ymax=Completion.Time+CTSE), width=.1,position=position_dodge(0.9)) +
+  ggtitle("Completion Time by Visualization Type and Question Type")
+
+# Error difference sorted by vis type and question type
+ggplot(data=bothTypeSummary, aes(x=Question.Type, y=Diff.Mean, fill=visType)) + 
+  geom_bar(stat="identity", position="dodge") +
+  geom_errorbar(aes(ymin=Diff.Mean-DiffSE, ymax=Diff.Mean+DiffSE), width=.1,position=position_dodge(0.9)) +
+  ggtitle("Error Difference by Visualization Type and Question Type") +
+  scale_x_discrete(limits=c("Certainty", "Concentration", "Likelihood", "Zero Concentration"))
+
+# Absolute error difference sorted by vis type and question type
+ggplot(data=bothTypeSummary, aes(x=Question.Type, y=Abs.Diff.Mean, fill=visType)) + 
+  geom_bar(stat="identity", position="dodge") +
+  geom_errorbar(aes(ymin=Abs.Diff.Mean-DiffSE, ymax=Abs.Diff.Mean+DiffSE), width=.1,position=position_dodge(0.9)) +
+  ggtitle("Absolute Error Difference by Visualization Type and Question Type") +
+  scale_x_discrete(limits=c("Certainty", "Concentration", "Likelihood", "Zero Concentration"))
+
+questionSummary <- data %>% group_by(questionID) %>%
+  summarise(N=n(),
+            Completion.Time=mean(completionTime),
+            CTStdDev=sd(completionTime),
+            User.Answer=mean(Num.Answer),
+            UserAnsStdDev=sd(Num.Answer),
+            Correct.Answer=mean(Num.Correct),
+            CorrectStdDev=sd(Num.Correct),
+            Diff.Mean=mean(Answer.Diff),
+            Diff.StdDev=sd(Answer.Diff),
+            CTSE=CTStdDev/sqrt(N),
+            UserSE=UserAnsStdDev/sqrt(N),
+            CorrectSE=CorrectStdDev/sqrt(N))
+print(questionSummary)
+
+# CT plot sorted by question number
+ggplot(data=questionSummary, aes(x=questionID, y=Completion.Time)) + 
+  geom_bar(stat="identity") +
+  geom_errorbar(aes(ymin=Completion.Time-CTSE, ymax=Completion.Time+CTSE), width=.1) +
+  ggtitle("Completion Time by Question ID")
+
+trialSummary <- data %>% group_by(trialNumber) %>%
+  summarise(N=n(),
+            Completion.Time=mean(completionTime),
+            CTStdDev=sd(completionTime),
+            User.Answer=mean(Num.Answer),
+            UserAnsStdDev=sd(Num.Answer),
+            Correct.Answer=mean(Num.Correct),
+            CorrectStdDev=sd(Num.Correct),
+            Diff.Mean=mean(Answer.Diff),
+            Diff.StdDev=sd(Answer.Diff),
+            CTSE=CTStdDev/sqrt(N),
+            UserSE=UserAnsStdDev/sqrt(N),
+            CorrectSE=CorrectStdDev/sqrt(N))
+print(trialSummary)
+
+# CT plot sorted by trial number
+ggplot(data=trialSummary, aes(x=trialNumber, y=Completion.Time)) + 
+  geom_bar(stat="identity") +
+  geom_errorbar(aes(ymin=Completion.Time-CTSE, ymax=Completion.Time+CTSE), width=.1) +
+  ggtitle("Completion Time by Trial Number")
+
+#### Click analysis ####
+for (i in 1:nrow(clickData)) {
+  if (clickData$userAnswer[[i]][1] >= clickAnswers[clickAnswers$questionID==clickData$questionID[i],]$xlim[[1]][1] &&
+      clickData$userAnswer[[i]][1] <= clickAnswers[clickAnswers$questionID==clickData$questionID[i],]$xlim[[1]][2] &&
+      clickData$userAnswer[[i]][2] >= clickAnswers[clickAnswers$questionID==clickData$questionID[i],]$ylim[[1]][1] &&
+      clickData$userAnswer[[i]][2] <= clickAnswers[clickAnswers$questionID==clickData$questionID[i],]$ylim[[1]][2]) {
+    clickData$Answer.Correct[i] <- "Correct"
+  } else {
+    clickData$Answer.Correct[i] <- "Incorrect"
+  }
+  
+  # if (gregexpr("-",clickQuestions[clickQuestions$id==clickData$questionID[i],]$image)[[1]][1] != -1) {
+  #   clickData$Vis.Type[i] <- substring(clickQuestions[clickQuestions$id==clickData$questionID[i],]$image,
+  #                                   0,gregexpr("-",clickQuestions[clickQuestions$id==clickData$questionID[i],]$image)[[1]][1]-1)
+  # } else if (gregexpr(".png",clickQuestions[clickQuestions$id==clickData$questionID[i],]$image)[[1]][1] != -1) {
+  #   clickData$Vis.Type[i] <- substring(clickQuestions[clickQuestions$id==clickData$questionID[i],]$image,
+  #                                   0,gregexpr(".png",clickQuestions[clickQuestions$id==clickData$questionID[i],]$image)[[1]][1]-2)
+  # } else {
+  #   clickData$Vis.Type[i] <- substring(clickQuestions[clickQuestions$id==clickData$questionID[i],]$image,
+  #                                   0,gregexpr(".gif",clickQuestions[clickQuestions$id==clickData$questionID[i],]$image)[[1]][1]-2)
+  # }
+}
+
+clickVisTypeSummary <- clickData %>% group_by(visType) %>%
+  summarise(N=n(),
+            Completion.Time=mean(completionTime),
+            CTStdDev=sd(completionTime),
+            User.Correct=sum(Answer.Correct=="Correct"),
+            User.Incorrect=sum(Answer.Correct=="Incorrect"),
+            CTSE=CTStdDev/sqrt(N))
+clickVisTypeSummary$visType <- factor(clickVisTypeSummary$visType, levels = c("texture", "hsv", "vsup", "static", "animated", "multiples", "separate"))
+print(clickVisTypeSummary)
+
+# CT plot sorted by vis type
+# ggplot(data=clickVisTypeSummary, aes(x=visType, y=Completion.Time, fill=visType)) + 
+#   geom_bar(stat="identity") +
+#   geom_errorbar(aes(ymin=Completion.Time-CTSE, ymax=Completion.Time+CTSE), width=.1) +
+#   ggtitle("Completion Time by Visualization Type")
+
+# Stacked plot for correct answers
+clickVisAnsSummary <- data.frame(Vis.Type=character(), Answer=character(), Answer.Value=numeric(), Percent.Value=numeric())
+for (i in 1:nrow(clickVisTypeSummary)) {
+  clickVisAnsSummary <- clickVisAnsSummary %>% add_row(Vis.Type=clickVisTypeSummary$visType[i],
+                                         Answer="Correct", Answer.Value=clickVisTypeSummary$User.Correct[i],
+                                         Percent.Value=clickVisTypeSummary$User.Correct[i] / (clickVisTypeSummary$User.Correct[i] + clickVisTypeSummary$User.Incorrect[i]) * 100)
+  clickVisAnsSummary <- clickVisAnsSummary %>% add_row(Vis.Type=clickVisTypeSummary$visType[i],
+                                         Answer="Incorrect", Answer.Value=clickVisTypeSummary$User.Incorrect[i],
+                                         Percent.Value=clickVisTypeSummary$User.Incorrect[i] / (clickVisTypeSummary$User.Correct[i] + clickVisTypeSummary$User.Incorrect[i]) * 100)
+}
+clickVisAnsSummary$Vis.Type <- factor(clickVisAnsSummary$Vis.Type, levels = c("texture", "hsv", "vsup", "static", "animated", "multiples", "separate"))
+clickVisAnsSummary$Answer <- factor(clickVisAnsSummary$Answer, levels = c("Incorrect", "Correct"))
+ggplot(data=clickVisAnsSummary, aes(x=Vis.Type, y=Percent.Value, fill=Answer)) + 
+  geom_bar(stat="identity", position = "stack") + 
+  ylab("") +
+  ggtitle("Click Accuracy by Visualization Type")
+
+# clickQuestionSummary <- clickData %>% group_by(questionID) %>%
+#   summarise(N=n(),
+#             Completion.Time=mean(completionTime),
+#             CTStdDev=sd(completionTime),
+#             User.Correct=sum(Answer.Correct=="Correct"),
+#             User.Incorrect=sum(Answer.Correct=="Incorrect"),
+#             CTSE=CTStdDev/sqrt(N))
+# print(clickQuestionSummary)
+# 
+# # CT plot sorted by question number
+# ggplot(data=clickQuestionSummary, aes(x=questionID, y=Completion.Time)) + 
+#   geom_bar(stat="identity") +
+#   geom_errorbar(aes(ymin=Completion.Time-CTSE, ymax=Completion.Time+CTSE), width=.1) +
+#   ggtitle("Completion Time by Question ID")
+# 
+# clickTrialSummary <- clickData %>% group_by(trialNumber) %>%
+#   summarise(N=n(),
+#             Completion.Time=mean(completionTime),
+#             CTStdDev=sd(completionTime),
+#             User.Correct=sum(Answer.Correct=="Correct"),
+#             User.Incorrect=sum(Answer.Correct=="Incorrect"),
+#             CTSE=CTStdDev/sqrt(N))
+# print(clickTrialSummary)
+# 
+# # CT plot sorted by trial number
+# ggplot(data=clickTrialSummary, aes(x=trialNumber, y=Completion.Time)) + 
+#   geom_bar(stat="identity") +
+#   geom_errorbar(aes(ymin=Completion.Time-CTSE, ymax=Completion.Time+CTSE), width=.1) +
+#   ggtitle("Completion Time by Trial Number")

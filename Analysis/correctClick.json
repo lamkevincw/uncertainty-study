@@ -1,8 +1,38 @@
 [
     {
+        "questionID": 65,
+        "xlim": [410, 550],
+        "ylim": [390, 540]
+    },
+    {
+        "questionID": 66,
+        "xlim": [560, 654],
+        "ylim": [300, 350]
+    },
+    {
+        "questionID": 67,
+        "xlim": [580, 635],
+        "ylim": [420, 470]
+    },
+    {
         "questionID": 68,
-        "xlim": [430, 530],
-        "ylim": [380, 500]
+        "xlim": [410, 550],
+        "ylim": [390, 540]
+    },
+    {
+        "questionID": 69,
+        "xlim": [560, 654],
+        "ylim": [300, 350]
+    },
+    {
+        "questionID": 70,
+        "xlim": [580, 635],
+        "ylim": [420, 470]
+    },
+    {
+        "questionID": 71,
+        "xlim": [410, 550],
+        "ylim": [390, 540]
     },
     {
         "questionID": 72,
@@ -15,47 +45,62 @@
         "ylim": [420, 470]
     },
     {
-        "questionID": 76,
-        "xlim": [620, 670],
-        "ylim": [240, 280]
-    },
-    {
-        "questionID": 65,
+        "questionID": 74,
         "xlim": [410, 550],
         "ylim": [390, 540]
     },
     {
-        "questionID": 71,
-        "xlim": [410, 550],
-        "ylim": [390, 540]
-    },
-    {
-        "questionID": 70,
-        "xlim": [580, 635],
-        "ylim": [420, 470]
-    },
-    {
-        "questionID": 66,
+        "questionID": 75,
         "xlim": [560, 654],
         "ylim": [300, 350]
     },
     {
-        "questionID": 69,
+        "questionID": 76,
+        "xlim": [580, 635],
+        "ylim": [420, 470]
+    },
+    {
+        "questionID": 83,
+        "xlim": [410, 550],
+        "ylim": [390, 540]
+    },
+    {
+        "questionID": 84,
         "xlim": [560, 654],
-        "ylim": [300, 351]
+        "ylim": [300, 350]
     },
     {
-        "questionID": 74,
-        "xlim": [600, 660],
-        "ylim": [260, 311]
+        "questionID": 85,
+        "xlim": [580, 635],
+        "ylim": [420, 470]
     },
     {
-        "questionID": 75,
-        "xlim": [635, 655],
-        "ylim": [290, 305]
+        "questionID": 87,
+        "xlim": [410, 550],
+        "ylim": [390, 540]
     },
     {
-        "questionID": 67,
+        "questionID": 88,
+        "xlim": [560, 654],
+        "ylim": [300, 350]
+    },
+    {
+        "questionID": 89,
+        "xlim": [580, 635],
+        "ylim": [420, 470]
+    },
+    {
+        "questionID": 90,
+        "xlim": [410, 550],
+        "ylim": [390, 540]
+    },
+    {
+        "questionID": 91,
+        "xlim": [560, 654],
+        "ylim": [300, 350]
+    },
+    {
+        "questionID": 92,
         "xlim": [580, 635],
         "ylim": [420, 470]
     }

@@ -147,7 +147,7 @@ const questions = {
                 "values": [] // Possible answers that user can choose from; only used for multiple/multiple-text (i.e., choices) and range (i.e, min, max)
             },
             "correctAnswer": "",
-            "image": ["texture1.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
+            "image": ["texture4.png"], // Associated image; can be multiple images, but it will be easier to display correctly if using only one image file
             "type": "technical", // Type of question: technical (i.e., has correct answer) or subjective
             "orderGroup": 1, // Questions grouped based on value; lower values will be shown first, same values will be randomized; sort of like z-values
             "RQ": 1, // The research question that this question is trying to help answer
