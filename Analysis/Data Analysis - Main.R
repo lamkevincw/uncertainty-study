@@ -2,6 +2,8 @@ library(dplyr)
 library(tidyverse)
 library(ggplot2)
 library(jsonlite)
+library(ARTool)
+library(emmeans)
 setwd("D:/EMS-Alliance/Uncertainty User Study/Analysis")
 
 # Answer conversions
@@ -332,12 +334,6 @@ clickVisTypeSummary <- clickData %>% group_by(visType) %>%
 clickVisTypeSummary$visType <- factor(clickVisTypeSummary$visType, levels = c("texture", "hsv", "vsup", "static", "animated", "multiples", "separate"))
 print(clickVisTypeSummary)
 
-# CT plot sorted by vis type
-# ggplot(data=clickVisTypeSummary, aes(x=visType, y=Completion.Time, fill=visType)) + 
-#   geom_bar(stat="identity") +
-#   geom_errorbar(aes(ymin=Completion.Time-CTSE, ymax=Completion.Time+CTSE), width=.1) +
-#   ggtitle("Completion Time by Visualization Type")
-
 # Stacked plot for correct answers
 clickVisAnsSummary <- data.frame(Vis.Type=character(), Answer=character(), Answer.Value=numeric(), Percent.Value=numeric())
 for (i in 1:nrow(clickVisTypeSummary)) {
@@ -355,32 +351,73 @@ ggplot(data=clickVisAnsSummary, aes(x=Vis.Type, y=Percent.Value, fill=Answer)) +
   ylab("") +
   ggtitle("Click Accuracy by Visualization Type")
 
-# clickQuestionSummary <- clickData %>% group_by(questionID) %>%
-#   summarise(N=n(),
-#             Completion.Time=mean(completionTime),
-#             CTStdDev=sd(completionTime),
-#             User.Correct=sum(Answer.Correct=="Correct"),
-#             User.Incorrect=sum(Answer.Correct=="Incorrect"),
-#             CTSE=CTStdDev/sqrt(N))
-# print(clickQuestionSummary)
-# 
-# # CT plot sorted by question number
-# ggplot(data=clickQuestionSummary, aes(x=questionID, y=Completion.Time)) + 
-#   geom_bar(stat="identity") +
-#   geom_errorbar(aes(ymin=Completion.Time-CTSE, ymax=Completion.Time+CTSE), width=.1) +
-#   ggtitle("Completion Time by Question ID")
-# 
-# clickTrialSummary <- clickData %>% group_by(trialNumber) %>%
-#   summarise(N=n(),
-#             Completion.Time=mean(completionTime),
-#             CTStdDev=sd(completionTime),
-#             User.Correct=sum(Answer.Correct=="Correct"),
-#             User.Incorrect=sum(Answer.Correct=="Incorrect"),
-#             CTSE=CTStdDev/sqrt(N))
-# print(clickTrialSummary)
-# 
-# # CT plot sorted by trial number
-# ggplot(data=clickTrialSummary, aes(x=trialNumber, y=Completion.Time)) + 
-#   geom_bar(stat="identity") +
-#   geom_errorbar(aes(ymin=Completion.Time-CTSE, ymax=Completion.Time+CTSE), width=.1) +
-#   ggtitle("Completion Time by Trial Number")
+
+#### ANOVA ####
+# CT
+data$PID <- factor(data$PID)
+data$visType <- factor(data$visType, levels = c("texture", "hsv", "vsup", "static", "animated", "multiples", "separate"))
+data$Question.Type <- factor(data$Question.Type)
+summary(aov(completionTime ~ visType * Question.Type, data=data))
+
+pairwise.t.test(data$completionTime, data$visType, p.adjust.method = "bonferroni")
+#pairwise.t.test(data$completionTime, data$Question.Type, p.adjust.method = "bonferroni")
+
+summary(aov(completionTime ~ visType, data=data[data$Question.Type == "Certainty",]))
+summary(aov(completionTime ~ visType, data=data[data$Question.Type == "Concentration",]))
+summary(aov(completionTime ~ visType, data=data[data$Question.Type == "Likelihood",]))
+summary(aov(completionTime ~ visType, data=data[data$Question.Type == "Click",]))
+summary(aov(completionTime ~ visType, data=data[data$Question.Type == "Zero Concentration",]))
+
+pairwise.t.test(data[data$Question.Type == "Certainty",]$completionTime, data[data$Question.Type == "Certainty",]$visType, p.adjust.method = "bonferroni")
+pairwise.t.test(data[data$Question.Type == "Concentration",]$completionTime, data[data$Question.Type == "Concentration",]$visType, p.adjust.method = "bonferroni")
+pairwise.t.test(data[data$Question.Type == "Likelihood",]$completionTime, data[data$Question.Type == "Likelihood",]$visType, p.adjust.method = "bonferroni")
+pairwise.t.test(data[data$Question.Type == "Click",]$completionTime, data[data$Question.Type == "Click",]$visType, p.adjust.method = "bonferroni")
+
+# User answers
+ansModel = art(data=data[data$Question.Type != "Click",], Num.Answer ~ visType * Question.Type + Error(PID))
+anova(ansModel)
+
+ansModel.lm = artlm(ansModel, "visType")
+ansMarginal = emmeans(ansModel.lm, ~ visType)
+pairs(ansMarginal, adjust = "bonferroni")
+
+aModel1 = art(data=data[data$Question.Type == "Certainty",], Num.Answer ~ visType + Error(PID))
+anova(aModel1)
+aModel2 = art(data=data[data$Question.Type == "Concentration",], Num.Answer ~ visType + Error(PID))
+anova(aModel2)
+aModel3 = art(data=data[data$Question.Type == "Likelihood",], Num.Answer ~ visType + Error(PID))
+anova(aModel3)
+aModel4 = art(data=data[data$Question.Type == "Zero Concentration",], Num.Answer ~ visType + Error(PID))
+anova(aModel4)
+
+ansModel.lm2 = artlm(aModel1, "visType")
+ansMarginal2 = emmeans(ansModel.lm2, ~ visType)
+pairs(ansMarginal2, adjust = "bonferroni")
+
+ansModel.lm2 = artlm(aModel2, "visType")
+ansMarginal2 = emmeans(ansModel.lm2, ~ visType)
+pairs(ansMarginal2, adjust = "bonferroni")
+
+ansModel.lm2 = artlm(aModel3, "visType")
+ansMarginal2 = emmeans(ansModel.lm2, ~ visType)
+pairs(ansMarginal2, adjust = "bonferroni")
+
+ansModel.lm2 = artlm(aModel4, "visType")
+ansMarginal2 = emmeans(ansModel.lm2, ~ visType)
+pairs(ansMarginal2, adjust = "bonferroni")
+
+# Errors difference
+summary(aov(Answer.Diff ~ visType * Question.Type, data=data[data$Question.Type != "Click",]))
+
+pairwise.t.test(data[data$Question.Type != "Click",]$Answer.Diff, data[data$Question.Type != "Click",]$visType, p.adjust.method = "bonferroni")
+#pairwise.t.test(data[data$Question.Type != "Click",]$Answer.Diff, data[data$Question.Type != "Click",]$Question.Type, p.adjust.method = "bonferroni")
+
+summary(aov(Answer.Diff ~ visType, data=data[data$Question.Type == "Certainty",]))
+summary(aov(Answer.Diff ~ visType, data=data[data$Question.Type == "Concentration",]))
+summary(aov(Answer.Diff ~ visType, data=data[data$Question.Type == "Likelihood",]))
+summary(aov(Answer.Diff ~ visType, data=data[data$Question.Type == "Zero Concentration",]))
+
+pairwise.t.test(data[data$Question.Type == "Certainty",]$Answer.Diff, data[data$Question.Type == "Certainty",]$visType, p.adjust.method = "bonferroni")
+pairwise.t.test(data[data$Question.Type == "Concentration",]$Answer.Diff, data[data$Question.Type == "Concentration",]$visType, p.adjust.method = "bonferroni")
+pairwise.t.test(data[data$Question.Type == "Likelihood",]$Answer.Diff, data[data$Question.Type == "Likelihood",]$visType, p.adjust.method = "bonferroni")
+pairwise.t.test(data[data$Question.Type == "Zero Concentration",]$Answer.Diff, data[data$Question.Type == "Zero Concentration",]$visType, p.adjust.method = "bonferroni")

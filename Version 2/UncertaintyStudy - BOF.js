@@ -52,6 +52,8 @@ let blockOrder = [];
 let answerType = "";
 let answerSubType = "";
 let zoom_level = [];
+let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+let lastScrollAction = "none";
 // let instructions;
 
 // Canvas variables
@@ -68,6 +70,7 @@ let userReponses = [];
 let currResponse;
 let canvasPoints = [];
 let trialStartTime;
+let scrollActions = [];
 
 function setup() {
     // Set up study order here
@@ -94,6 +97,8 @@ function setup() {
         const browserZoomLevel = window.devicePixelRatio;
         zoom_level.push(Math.round(browserZoomLevel * 100) / 100);
     })
+
+    window.addEventListener("scroll", handleScroll);
 }
 
 function startStudy() {
@@ -403,6 +408,7 @@ function endTrial(e) {
             break;
     }
     currResponse["completionTime"] = (new Date().getTime()) - trialStartTime;
+    currResponse["scrollActions"] = scrollActions;
     userReponses.push(currResponse);
     console.log(userReponses)
 
@@ -536,6 +542,7 @@ function clearInstructions() {
 function clearUI() {
     answerType = "";
     answerSubType = "";
+    scrollActions = [];
 
     document.getElementById("question-img1").src = "";
     document.getElementById("question-img2").src = "";
@@ -614,8 +621,6 @@ function drawTooltip() {
     );
     ctx.closePath();
 }
-
-
 
 function getXY(mode, e) {
     if (answerType === "click" || answerType === "draw") {
@@ -724,6 +729,27 @@ function minimumDistance(x, y) {
         }
     }
     return min;
+}
+
+function handleScroll() {
+    let st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+    if (st > lastScrollTop) {
+        // downscroll code
+        if (lastScrollAction !== "down") {
+            scrollActions.push("down");
+            lastScrollAction = "down";
+        }
+        // console.log("down " + st)
+    } else if (st < lastScrollTop) {
+        // upscroll code
+        if (lastScrollAction !== "up") {
+            scrollActions.push("up");
+            lastScrollAction = "up";
+        }
+        // console.log("up " + st)
+    } // else was horizontal scroll
+    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+    // console.log(scrollActions)
 }
 
 setup();

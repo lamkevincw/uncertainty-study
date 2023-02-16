@@ -52,6 +52,8 @@ let blockOrder = [];
 let answerType = "";
 let answerSubType = "";
 let zoom_level = [];
+let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+let lastScrollAction = "none";
 // let instructions;
 
 // Canvas variables
@@ -68,6 +70,7 @@ let userReponses = [];
 let currResponse;
 let canvasPoints = [];
 let trialStartTime;
+let scrollActions = [];
 
 function setup() {
     // Set up study order here
@@ -85,6 +88,8 @@ function setup() {
         const browserZoomLevel = window.devicePixelRatio;
         zoom_level.push(Math.round(browserZoomLevel * 100) / 100);
     })
+
+    window.addEventListener("scroll", handleScroll);
 }
 
 function startStudy() {
@@ -394,6 +399,7 @@ function endTrial(e) {
             break;
     }
     currResponse["completionTime"] = (new Date().getTime()) - trialStartTime;
+    currResponse["scrollActions"] = scrollActions;
     userReponses.push(currResponse);
     console.log(userReponses)
 
@@ -527,6 +533,7 @@ function clearInstructions() {
 function clearUI() {
     answerType = "";
     answerSubType = "";
+    scrollActions = [];
 
     document.getElementById("question-img1").src = "";
     document.getElementById("question-img2").src = "";
@@ -600,15 +607,14 @@ function drawTooltip() {
     ctx.font = "14px sans-serif";
     ctx.fillText("Model Certainty:", currX + 30, currY + 30);
     ctx.fillText(
-        currX + ", " + currY + ", " , currX + 30, currY + 50
+        // currX + ", " + currY + ", " +
+        Math.max(100 - Math.round(minimumDistance(currX, currY)), 0) + "%", currX + 30, currY + 50
     );
     ctx.closePath();
 }
 
-
-
 function getXY(mode, e) {
-    if (answerType === "draw") {
+    if (answerType === "click" || answerType === "draw") {
         switch (mode) {
             case "down":
                 prevX = currX;
@@ -627,27 +633,27 @@ function getXY(mode, e) {
                 }
                 canvasPoints.push([currX, currY]);
                 break;
-            // case "move":
-            //     if (drawing) {
-            //         prevX = currX;
-            //         prevY = currY;
-            //         currX = e.clientX - canvas.getBoundingClientRect().left;
-            //         currY = e.clientY - canvas.getBoundingClientRect().top;
-            //         // console.log(currX + "," + currY)
-            //         if (answerType === "draw") {
-            //             draw();
-            //         } else {
-            //             clearCanvas();
-            //             drawCircle();
-            //         }
-            //         canvasPoints.push([currX, currY]);
-            //     }
-            //     break;
+            case "move":
+                if (drawing) {
+                    prevX = currX;
+                    prevY = currY;
+                    currX = e.clientX - canvas.getBoundingClientRect().left;
+                    currY = e.clientY - canvas.getBoundingClientRect().top;
+                    // console.log(currX + "," + currY)
+                    if (answerType === "draw") {
+                        draw();
+                    } else {
+                        clearCanvas();
+                        drawCircle();
+                    }
+                    canvasPoints.push([currX, currY]);
+                }
+                break;
             case "up":
             case "out":
                 drawing = false;
         }
-    } else if (answerType === "mouseover" || answerType === "click") {
+    } else if (answerType === "mouseover") {
         switch (mode) {
             case "move":
                 currX = e.clientX - canvas.getBoundingClientRect().left;
@@ -714,6 +720,27 @@ function minimumDistance(x, y) {
         }
     }
     return min;
+}
+
+function handleScroll() {
+    let st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+    if (st > lastScrollTop) {
+        // downscroll code
+        if (lastScrollAction !== "down") {
+            scrollActions.push("down");
+            lastScrollAction = "down";
+        }
+        // console.log("down " + st)
+    } else if (st < lastScrollTop) {
+        // upscroll code
+        if (lastScrollAction !== "up") {
+            scrollActions.push("up");
+            lastScrollAction = "up";
+        }
+        // console.log("up " + st)
+    } // else was horizontal scroll
+    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+    // console.log(scrollActions)
 }
 
 setup();
